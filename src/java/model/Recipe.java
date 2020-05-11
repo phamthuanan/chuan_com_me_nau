@@ -16,7 +16,7 @@ public class Recipe {
     private int recipeViews;
     private int recipeCalories;
     private String recipeAuthor;
-    private int CatelogoryId;
+    private int CategoryId;
     private String ingredientRecipe;
     private String nutritionIngredients;
     private String making;
@@ -24,14 +24,14 @@ public class Recipe {
     public Recipe(){
         
     }
-    public Recipe(int recipeId, String recipeName, String recipeImage, int recipeViews, int recipeCalories, String recipeAuthor, int CatelogoryId, String ingredientRecipe, String nutritionIngredients, String making) {
+    public Recipe(int recipeId, String recipeName, String recipeImage, int recipeViews, int recipeCalories, String recipeAuthor, int CategoryId, String ingredientRecipe, String nutritionIngredients, String making) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeImage = recipeImage;
         this.recipeViews = recipeViews;
         this.recipeCalories = recipeCalories;
         this.recipeAuthor = recipeAuthor;
-        this.CatelogoryId = CatelogoryId;
+        this.CategoryId = CategoryId;
         this.ingredientRecipe = ingredientRecipe;
         this.nutritionIngredients = nutritionIngredients;
         this.making = making;
@@ -85,12 +85,12 @@ public class Recipe {
         this.recipeAuthor = recipeAuthor;
     }
 
-    public int getCatelogoryId() {
-        return CatelogoryId;
+    public int getCategoryId() {
+        return CategoryId;
     }
 
-    public void setCatelogoryId(int CatelogoryId) {
-        this.CatelogoryId = CatelogoryId;
+    public void setCategoryId(int CategoryId) {
+        this.CategoryId = CategoryId;
     }
 
     public String getIngredientRecipe() {
