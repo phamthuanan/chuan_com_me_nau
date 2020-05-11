@@ -17,19 +17,19 @@ public class Review {
     private String reviewName;
     private String reviewEmail;
     private int reviewStar;
-    private String reviewMessage;
+    private String reviewMessenges;
     private Date reviewDate;
 
     public Review(){
         
     }
-    public Review(int reviewID, int recipeID, String reviewName, String reviewEmail, int reviewStar, String reviewMessage, Date reviewDate) {
+    public Review(int reviewID, int recipeID, String reviewName, String reviewEmail, int reviewStar, String reviewMessenges, Date reviewDate) {
         this.reviewID = reviewID;
         this.recipeID = recipeID;
         this.reviewName = reviewName;
         this.reviewEmail = reviewEmail;
         this.reviewStar = reviewStar;
-        this.reviewMessage = reviewMessage;
+        this.reviewMessenges = reviewMessenges;
         this.reviewDate = reviewDate;
     }
 
@@ -73,12 +73,12 @@ public class Review {
         this.reviewStar = reviewStar;
     }
 
-    public String getReviewMessage() {
-        return reviewMessage;
+    public String getreviewMessenges() {
+        return reviewMessenges;
     }
 
-    public void setReviewMessage(String reviewMessage) {
-        this.reviewMessage = reviewMessage;
+    public void setreviewMessenges(String reviewMessenges) {
+        this.reviewMessenges = reviewMessenges;
     }
 
     public Date getReviewDate() {
