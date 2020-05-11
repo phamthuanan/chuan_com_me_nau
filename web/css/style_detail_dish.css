@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+  }
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 70%;
+  }
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 30%;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    width: 100%;
+    border-radius: 20px;
+    padding-top: 10px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  
+  .detail-dish{
+      width: 80%;
+      margin: auto;
+      
+  }
+  .piture-dish{
+    height: 500px;
+    width: 100%;
+    border-radius: 20px;
+  }
+  .name-dish{
+    text-align: center;
+    padding-top: 10px;
+  }
+  .img-dish{
+    
+    width: 100%;
+    border-radius: 20px;
+    height: 500px;
+  }
+  .img-dish-add{
+    width: 100%;
+    border-radius: 20px;
+    height: 200px;
+  }
+  .link-dish{
+    text-decoration: none;
+  }
+ .list-to-do li{
+    list-style-image: url('../images/chef.png');
+    margin-left: 50px;
+  }
+  .ingredients-food li{
+    list-style-image: url('../images/farm.png');
+    margin-left: 45px;
+  }
+  .session-dish-detail{
+    padding-left: 0;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    margin: 0;
+    width: 100%;
+    background-color: rgb(34, 31, 31);
+  }
