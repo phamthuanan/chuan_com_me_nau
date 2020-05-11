@@ -16,18 +16,18 @@ public class FeedBack {
     private String userNameFeb;
     private String userEmailFeb;
     private int topic;
-    private String febMesseges;
+    private String febMessenges;
     private Date dateFeb;
 
     public FeedBack(){
         
     }
-    public FeedBack(int febId, String userNameFeb, String userEmailFeb, int topic, String febMesseges, Date dateFeb) {
+    public FeedBack(int febId, String userNameFeb, String userEmailFeb, int topic, String febMessenges, Date dateFeb) {
         this.febId = febId;
         this.userNameFeb = userNameFeb;
         this.userEmailFeb = userEmailFeb;
         this.topic = topic;
-        this.febMesseges = febMesseges;
+        this.febMessenges = febMessenges;
         this.dateFeb = dateFeb;
     }
 
@@ -63,12 +63,12 @@ public class FeedBack {
         this.topic = topic;
     }
 
-    public String getFebMesseges() {
-        return febMesseges;
+    public String getfebMessenges() {
+        return febMessenges;
     }
 
-    public void setFebMesseges(String febMesseges) {
-        this.febMesseges = febMesseges;
+    public void setfebMessenges(String febMesseges) {
+        this.febMessenges = febMesseges;
     }
 
     public Date getDateFeb() {
