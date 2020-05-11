@@ -16,19 +16,19 @@ public class User {
     private int userPass;
     private int userPhone;
     private int userAddress;
-    private int userSex;
+    private int userGender;
     
     public User(){
         
     }
-    public User(int userId, String userName, String userEmail, int userPass, int userPhone, int userAddress, int userSex) {
+    public User(int userId, String userName, String userEmail, int userPass, int userPhone, int userAddress, int userGender) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPass = userPass;
         this.userPhone = userPhone;
         this.userAddress = userAddress;
-        this.userSex = userSex;
+        this.userGender = userGender;
     }
     public int getUserId() {
         return userId;
@@ -78,12 +78,12 @@ public class User {
         this.userAddress = userAddress;
     }
 
-    public int getUserSex() {
-        return userSex;
+    public int getuserGender() {
+        return userGender;
     }
 
-    public void setUserSex(int userSex) {
-        this.userSex = userSex;
+    public void setuserGender(int userGender) {
+        this.userGender = userGender;
     }
 
     
