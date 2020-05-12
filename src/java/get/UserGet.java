@@ -123,7 +123,6 @@ public class UserGet {
      public boolean updateUser(User u) {
         
         Connection connection = DBConnect.getConnecttion();
-       // String sql = "UPDATE product SET product_id = ?, category_id = ?, product_name = ?, product_image = ?, product_image_forward = ?, product_image_back = ?, product_price = ?, product_description = ? WHERE product_id = ?";
         String sql = "UPDATE users SET user_id=?, user_name=?, user_pass=?, user_email=?, user_phone=?, user_address=?, user_gender=?, WHERE user_id = ?";
         
         try {
