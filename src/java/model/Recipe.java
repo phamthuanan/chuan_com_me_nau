@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,11 +21,14 @@ public class Recipe {
     private String ingredientRecipe;
     private String nutritionIngredients;
     private String making;
+    private String descriptionRecipe;
+    private String video;
 
     public Recipe(){
         
     }
-    public Recipe(int recipeId, String recipeName, String recipeImage, int recipeViews, int recipeCalories, String recipeAuthor, int CategoryId, String ingredientRecipe, String nutritionIngredients, String making) {
+    
+    public Recipe(int recipeId, String recipeName, String recipeImage, int recipeViews, int recipeCalories, String recipeAuthor, int CategoryId, String ingredientRecipe, String nutritionIngredients, String making, String descriptionRecipe, String video) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeImage = recipeImage;
@@ -35,8 +39,10 @@ public class Recipe {
         this.ingredientRecipe = ingredientRecipe;
         this.nutritionIngredients = nutritionIngredients;
         this.making = making;
+        this.descriptionRecipe = descriptionRecipe;
+        this.video = video;
     }
-
+    
     public int getRecipeId() {
         return recipeId;
     }
@@ -116,8 +122,21 @@ public class Recipe {
     public void setMaking(String making) {
         this.making = making;
     }
-
     
+    public String getDescriptionRecipe() {
+        return descriptionRecipe;
+    }
 
+    public void setDescriptionRecipe(String descriptionRecipe) {
+        this.descriptionRecipe = descriptionRecipe;
+    }
+    
+     public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
     
 }
