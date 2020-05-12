@@ -13,22 +13,13 @@ public class User {
     private int userId;
     private String userName ;
     private String userEmail;
-    private int userPass;
-    private int userPhone;
-    private int userAddress;
-    private int userGender;
+    private String userPass;
+    private String userPhone;
+    private String userAddress;
+    private int userGender; 
     
     public User(){
         
-    }
-    public User(int userId, String userName, String userEmail, int userPass, int userPhone, int userAddress, int userGender) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.userPass = userPass;
-        this.userPhone = userPhone;
-        this.userAddress = userAddress;
-        this.userGender = userGender;
     }
     public int getUserId() {
         return userId;
@@ -54,40 +45,35 @@ public class User {
         this.userEmail = userEmail;
     }
 
-    public int getUserPass() {
+    public String getUserPass() {
         return userPass;
     }
 
-    public void setUserPass(int userPass) {
+    public void setUserPass(String userPass) {
         this.userPass = userPass;
     }
 
-    public int getUserPhone() {
+    public String getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(int userPhone) {
+    public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
 
-    public int getUserAddress() {
+    public String getUserAddress() {
         return userAddress;
     }
 
-    public void setUserAddress(int userAddress) {
+    public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
     }
 
-    public int getuserGender() {
+    public int getUserGender() {
         return userGender;
     }
 
-    public void setuserGender(int userGender) {
+    public void setUserGender(int userGender) {
         this.userGender = userGender;
     }
-
-    
-  
-    
-    
 }
