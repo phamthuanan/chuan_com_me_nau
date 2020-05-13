@@ -43,6 +43,7 @@ public class RecipeGet {
             recipe.setRecipeCalories(rs.getInt("calories"));
             recipe.setRecipeAuthor(rs.getString("recipe_author"));
             recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
@@ -82,6 +83,7 @@ public class RecipeGet {
             recipe.setRecipeCalories(rs.getInt("calories"));
             recipe.setRecipeAuthor(rs.getString("recipe_author"));
             recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
@@ -107,6 +109,7 @@ public class RecipeGet {
             recipe.setRecipeCalories(rs.getInt("calories"));
             recipe.setRecipeAuthor(rs.getString("recipe_author"));
             recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
@@ -118,7 +121,7 @@ public class RecipeGet {
         //lấy các công thức liên quang trong danh mục
         public ArrayList<Recipe> getListRecipeRelated(int category_id, int recipe_id) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM recipe WHERE category_id = '" + category_id + "' and product_id != '" + recipe_id + "'" ;
+        String sql = "SELECT * FROM recipe WHERE category_id = '" + category_id + "' and recipe_id != '" + recipe_id + "'" ;
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         ArrayList<Recipe> list = new ArrayList<>();
@@ -133,6 +136,7 @@ public class RecipeGet {
             recipe.setRecipeCalories(rs.getInt("calories"));
             recipe.setRecipeAuthor(rs.getString("recipe_author"));
             recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
@@ -149,7 +153,7 @@ public class RecipeGet {
         ResultSet rs = ps.executeQuery();
         ArrayList<Recipe> list = new ArrayList<>();
         while (rs.next()) {
-             Recipe recipe = new Recipe();
+            Recipe recipe = new Recipe();
             recipe.setRecipeId(rs.getInt("recipe_id"));
             recipe.setRecipeName(rs.getString("recipe_name"));
             recipe.setCategoryId(rs.getInt("category_id"));
@@ -158,6 +162,7 @@ public class RecipeGet {
             recipe.setRecipeCalories(rs.getInt("calories"));
             recipe.setRecipeAuthor(rs.getString("recipe_author"));
             recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
@@ -184,6 +189,7 @@ public class RecipeGet {
             recipe.setRecipeCalories(rs.getInt("calories"));
             recipe.setRecipeAuthor(rs.getString("recipe_author"));
             recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
