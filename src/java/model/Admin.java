@@ -16,11 +16,11 @@ public class Admin {
     private int adminPass ;
     private int adminEmail ;
 
-    public Admin(int adminId, String adminName, int adminPass, int adminEmial) {
+    public Admin(int adminId, String adminName, int adminPass, int adminEmail) {
         this.adminId = adminId;
         this.adminName = adminName;
         this.adminPass = adminPass;
-        this.adminEmail = adminEmial;
+        this.adminEmail = adminEmail;
     }
     public Admin(){
         
@@ -54,8 +54,8 @@ public class Admin {
         return adminEmail;
     }
 
-    public void setAdminEmail(int adminEmial) {
-        this.adminEmail = adminEmial;
+    public void setAdminEmail(int adminEmail) {
+        this.adminEmail = adminEmail;
     }
 
     
