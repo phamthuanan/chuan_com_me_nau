@@ -35,6 +35,7 @@
     IMPORT FONTS
 -------------------------------------------------------------------*/
 
+@import url('https://fonts.googleapis.com/css?family=Lobster|Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Paprika');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
 
@@ -56,13 +57,7 @@
 /*------------------------------------------------------------------
     SKELETON
 -------------------------------------------------------------------*/
-@font-face {
-    font-family: 'nautilus_pompiliusregular';
-    src: url('../fonts/nautilus-webfont.woff2') format('woff2'),
-         url('../fonts/nautilus-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 body{
 	color:#686868;
@@ -99,7 +94,7 @@ h6 {
 }
 
 h1 {
-    font-size: 24px
+    font-size: 24px;
 }
 
 h2 {
@@ -946,13 +941,16 @@ html, body{ height: 100%; }
 .sf-team .text-col {
     float: left;
     width: 100%;
-    padding: 25px 20px;
+    padding: 5px 10px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     text-align: center;
 	background:#fff;
+}
+.col-half-offset{
+    margin-left:34px;
 }
 
 .sf-team .thumb a img{
@@ -968,7 +966,7 @@ html, body{ height: 100%; }
     -o-transition: all 0.5s ease-in;
 }
 .sf-team:hover .thumb img {
-    opacity: 0.6;
+    opacity: 0.8;
 	transition: all 0.5s ease-in;
     -moz-transition: all 0.5s ease-in;
     -webkit-transition: all 0.5s ease-in;
@@ -977,8 +975,9 @@ html, body{ height: 100%; }
 }
 
 .text-col h3{
-	font-family: 'nautilus_pompiliusregular';
-	font-size:28px;
+	font-family: 'Lobster';
+    font-size:28px;
+    text-decoration: bold;
 }
 
 .sf-team:hover .team-social {
