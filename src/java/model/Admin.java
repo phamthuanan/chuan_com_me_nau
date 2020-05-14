@@ -13,10 +13,10 @@ public class Admin {
     
     private int adminId ;
     private String adminName ;
-    private int adminPass ;
-    private int adminEmail ;
+    private String adminPass ;
+    private String adminEmail ;
 
-    public Admin(int adminId, String adminName, int adminPass, int adminEmail) {
+    public Admin(int adminId, String adminName, String adminPass, String adminEmail) {
         this.adminId = adminId;
         this.adminName = adminName;
         this.adminPass = adminPass;
@@ -42,19 +42,19 @@ public class Admin {
         this.adminName = adminName;
     }
 
-    public int getAdminPass() {
+    public String getAdminPass() {
         return adminPass;
     }
 
-    public void setAdminPass(int adminPass) {
+    public void setAdminPass(String adminPass) {
         this.adminPass = adminPass;
     }
 
-    public int getAdminEmail() {
+    public String getAdminEmail() {
         return adminEmail;
     }
 
-    public void setAdminEmail(int adminEmail) {
+    public void setAdminEmail(String adminEmail) {
         this.adminEmail = adminEmail;
     }
 
