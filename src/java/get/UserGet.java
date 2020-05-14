@@ -84,7 +84,7 @@ public class UserGet {
         String sql = "select * from user where user_name='" + name + "' and user_pass='" + password + "'";
         PreparedStatement ps;
         try {
-            ps = (PreparedStatement) con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 User u = new User();
