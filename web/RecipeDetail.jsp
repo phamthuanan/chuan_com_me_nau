@@ -92,8 +92,8 @@
                   for (Recipe r : recipeGet.getListRecipeRelated(categoryId,Integer.parseInt(recipeId))){
                 %>      
               <div class="fakeimg">
-                  <a href=""><img src="<%=r.getRecipeImage()%>" alt="ảnh món ăn" class="img-dish-add"></a>
-                  <a href=""class="link-dish"><b><%=r.getRecipeName()%></b><p></p></a>
+                  <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="ảnh món ăn" class="img-dish-add"></a>
+                  <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"class="link-dish"><b><p style="text-align: center;"><%=r.getRecipeName()%></p></b><p></p></a>
               </div>
                  <% }%>
               
