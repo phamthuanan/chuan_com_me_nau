@@ -22,7 +22,7 @@ import model.User;
 // Lấy dữ liệu từ database
 public class UserGet {
     public ArrayList<User> getListUser() throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM user";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -34,8 +34,7 @@ public class UserGet {
            user.setUserEmail(rs.getString("user_email"));
            user.setUserPass(rs.getString("user_pass"));
            user.setUserPhone(rs.getString("user_phone"));
-           user.setUserPhone(rs.getString("user_address"));
-           user.setUserGender(rs.getInt("user_gender"));
+           user.setUserAddress(rs.getString("user_address"));
            list.add(user);
         }
         return list;
@@ -43,7 +42,7 @@ public class UserGet {
    
     // Kiểm tra email
     public boolean checkEmail(String name) throws SQLException{
-    Connection connection = DBConnect.getConnecttion();
+    Connection connection = DBConnect.getConnection();
     String sql = "SELECT * FROM user WHERE user_name = '" + name + "'";
     PreparedStatement ps;
     try {
@@ -60,8 +59,8 @@ public class UserGet {
     }
     // phương thức thêm tài khoản
     public boolean insertUser(User u) {
-        Connection connection = DBConnect.getConnecttion();
-        String sql = "INSERT INTO users VALUES(?,?,?,?,?,?)";
+        Connection connection = DBConnect.getConnection();
+        String sql = "INSERT INTO user VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setInt(1, u.getUserId());
@@ -70,7 +69,7 @@ public class UserGet {
             ps.setString(4, u.getUserEmail());
             ps.setString(5, u.getUserPhone());
             ps.setString(6, u.getUserAddress());
-            ps.setInt(7, u.getUserGender());
+ 
            
             ps.executeUpdate();
             return true;
@@ -81,8 +80,8 @@ public class UserGet {
     }
     //Đăng nhập
      public User login(String name, String password) {
-        Connection con = DBConnect.getConnecttion();
-        String sql = "select * from users where user_name='" + name + "' and user_pass='" + password + "'";
+        Connection con = DBConnect.getConnection();
+        String sql = "select * from user where user_name='" + name + "' and user_pass='" + password + "'";
         PreparedStatement ps;
         try {
             ps = (PreparedStatement) con.prepareStatement(sql);
@@ -103,8 +102,8 @@ public class UserGet {
      
      //Lấy dữ liệu user từ database
      public User getUser(int userID) throws SQLException {
-     Connection connection = DBConnect.getConnecttion();
-     String sql = "SELECT * FROM users WHERE user_id = '" + userID + "'";
+     Connection connection = DBConnect.getConnection();
+     String sql = "SELECT * FROM user WHERE user_id = '" + userID + "'";
      PreparedStatement ps = connection.prepareCall(sql);
      ResultSet rs = ps.executeQuery();
      User user = new User();
@@ -116,14 +115,14 @@ public class UserGet {
            user.setUserEmail(rs.getString("user_email"));
            user.setUserPhone(rs.getString("user_phone"));
            user.setUserAddress(rs.getString("user_address"));
-           user.setUserGender(rs.getInt("user_gender"));
+       
      }
      return user;
 }
      public boolean updateUser(User u) {
         
-        Connection connection = DBConnect.getConnecttion();
-        String sql = "UPDATE users SET user_id=?, user_name=?, user_pass=?, user_email=?, user_phone=?, user_address=?, user_gender=?, WHERE user_id = ?";
+        Connection connection = DBConnect.getConnection();
+        String sql = "UPDATE user SET user_id=?, user_name=?, user_pass=?, user_email=?, user_phone=?, user_address=? WHERE user_id = ?";
         
         try {
             PreparedStatement ps = connection.prepareCall(sql);
@@ -133,7 +132,7 @@ public class UserGet {
             ps.setString(4, u.getUserEmail());
             ps.setString(5, u.getUserPhone());
             ps.setString(6, u.getUserAddress());
-            ps.setInt(7, u.getUserGender());
+  
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
            Logger.getLogger(UserGet.class.getName()).log(Level.SEVERE,null, ex);

@@ -140,6 +140,6 @@
     <!-- end footer-main -->
     
     <!-- ALL PLUGINS -->
-    <script src="js/custom.js"></script>
+  
 </body>
 </html>

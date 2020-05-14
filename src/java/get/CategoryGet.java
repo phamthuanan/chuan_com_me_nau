@@ -23,7 +23,7 @@ public class CategoryGet {
 
     //lấy ra danh sách tất cả các category
     public ArrayList<Category> getListCategory() throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM category";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -39,7 +39,7 @@ public class CategoryGet {
     
     //lấy ra 1 category với id
     public Category getCategory(int categoryID) throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql =  "SELECT * FROM category WHERE category_id = '" + categoryID + "'";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -56,7 +56,7 @@ public class CategoryGet {
 //thêm 1 category
     public boolean insert(Category c) throws SQLException {
     try {
-         Connection connection = DBConnect.getConnecttion();
+         Connection connection = DBConnect.getConnection();
          String sql = "INSERT INTO category VALUE(?,?)";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setInt(1, c.getCategoryId());
@@ -71,7 +71,7 @@ public class CategoryGet {
     //cập nhật 1 category
     public boolean update(Category c) throws SQLException {
     try {
-         Connection connection = DBConnect.getConnecttion();
+         Connection connection = DBConnect.getConnection();
          String sql = "UPDATE category SET category_name = ? WHERE category_id = ?";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setString(1, c.getCategoryName());
@@ -86,7 +86,7 @@ public class CategoryGet {
     // xóa 1 category
     public boolean delete(int category_id) throws SQLException {
     try {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "DELETE FROM category WHERE category_id = ?";
         PreparedStatement ps = connection.prepareCall(sql);
         ps.setLong(1, category_id);
@@ -99,7 +99,7 @@ public class CategoryGet {
     
     //Thêm 1 category
     public boolean insertCategory(Category c) {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "INSERT INTO category VALUES(?,?)";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
@@ -114,7 +114,7 @@ public class CategoryGet {
 
     // cập nhật dữ liệu
     public boolean updateCategory(Category c) {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "UPDATE category SET category_name = ? WHERE category_id = ?";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
@@ -129,7 +129,7 @@ public class CategoryGet {
 
     // xóa dữ liệu 1 category
     public boolean deleteCategory(int category_id) {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "DELETE FROM category WHERE category_id = ?";
         try {
             PreparedStatement ps = connection.prepareCall(sql);

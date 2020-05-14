@@ -14,8 +14,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Công thức chi tiết</title>
         <link rel="stylesheet" href="css/style_detail_dish.css">
+        <script src="js/modernizer.js"></script>
     </head>
     <body>
+         <jsp:include page="header.jsp"></jsp:include>
         <% 
         RecipeGet recipeGet = new RecipeGet();  
         Recipe recipe = new Recipe();
@@ -30,7 +32,7 @@
         <div class="detail-dish">
             <div class="row">
                 <br>
-                <h3 style="color: white;"><a class="breadcrumbrecipe">Trang chủ</a> / <a class="breadcrumbrecipe">Công thức</a> / <%=recipe.getRecipeName()%></h3>
+                <h3 style="color: white;"><a  href="index.jsp" style ="color:white;">Trang chủ</a> / <a href="Recipe.jsp"style ="color:white;">Công thức</a> / <%=recipe.getRecipeName()%></h3>
           <div class="leftcolumn">
             <div class="card">
                 <div class="img-dish" ><iframe class="piture-dish" src="<%=recipe.getVideo() %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
@@ -101,5 +103,10 @@
         </div> 
         </div>
       </div>
+       <jsp:include page="footer.jsp"></jsp:include>
+           <script src="js/all.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
     </body>
 </html>

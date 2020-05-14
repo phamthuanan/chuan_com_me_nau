@@ -16,8 +16,10 @@
         <title>Công thức- Chuẩn cơm mẹ nấu</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/recipe.css" rel="stylesheet">
+        <script src="js/modernizer.js"></script>
     </head>
     <body>
+        <jsp:include page="header.jsp"></jsp:include>
         <%
             RecipeGet recipeGet = new RecipeGet();  
             CategoryGet categoryGet = new CategoryGet();
@@ -76,5 +78,10 @@
 			</div>
 		</div>
 	</section>
+        <jsp:include page="footer.jsp"></jsp:include>
+        <script src="js/all.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
     </body>
 </html>

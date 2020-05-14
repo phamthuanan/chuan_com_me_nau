@@ -26,7 +26,7 @@ public class RecipeGet {
      */
     //Lấy danh sách công thức từ Nav
     public ArrayList<Recipe> getListRecipeByNav(int categoryID, int firstResult, int maxResult) throws SQLException{
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM recipe WHERE category_id = '" + categoryID + "' limit ?,?";
         PreparedStatement ps = connection.prepareCall(sql);
         ps.setInt(1, firstResult);
@@ -54,7 +54,7 @@ public class RecipeGet {
     
     //đếm số công thức của mỗi danh mục
     public int countRecipeByCategory(int categoryID) throws SQLException{
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT count(recipe_id) FROM recipe WHERE category_id = '" + categoryID + "'";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -67,7 +67,7 @@ public class RecipeGet {
     
     //lấy danh sách công thức với danh mục
         public ArrayList<Recipe> getListRecipeByCategory(int category_id) throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM recipe WHERE category_id = '" + category_id + "'";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -93,7 +93,7 @@ public class RecipeGet {
     }
         //lấy 4 công thức từ danh mục
         public ArrayList<Recipe> getList4RecipeByCategory(int category_id) throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM recipe WHERE category_id = '" + category_id + "' LIMIT 4;";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -120,7 +120,7 @@ public class RecipeGet {
 
         //lấy các công thức liên quang trong danh mục
         public ArrayList<Recipe> getListRecipeRelated(int category_id, int recipe_id) throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM recipe WHERE category_id = '" + category_id + "' and recipe_id != '" + recipe_id + "'" ;
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -147,7 +147,7 @@ public class RecipeGet {
 
         //lấy tất cả danh sách công thức 
         public ArrayList<Recipe> getListRecipe() throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM recipe";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -174,7 +174,7 @@ public class RecipeGet {
 
     //Hiển thị chi tiết công thức
     public Recipe getRecipe(int recipeId) throws SQLException {
-     Connection connection = DBConnect.getConnecttion();
+     Connection connection = DBConnect.getConnection();
      String sql = "SELECT * FROM recipe WHERE recipe_id = '" + recipeId + "'";
      PreparedStatement ps = connection.prepareCall(sql);
      ResultSet rs = ps.executeQuery();
@@ -200,7 +200,7 @@ public class RecipeGet {
     //Thêm 1 công thức
 public boolean insert(Recipe c) throws SQLException {
     try {
-         Connection connection = DBConnect.getConnecttion();
+         Connection connection = DBConnect.getConnection();
          String sql = "INSERT INTO recipe VALUE(?,?,?,?,?,?,?,?,?,?,?,?)";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setInt(1, c.getRecipeId());
@@ -225,7 +225,7 @@ public boolean insert(Recipe c) throws SQLException {
     //cập nhật một công thức
     public boolean update(Recipe c) throws SQLException {
     try {
-         Connection connection = DBConnect.getConnecttion();
+         Connection connection = DBConnect.getConnection();
          String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?  WHERE recipe_id = ?";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setInt(1, c.getRecipeId());
@@ -250,7 +250,7 @@ public boolean insert(Recipe c) throws SQLException {
     //xóa 1 công thức
     public boolean delete(int recipeId) throws SQLException {
     try {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "DELETE FROM recipe WHERE product_id = ?";
         PreparedStatement ps = connection.prepareCall(sql);
         ps.setInt(1, recipeId);
@@ -262,7 +262,7 @@ public boolean insert(Recipe c) throws SQLException {
 }
     //Thêm 1 công thức
        public boolean insertProduct(Recipe c) {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "INSERT INTO recipe VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
          PreparedStatement ps = connection.prepareCall(sql);
@@ -288,7 +288,7 @@ public boolean insert(Recipe c) throws SQLException {
     // cập nhật dữ liệu
     public boolean updateProduct(Recipe c) {
         
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
        // String sql = "UPDATE product SET product_id = ?, category_id = ?, product_name = ?, product_image = ?, product_image_forward = ?, product_image_back = ?, product_price = ?, product_description = ? WHERE product_id = ?";
         String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?  WHERE recipe_id = ?";
         
@@ -315,7 +315,7 @@ public boolean insert(Recipe c) throws SQLException {
 
     // xóa dữ liệu
     public boolean deleteRecipe(int recipe_id) {
-        Connection connection = DBConnect.getConnecttion();
+        Connection connection = DBConnect.getConnection();
         String sql = "DELETE FROM recipe WHERE recipe_id = ?";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
