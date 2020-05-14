@@ -62,8 +62,8 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-                                                                            <a href=""><img src="<%=r.getRecipeImage()%>" alt="" /></a>
-                                                                            <a href=""><h2 class= "name_recipe"><%=r.getRecipeName()%></h2></a>
+                                                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" /></a>
+                                                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h2 class= "name_recipe"><%=r.getRecipeName()%></h2></a>
                                                                             <p>Công thức bởi: <%=r.getRecipeAuthor()%></p>
                                                                             <p><img src="images/views.png" style="width:auto; height:auto" alt=""> <%=r.getRecipeViews()%>  <img src="images/enery.png" alt="" style="width:auto; height:auto"><%=r.getRecipeCalories()%>kcal</p>
 										
