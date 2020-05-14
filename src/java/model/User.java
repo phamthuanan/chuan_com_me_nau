@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 /**
  *
  * @author Tien Anh
@@ -16,6 +19,32 @@ public class User {
     private String userPass;
     private String userPhone;
     private String userAddress;
+//    private String md5(String passwordToHash){
+//        String generatedPassword = null;
+//     try {
+//        // Create MessageDigest instance for MD5
+//            MessageDigest md = MessageDigest.getInstance("MD5");
+//        //Add password bytes to digest
+//            md.update(passwordToHash.getBytes());
+//        //Get the hash's bytes
+//            byte[] bytes = md.digest();
+//        //This bytes[] has bytes in decimal format;
+//        //Convert it to hexadecimal format
+//            StringBuilder sb = new StringBuilder();
+//            for(int i=0; i< bytes.length ;i++)
+//            {
+//                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+//            }
+//        //Get complete hashed password in hex format
+//            generatedPassword = sb.toString();
+//           }
+//        catch (NoSuchAlgorithmException e)
+//        {
+//            e.printStackTrace();
+//        }
+//       return generatedPassword;
+// 
+//    }
     
     public User(){
         
@@ -25,7 +54,7 @@ public class User {
         this.userId = user_id;
         this.userName = username;
         this.userEmail = useremail;
-        this.userName = password;
+        this.userPass = (password);
         this.userPhone = phone;
     }
     public int getUserId() {
@@ -57,7 +86,7 @@ public class User {
     }
 
     public void setUserPass(String userPass) {
-        this.userPass = userPass;
+        this.userPass = (userPass);
     }
 
     public String getUserPhone() {
@@ -75,4 +104,6 @@ public class User {
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
     }
+    
+    
 }

@@ -1,8 +1,9 @@
 <%-- 
-    Document   : Header
-    Created on : May 13, 2020, 8:01:24 PM
-    Author     : Pham An
+    Document   : header1
+    Created on : May 14, 2020, 10:17:33 PM
+    Author     : ACER
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -72,7 +73,7 @@
                                     <li><a href="#blog">KHÓA HỌC</a></li>
                                     <li><a href="#our_team">THÀNH VIÊN</a></li>
                                     <li><a href="#footer">LIÊN HỆ</a></li>
-                                    <li><a href="signup-signin.jsp">ĐĂNG NHẬP / ĐĂNG KÝ</a></li>
+                                    <li><a href="#">Xin chào <%= name%></a></li>
                                 </ul>
                             </div>
                             <!-- end nav-collapse -->
@@ -95,3 +96,4 @@
     
 </body>
 </html>
+

@@ -1,8 +1,10 @@
 <%-- 
-    Document   : index
-    Created on : May 12, 2020, 9:30:49 AM
-    Author     : Tien Anh
+    Document   : index1
+    Created on : May 14, 2020, 10:15:34 PM
+    Author     : ACER
 --%>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,7 +43,7 @@
 </head>
 
 <body>
-        <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="header1.jsp"></jsp:include>
         <jsp:include page="banner.jsp"></jsp:include>
         <jsp:include page="content.jsp"></jsp:include>
         <jsp:include page="footer.jsp"></jsp:include>
@@ -52,3 +54,4 @@
     <script src="js/custom.js"></script>
 </body>
 </html>
+

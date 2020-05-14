@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
-	box-sizing: border-box;
+	box-sizing: border-box;     
+       
 }
-
 body {
+   
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
@@ -194,7 +195,7 @@ input {
 }
 
 .overlay-left {
-	transform: translateX(-50%);
+	transform: translateX(-20%);
 }
 
 .container.right-panel-active .overlay-left {
@@ -211,7 +212,7 @@ input {
 }
 
 .social-container {
-	margin: 20px 0;
+	margin-top: 5px;
 }
 
 .social-container a {
@@ -220,7 +221,7 @@ input {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 5px;
+	margin: 0px;
 	height: 30px;
 	width: 30px;
 }

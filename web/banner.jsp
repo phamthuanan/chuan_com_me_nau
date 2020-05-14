@@ -23,7 +23,7 @@
     
     <!-- color -->
     <link id="changeable-colors" rel="stylesheet" href="css/colors/orange.css" />
-
+    <script src="js/modernizer.js"></script>
 </head>
 
 <body>
@@ -52,6 +52,8 @@
 
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 
 </body>
 </html>

@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- color -->
     <link id="changeable-colors" rel="stylesheet" href="css/colors/orange.css" />
-
+     <!-- Modernizer -->
+    <script src="js/modernizer.js"></script>
 </head>
 <body>
     
@@ -139,7 +140,9 @@
     </div>
     <!-- end footer-main -->
     
-    <!-- ALL PLUGINS -->
-  
+  <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>

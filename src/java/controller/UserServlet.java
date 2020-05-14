@@ -50,7 +50,7 @@ public class UserServlet extends HttpServlet{
           
                 userGet.insertUser(users);
                 session.setAttribute("user",users);
-                url = "chuancommenau/index.jsp";
+                url = "/chuancommenau/index.html";
                 break;
                
             case "update":
@@ -69,7 +69,7 @@ public class UserServlet extends HttpServlet{
                 users = userGet.login(request.getParameter("name"), (request.getParameter("password")));
                 if (users != null){
                     session.setAttribute("user", users);
-                    url = "chuancommenau/index.jsp";
+                    url = "/chuancommenau/index1.jsp";
                 }
                else{
                     request.setAttribute("error", "Lỗi tên đăng nhập hoặc mật khẩu");
