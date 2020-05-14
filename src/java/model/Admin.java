@@ -15,6 +15,19 @@ public class Admin {
     private String adminName ;
     private String adminPass ;
     private String adminEmail ;
+<<<<<<< HEAD
+=======
+
+    public Admin(int adminId, String adminName, String adminPass, String adminEmail) {
+        this.adminId = adminId;
+        this.adminName = adminName;
+        this.adminPass = adminPass;
+        this.adminEmail = adminEmail;
+    }
+    public Admin(){
+        
+    }
+>>>>>>> 1f4e81dbf1b10efb3cd008bbb9521dfccbd1ec58
 
     public int getAdminId() {
         return adminId;
