@@ -84,74 +84,80 @@
                     </div>
                     <div class="special-box">
                         <div id="owl-demo">
+                            <%
+                                RecipeGet recipeGet = new RecipeGet();
+                                Recipe recipe1= recipeGet.getRecipe(25);
+                                Recipe recipe2= recipeGet.getRecipe(26);
+                                Recipe recipe3= recipeGet.getRecipe(27);
+                                %>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="RecipeDetail.jsp?recipeId=<%=recipe1.getRecipeId()%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            SALMON STEAK
+                                            <%= recipe1.getRecipeName()%>
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">Cà phê bọt biển hay còn gọi là cà phê Dalgona là một món cà phê đang rất hot tại Hàn Quốc.</div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-1.jpg" alt="sp-menu">
+                                    <img src="images/<%=recipe1.getRecipeImage()%>" alt="sp-menu">
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="RecipeDetail.jsp?recipeId=<%=recipe2.getRecipeId()%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            ITALIAN PIZZA
+                                            <%= recipe2.getRecipeName()%>
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">Xôi hoa đậu là món ăn cực hot trên mạng xã hội thời gian vừa qua. Món xôi này xuất phát từ Hàn Quốc, chiếc bánh gốc có tên gọi là Bojagi cake.</div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-2.jpg" alt="sp-menu">
+                                    <img src="images/<%=recipe2.getRecipeImage()%>" alt="sp-menu">
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="RecipeDetail.jsp?recipeId=<%=recipe3.getRecipeId()%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            VEG. ROLL
+                                            <%= recipe3.getRecipeName()%>
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">Lê Chưng Thanh Mát - được dân gian ví như bài thuốc trị ho khan hiệu quả.</div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-3.jpg" alt="sp-menu">
+                                    <img src="images/<%=recipe3.getRecipeImage()%>" alt="sp-menu">
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="RecipeDetail.jsp?recipeId=<%=recipe1.getRecipeId()%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            SALMON STEAK
+                                            <%= recipe1.getRecipeName()%>
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">Cà phê bọt biển hay còn gọi là cà phê Dalgona là một món cà phê đang rất hot tại Hàn Quốc.</div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-1.jpg" alt="sp-menu">
+                                    <img src="images/<%=recipe1.getRecipeImage()%>" alt="sp-menu">
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
+                                <a href="RecipeDetail.jsp?recipeId=<%=recipe2.getRecipeId()%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
-                                            VEG. ROLL
+                                            <%= recipe2.getRecipeName()%>
                                             <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                                            <div class="dit-line">Xôi hoa đậu là món ăn cực hot trên mạng xã hội thời gian vừa qua. Món xôi này xuất phát từ Hàn Quốc, chiếc bánh gốc có tên gọi là Bojagi cake.</div>
                                         </div>
                                     </div>
                                 </a>
                                 <div class="item-img">
-                                    <img src="images/special-menu-2.jpg" alt="sp-menu">
+                                    <img src="images/<%=recipe2.getRecipeImage()%>" alt="sp-menu">
                                 </div>
                             </div>
                         </div>
@@ -198,12 +204,12 @@
                         <div class="slider slider-single">
                             <div>
                                 <%
-                                    RecipeGet recipeGet = new RecipeGet();
+                                    
                                     for(Recipe r: recipeGet.getList4RecipeByCategory(1)){
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href=""><img src="images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive"></a>
+                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
                                             <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
@@ -228,7 +234,7 @@
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href=""><img src="images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive"></a>
+                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
                                             <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
@@ -253,7 +259,7 @@
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href=""><img src="images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive"></a>
+                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
                                             <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
@@ -278,7 +284,7 @@
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href=""><img src="images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive"></a>
+                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
                                             <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
