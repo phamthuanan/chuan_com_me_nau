@@ -16,20 +16,17 @@ public class User {
     private String userPass;
     private String userPhone;
     private String userAddress;
-    private int userGender; 
     
     public User(){
         
     }
 
-    public User(int user_id, String username, String useremail, String password, String phone, String address, int gender) {
+    public User(int user_id, String username, String useremail, String password, String phone, String address) {
         this.userId = user_id;
         this.userName = username;
         this.userEmail = useremail;
         this.userName = password;
         this.userPhone = phone;
-        this.userAddress = address;
-        this.userGender = gender;
     }
     public int getUserId() {
         return userId;
@@ -77,13 +74,5 @@ public class User {
 
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
-    }
-
-    public int getUserGender() {
-        return userGender;
-    }
-
-    public void setUserGender(int userGender) {
-        this.userGender = userGender;
     }
 }

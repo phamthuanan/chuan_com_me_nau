@@ -47,11 +47,10 @@ public class UserServlet extends HttpServlet{
                 users.setUserPass(request.getParameter("pass"));
                 users.setUserPhone(request.getParameter("phone"));
                 users.setUserAddress(request.getParameter("address"));
-                users.setUserGender(Integer.parseInt(request.getParameter("gender")));
-                //chauw lưu trữ dduocj giới tính mai làm form đăng kí
+          
                 userGet.insertUser(users);
                 session.setAttribute("user",users);
-                url = "/navigate.jsp";
+                url = "chuancommenau/index.jsp";
                 break;
                
             case "update":
@@ -61,8 +60,8 @@ public class UserServlet extends HttpServlet{
                 String password = request.getParameter("user_pass");
                 String phone = request.getParameter("user_phone");
                 String address = request.getParameter("user_address");
-                int gender = Integer.parseInt(request.getParameter("user_gender"));
-                userGet.updateUser(new User(user_id, username, useremail, password, phone, address, gender));
+            
+                userGet.updateUser(new User(user_id, username, useremail, password, phone, address));
                 url = "/myaccount.jsp";
                 break;
              
@@ -70,11 +69,11 @@ public class UserServlet extends HttpServlet{
                 users = userGet.login(request.getParameter("name"), (request.getParameter("password")));
                 if (users != null){
                     session.setAttribute("user", users);
-                    url = "chuancommenau/navigate.jsp";
+                    url = "chuancommenau/index.jsp";
                 }
                else{
                     request.setAttribute("error", "Lỗi tên đăng nhập hoặc mật khẩu");
-                    url = "/login.jsp";
+                    url = "/signup-signin.jsp";
                 }
                 break;
     }
