@@ -49,13 +49,18 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2 class="block-title"> Giới thiệu </h2>
-                        <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
+                        <h2 class="block-title"> Về chúng tôi </h2>
+                        <p>ChuanComMeNau là Website mang đến cho người nội trợ trong gia đình các bí quyết giúp việc nấu ăn hàng ngày sẽ được dễ dàng hơn. Bắt đầu từ việc chuẩn bị nguyên liệu, sơ chế, thiết bị dùng bếp hay chỉ đơn giản là lựa chọn món ăn phù hợp cũng sẽ trở nên nhẹ nhàng hơn bao giờ hết.</p>
 
-                        <p> Aenean commodo ligula eget dolor aenean massa. Cum sociis nat penatibu set magnis dis parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, Aenean commodo ligula eget dolor penatibu set magnis is parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, pellentesque eu, pretium quis, sem. quat massa quis enim. Donec vitae sapien ut libero venenatis fauci Nullam quis ante. Etiam sit amet rci eget eros. </p>
+                        <p><b>Nấu một món ngon sẽ dễ dàng hơn</b></p>
 
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
+                        <p>ChuanComMeNau sẽ cố gắng từng ngày một với mong muốn tạo ra một sản phẩm có thể giúp cho những đầu bếp bình thường nhất nấu được các món ăn ngon nhất.<p>
+
+                        <p>Bạn sẽ cảm thấy rất vui khi được tự tay nấu cho gia đình mình thưởng thức những món ăn như thế và đồng thời cảm nhận thành quả mà mình đã làm ra.</p>
+
+                        <p><b>Cùng đam mê nấu nướng</b></p>
+	    
+                        <p>Bạn có thể tìm thấy những người cùng sở thích cùng đam mê, kết nối & và chia sẻ kinh nghiệm cho nhau. Với hy vọng có thể tạo được một sân chơi thật sự cho những người đam mê ẩm thực, đam mê nấu nướng.<p>
                     </div>
                 </div>
                 <!-- end col -->
@@ -758,12 +763,12 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <h2 class="ft-title color-white text-center"> Newsletter </h2>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            <h2 class="ft-title color-white text-center"> Góp ý </h2>
+                            <p> Mọi thông tin chi tiết và góp ý xin vui lòng gửi thư về địa chỉ E-Mail: ChuanComMeNau@gmail.com </p>
                         </div>
-                        <form>
-                            <input type="email" placeholder="Enter your e-mail id">
-                            <a href="#" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                        <form action="mailto:Nhatduy19254@gmail.com" method="post" enctype="text/plain">
+                            <input type="email" placeholder="Nhập địa chỉ E-Mail của bạn">
+                            <a href="mailto:Nhatduy19254@gmail.com" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
                         </form>
                     </div>
                     <!-- end col -->
