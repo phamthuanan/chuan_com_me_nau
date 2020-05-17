@@ -10,6 +10,7 @@ package get;
  * @author Tien Anh
  */
 import connect.DBConnect;
+import java.awt.event.FocusEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.User;
+import sun.awt.KeyboardFocusManagerPeerImpl;
 
 // Lấy dữ liệu từ database
 public class UserGet {
@@ -35,15 +37,16 @@ public class UserGet {
            user.setUserPass(rs.getString("user_pass"));
            user.setUserPhone(rs.getString("user_phone"));
            user.setUserAddress(rs.getString("user_address"));
+           user.setUserAvatar(rs.getString("user_avatar"));
            list.add(user);
         }
         return list;
     }
    
     // Kiểm tra email
-    public boolean checkEmail(String name) throws SQLException{
+    public boolean checkEmail(String email) throws SQLException{
     Connection connection = DBConnect.getConnection();
-    String sql = "SELECT * FROM user WHERE user_name = '" + name + "'";
+    String sql = "SELECT * FROM user WHERE user_email = '" + email + "'";
     PreparedStatement ps;
     try {
         ps = connection.prepareCall(sql);
@@ -60,7 +63,7 @@ public class UserGet {
     // phương thức thêm tài khoản
     public boolean insertUser(User u) {
         Connection connection = DBConnect.getConnection();
-        String sql = "INSERT INTO user VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO user VALUES(?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setInt(1, u.getUserId());
@@ -69,8 +72,8 @@ public class UserGet {
             ps.setString(4, u.getUserEmail());
             ps.setString(5, u.getUserPhone());
             ps.setString(6, u.getUserAddress());
+            ps.setString(7, u.getUserAvatar());
  
-           
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -79,24 +82,27 @@ public class UserGet {
         return false;
     }
     //Đăng nhập
-     public User login(String name, String password) {
+     public User login(String email, String password) {
         Connection con = DBConnect.getConnection();
-        String sql = "select * from user where user_name='" + name + "' and user_pass='" + password + "'";
+        String sql = "select * from user where user_email='" + email + "' and user_pass='" + password + "'";
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement(sql);
+            ps = (PreparedStatement)con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 User u = new User();
                 u.setUserId(rs.getInt("user_id"));
                 u.setUserName(rs.getString("user_name"));
+                u.setUserEmail(rs.getString("user_email"));
                 u.setUserPass(rs.getString("user_pass"));
                 con.close();
                 return u;
             }
+          
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
         return null;
     }
      
@@ -115,6 +121,7 @@ public class UserGet {
            user.setUserEmail(rs.getString("user_email"));
            user.setUserPhone(rs.getString("user_phone"));
            user.setUserAddress(rs.getString("user_address"));
+           user.setUserAvatar(rs.getString("user_avatar"));
        
      }
      return user;
@@ -122,7 +129,7 @@ public class UserGet {
      public boolean updateUser(User u) {
         
         Connection connection = DBConnect.getConnection();
-        String sql = "UPDATE user SET user_id=?, user_name=?, user_pass=?, user_email=?, user_phone=?, user_address=? WHERE user_id = ?";
+        String sql = "UPDATE user SET user_id=?, user_name=?, user_pass=?, user_email=?, user_phone=?, user_address=?, user_avatar=? WHERE user_id = ?";
         
         try {
             PreparedStatement ps = connection.prepareCall(sql);
@@ -132,6 +139,7 @@ public class UserGet {
             ps.setString(4, u.getUserEmail());
             ps.setString(5, u.getUserPhone());
             ps.setString(6, u.getUserAddress());
+            ps.setString(7, u.getUserAvatar());
   
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {

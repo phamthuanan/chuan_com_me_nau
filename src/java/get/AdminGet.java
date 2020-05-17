@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Admin;
 
 /**
@@ -17,6 +19,23 @@ import model.Admin;
  * @author ACER
  */
 public class AdminGet {
+       public boolean insertUserAdmin(Admin u) throws SQLException{
+        Connection connection = DBConnect.getConnection();
+        String sql = "INSERT INTO users VALUES(?,?,?,?,?)";
+        try{
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, u.getAdminId());
+            ps.setString(2, u.getAdminName());
+            ps.setString(3, u.getAdminPass());
+            ps.setString(4, u.getAdminEmail());
+            ps.setInt(5, u.getAdminRole());
+            ps.executeUpdate();
+            return true;
+        }catch(SQLException ex){
+            Logger.getLogger(AdminGet.class.getName()).log(Level.SEVERE,null,ex);
+        }
+        return false;
+    } 
     public Admin login(String email, String password){
         Connection conn = DBConnect.getConnection();
         String sql = "select * from admin where admin_email='"+ email +"' and admin_pass='"+password+"'";

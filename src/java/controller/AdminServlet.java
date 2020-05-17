@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.ws.http.HTTPException;
 import model.Admin;
+import static model.Admin.getMd5;
 
 /**
  *
@@ -40,7 +41,7 @@ public class AdminServlet extends HttpServlet{
         switch(commandadmin){
             case "login":
                 userAdmin = adminGet.login(request.getParameter("emailadmin"), 
-                        (request.getParameter("passadmin")));//lưu trữ thong tin admin để kiểm tra
+                        ((request.getParameter("passadmin"))));//lưu trữ thong tin admin để kiểm tra
                 if(userAdmin != null){
                     session.setAttribute("useradmin", userAdmin);
                     url = "/chuancommenau/admin/index.jsp";
@@ -48,7 +49,7 @@ public class AdminServlet extends HttpServlet{
                 else{
                     
                    request.setAttribute("error", "Lỗi tên đăng nhập hoặc mật khẩu");
-                   url = "/admin/login.jsp";
+                   url = "/chuancommenau/admin/login.jsp";
                 }
                 break;
         }

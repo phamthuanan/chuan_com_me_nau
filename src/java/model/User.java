@@ -5,8 +5,12 @@
  */
 package model;
 
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,43 +23,49 @@ public class User {
     private String userPass;
     private String userPhone;
     private String userAddress;
-//    private String md5(String passwordToHash){
-//        String generatedPassword = null;
-//     try {
-//        // Create MessageDigest instance for MD5
-//            MessageDigest md = MessageDigest.getInstance("MD5");
-//        //Add password bytes to digest
-//            md.update(passwordToHash.getBytes());
-//        //Get the hash's bytes
-//            byte[] bytes = md.digest();
-//        //This bytes[] has bytes in decimal format;
-//        //Convert it to hexadecimal format
-//            StringBuilder sb = new StringBuilder();
-//            for(int i=0; i< bytes.length ;i++)
-//            {
-//                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-//            }
-//        //Get complete hashed password in hex format
-//            generatedPassword = sb.toString();
-//           }
-//        catch (NoSuchAlgorithmException e)
-//        {
-//            e.printStackTrace();
-//        }
-//       return generatedPassword;
-// 
-//    }
+    private String userAvatar;
+    
+
+  public static String getMd5(String input) 
+    { 
+        try { 
+  
+            // Static getInstance method is called with hashing MD5 
+            MessageDigest md = MessageDigest.getInstance("MD5"); 
+  
+            // digest() method is called to calculate message digest 
+            //  of an input digest() return array of byte 
+            byte[] messageDigest = md.digest(input.getBytes()); 
+  
+            // Convert byte array into signum representation 
+            BigInteger no = new BigInteger(1, messageDigest); 
+  
+            // Convert message digest into hex value 
+            String hashtext = no.toString(16); 
+            while (hashtext.length() < 32) { 
+                hashtext = "0" + hashtext; 
+            } 
+            return hashtext; 
+        }  
+  
+        // For specifying wrong message digest algorithms 
+        catch (NoSuchAlgorithmException e) { 
+            throw new RuntimeException(e); 
+        } 
+    } 
+
     
     public User(){
         
     }
 
-    public User(int user_id, String username, String useremail, String password, String phone, String address) {
+    public User(int user_id, String username, String useremail, String password, String phone, String address, String avatar) {
         this.userId = user_id;
         this.userName = username;
         this.userEmail = useremail;
         this.userPass = (password);
         this.userPhone = phone;
+        this.userAvatar = avatar;
     }
     public int getUserId() {
         return userId;
@@ -70,7 +80,7 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName = (userName);
     }
 
     public String getUserEmail() {
@@ -82,11 +92,12 @@ public class User {
     }
 
     public String getUserPass() {
-        return userPass;
+        return (userPass);
     }
 
     public void setUserPass(String userPass) {
-        this.userPass = (userPass);
+       
+            this.userPass = getMd5(userPass);
     }
 
     public String getUserPhone() {
@@ -103,6 +114,14 @@ public class User {
 
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
+    }
+    
+     public String getUserAvatar() {
+        return userAvatar;
+    }
+
+    public void setUserAvatar(String userAvatar) {
+        this.userAvatar = userAvatar;
     }
     
     

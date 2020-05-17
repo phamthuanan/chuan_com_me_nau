@@ -9,7 +9,7 @@
 <html>
 
 <head>
-
+  
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +28,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    
     <!-- Site CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Responsive CSS -->
@@ -37,6 +38,7 @@
 
     <!-- Modernizer -->
     <script src="js/modernizer.js"></script>
+    
 
 </head>
 

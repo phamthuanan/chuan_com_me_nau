@@ -7,18 +7,23 @@ package controller;
 
 import get.UserGet;
 import java.io.IOException;
+import static java.lang.System.out;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialException;
 import model.User;
+import static model.User.getMd5;
 
 /**
  *
  * @author Tien Anh
  */
+
 public class UserServlet extends HttpServlet{
     UserGet userGet = new UserGet();
     
@@ -31,6 +36,7 @@ public class UserServlet extends HttpServlet{
     @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+      
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         //Biến lưu trữ chức năng chèn hay update...
@@ -47,10 +53,13 @@ public class UserServlet extends HttpServlet{
                 users.setUserPass(request.getParameter("pass"));
                 users.setUserPhone(request.getParameter("phone"));
                 users.setUserAddress(request.getParameter("address"));
+                users.setUserAddress(request.getParameter("avatar"));
           
                 userGet.insertUser(users);
                 session.setAttribute("user",users);
-                url = "/chuancommenau/index.html";
+                
+                url = "/chuancommenau/index.jsp";
+               
                 break;
                
             case "update":
@@ -60,22 +69,26 @@ public class UserServlet extends HttpServlet{
                 String password = request.getParameter("user_pass");
                 String phone = request.getParameter("user_phone");
                 String address = request.getParameter("user_address");
+                String avatar = request.getParameter("user_avatar");
             
-                userGet.updateUser(new User(user_id, username, useremail, password, phone, address));
+                userGet.updateUser(new User(user_id, username, useremail, password, phone, address, avatar));
                 url = "/myaccount.jsp";
                 break;
              
             case "login":
-                users = userGet.login(request.getParameter("name"), (request.getParameter("password")));
-                if (users != null){
+                users = userGet.login(request.getParameter("email"), (getMd5(request.getParameter("pass"))));
+                if (users != null ){
                     session.setAttribute("user", users);
-                    url = "/chuancommenau/index1.jsp";
+                    url = "/chuancommenau/index.jsp";
+                   
                 }
                else{
                     request.setAttribute("error", "Lỗi tên đăng nhập hoặc mật khẩu");
-                    url = "/signup-signin.jsp";
+                    url = "/chuancommenau/signup-signin.jsp";
                 }
                 break;
+                
+                
     }
         response.sendRedirect(url);
    }
