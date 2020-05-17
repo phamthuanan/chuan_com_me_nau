@@ -137,8 +137,6 @@
             <!-- end copyright-main -->
         </div>
         <!-- end footer-box -->
-    </div>
-    <!-- end footer-main -->
     
   <!-- ALL JS FILES -->
     <script src="js/all.js"></script>

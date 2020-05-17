@@ -599,7 +599,7 @@ html, body{ height: 100%; }
 
 .block-title{
 	font-size:52px;
-	font-family: 'nautilus_pompiliusregular';
+	font-family: 'SVN-Carington';
 	font-weight: bold;
 }
 
@@ -1575,8 +1575,8 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
 .ft-title {
     letter-spacing: 0.96px;
     margin-bottom: 22px;
-    font-family: 'nautilus_pompiliusregular';
-	font-size: 52px;
+    font-family: 'SVN-Carington';
+    font-size: 52px;
 }
 
 .footer-news p {
