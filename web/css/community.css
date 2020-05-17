@@ -99,7 +99,8 @@ and open the template in the editor.
     overflow: hidden;
     padding-bottom: 0;
     padding-top: 20px;
-	width: 100%;
+    width: 100%;
+    position: relative;
 }
 
 .stats {

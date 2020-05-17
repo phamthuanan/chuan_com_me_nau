@@ -44,7 +44,7 @@
         <div id="status"></div>
     </div>
     <div id="site-header">
-        <header id="header" class="header-block-top">
+        <header id="header" class="fixed-menu">
             <div class="container">
                 <div class="row">
                     <div class="main-menu">
