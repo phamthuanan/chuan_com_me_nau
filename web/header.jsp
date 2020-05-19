@@ -38,7 +38,6 @@
     <link id="changeable-colors" rel="stylesheet" href="css/colors/orange.css" />
 
     <!-- Modernizer -->
-    <script src="js/modernizer.js"></script>
     
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -72,10 +71,10 @@
                             </div>
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li class="active"><a href="#banner">TRANG CHỦ</a></li>
+                                    <li class="active"><a href="index.jsp">TRANG CHỦ</a></li>
                                     <li><a href="#about">GIỚI THIỆU</a></li>
-                                    <li><a href="#menu">CÔNG THỨC</a></li>
-                                    <li><a href="#gallery">CỘNG ĐỒNG</a></li>
+                                    <li><a href="Recipe.jsp">CÔNG THỨC</a></li>
+                                    <li><a href="community.jsp">CỘNG ĐỒNG</a></li>
                                     <li><a href="#blog">KHÓA HỌC</a></li>
                                     <li><a href="#footer">LIÊN HỆ</a></li>
                                     <% 
@@ -85,7 +84,7 @@
                                         } 
                                     %>
                                       <%if(user!=null){ %>
-                                    <li style="font-size: 10px;"><a href="#">Xin chào, <%=user.getUserName() %></a></li>   <li><a href="/chuancommenau/LogoutServlet">THOÁT</a></li><% }%>
+                                    <li style="font-size: 10px;"><a href="/chuancommenau/myaccount.jsp">Xin chào, <%=user.getUserName() %></a></li>   <li><a href="/chuancommenau/LogoutServlet">THOÁT</a></li><% }%>
                                    
                                       <%if(user==null){ %>
                                       <li style="padding-top: -5px; margin-top: -7px; "><a href="signup-signin.jsp"><i class="fas fa-user-circle fa-2x"></i></a></li> 
@@ -104,10 +103,7 @@
         <!-- end header -->
     </div>
 	<!-- end site-header -->
-    <!-- ALL JS FILES -->
-    <script src="js/all.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+   
   
     
 </body>

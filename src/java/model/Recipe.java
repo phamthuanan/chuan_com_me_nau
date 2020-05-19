@@ -23,12 +23,21 @@ public class Recipe {
     private String making;
     private String descriptionRecipe;
     private String video;
+    private int userIdPostedRecipe;
+
+    public int getUserIdPostedRecipe() {
+        return userIdPostedRecipe;
+    }
+
+    public void setUserIdPostedRecipe(int userIdPostedRecipe) {
+        this.userIdPostedRecipe = userIdPostedRecipe;
+    }
 
     public Recipe(){
         
     }
     
-    public Recipe(int recipeId, String recipeName, String recipeImage, int recipeViews, int recipeCalories, String recipeAuthor, int CategoryId, String ingredientRecipe, String nutritionIngredients, String making, String descriptionRecipe, String video) {
+    public Recipe(int recipeId, String recipeName, String recipeImage, int recipeViews, int recipeCalories, String recipeAuthor, int CategoryId, String ingredientRecipe, String nutritionIngredients, String making, String descriptionRecipe, String video, int userIdPostedRecipe ) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeImage = recipeImage;
@@ -41,6 +50,7 @@ public class Recipe {
         this.making = making;
         this.descriptionRecipe = descriptionRecipe;
         this.video = video;
+        this.userIdPostedRecipe= userIdPostedRecipe;
     }
     
     public int getRecipeId() {

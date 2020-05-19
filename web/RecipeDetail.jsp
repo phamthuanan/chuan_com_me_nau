@@ -4,6 +4,10 @@
     Author     : Pham An
 --%>
 
+<%@page import="get.UserGet"%>
+<%@page import="model.Review"%>
+<%@page import="get.ReviewGet"%>
+<%@page import="model.User"%>
 <%@page import="java.util.StringTokenizer"%>
 <%@page import="model.Recipe"%>
 <%@page import="get.RecipeGet"%>
@@ -14,6 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Công thức chi tiết</title>
         <link rel="stylesheet" href="css/style_detail_dish.css">
+        <link rel="stylesheet" href="css/style_review.css">
         <script src="js/modernizer.js"></script>
     </head>
     <body>
@@ -26,7 +31,6 @@
           recipeId = request.getParameter("recipeId");
           recipe = recipeGet.getRecipe(Integer.parseInt(recipeId));
      }
-    
             %>
         <div class="session-dish-detail">
         <div class="detail-dish">
@@ -72,10 +76,54 @@
                 </ul>
             </div>
             <div class="card">
-              <h2 class="text-heading"><b>Bình luận</b></h2>
-              <textarea name="text-comment" id="text-comment" class="text-comment" cols="97" rows="2"></textarea>
-              
+                <%
+                    if(session.getAttribute("user")!=null){%> <%-- ktra đã đăng nhập hay chưa (lấy giá trị phiên login từ UserServlet)--%>
+                    <h2 class="text-heading"><b>Bình luận</b></h2>
+                    <form action="ReviewServlet" method="POST">
+                         <%if(request.getParameter("error")!=null){%>
+                    <div>
+                        <p style="color:red"><%=request.getParameter("error")%></p>
+                    </div>
+                        <% }
+                            User users = (User)session.getAttribute("user");
+                        %>
+                        <input type="hidden" name="recipeId" value="<%=recipeId%>">
+                        <input type="hidden" name="userId" value="<%=users.getUserId()%>">
+                    <textarea name="text-comment" id="text-comment" class="text-comment" cols="120" rows="3"></textarea>
+                    <input type="submit" class="button_submit" value="Gửi bình luận">
+                     </form>
+                     <% }
+                    else{%>
+                    <h2 class="text-heading"><b>Hãy đăng nhập để bình luận! <span><a href="signup-signin.jsp"> Đăng nhập</a></span> </b></h2>
+                   <% }
+                     %>
             </div>
+              <div class="card">
+                  <%
+                      ReviewGet reviewGet = new ReviewGet();
+                      int numberReview = reviewGet.countReviewByRecipeId(Integer.parseInt(recipeId));
+                      %>
+                      <h2 class="mb-5"><b><%=numberReview%> bình luận</b></h2>
+                    <ul class="comment-list">
+                        <%
+                            UserGet userGet = new UserGet();
+                            for(Review rev: reviewGet.getListReviewByRecipeId(Integer.parseInt(recipeId))){
+                                User user = userGet.getUser(rev.getUserIdReview());
+                                %>
+                      <li class="comment">
+                        <div class="vcard bio">
+                            <img src="images/<%=user.getUserAvatar()%>" alt="Image placeholder">
+                        </div>
+                        <div class="comment-body">
+                          <h3>John Doe</h3>
+                          <div class="meta"><%=rev.getReviewDate()%></div>
+                          <p><%=rev.getReviewMessenges()%></p>
+                        </div>
+                      </li>
+                            <%}%>
+                    </ul>
+             
+               </div>
           </div>
           <div class="rightcolumn">
             <div class="card">

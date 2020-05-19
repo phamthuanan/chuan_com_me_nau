@@ -72,9 +72,16 @@ public class UserServlet extends HttpServlet{
                 String avatar = request.getParameter("user_avatar");
             
                 userGet.updateUser(new User(user_id, username, useremail, password, phone, address, avatar));
-                url = "/myaccount.jsp";
+                url = "/chuancommenau/myaccount.jsp";
                 break;
              
+            case "updatepassword":
+                int userid = Integer.parseInt(request.getParameter("userId"));
+                String userpassword = request.getParameter("pass");
+            
+                userGet.updateUserPassword(userid,userpassword);
+                url = "/chuancommenau/changepasswordresult.jsp";
+                break;
             case "login":
                 users = userGet.login(request.getParameter("email"), (getMd5(request.getParameter("pass"))));
                 if (users != null ){

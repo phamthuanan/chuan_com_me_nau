@@ -47,6 +47,7 @@ public class RecipeGet {
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
             list.add(recipe);
         }
         return list;
@@ -87,6 +88,34 @@ public class RecipeGet {
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
+            list.add(recipe);
+        }
+        return list;
+    }
+        //lấy danh sách công thức với mã người dùng đã đăng
+        public ArrayList<Recipe> getListRecipeByUserId(int userId) throws SQLException {
+        Connection connection = DBConnect.getConnection();
+        String sql = "SELECT * FROM recipe WHERE category_id = '" + userId + "'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Recipe> list = new ArrayList<>();
+        while (rs.next()) {
+            
+            Recipe recipe = new Recipe();
+            recipe.setRecipeId(rs.getInt("recipe_id"));
+            recipe.setRecipeName(rs.getString("recipe_name"));
+            recipe.setCategoryId(rs.getInt("category_id"));
+            recipe.setRecipeImage(rs.getString("recipe_image"));
+            recipe.setRecipeViews(rs.getInt("recipe_views"));
+            recipe.setRecipeCalories(rs.getInt("calories"));
+            recipe.setRecipeAuthor(rs.getString("recipe_author"));
+            recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
+            recipe.setMaking(rs.getString("making"));
+            recipe.setDescriptionRecipe(rs.getString("description_recipe"));
+            recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
             list.add(recipe);
         }
         return list;
@@ -113,6 +142,7 @@ public class RecipeGet {
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
             list.add(recipe);
         }
         return list;
@@ -140,6 +170,7 @@ public class RecipeGet {
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
             list.add(recipe);
         }
         return list;
@@ -166,6 +197,7 @@ public class RecipeGet {
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
             list.add(recipe);
         }
         return list;
@@ -193,6 +225,7 @@ public class RecipeGet {
             recipe.setMaking(rs.getString("making"));
             recipe.setDescriptionRecipe(rs.getString("description_recipe"));
             recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
      }
      return recipe;
 }
@@ -201,7 +234,7 @@ public class RecipeGet {
 public boolean insert(Recipe c) throws SQLException {
     try {
          Connection connection = DBConnect.getConnection();
-         String sql = "INSERT INTO recipe VALUE(?,?,?,?,?,?,?,?,?,?,?,?)";
+         String sql = "INSERT INTO recipe VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?)";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setInt(1, c.getRecipeId());
          ps.setString(2, c.getRecipeName());
@@ -215,6 +248,7 @@ public boolean insert(Recipe c) throws SQLException {
          ps.setString(10, c.getMaking());
          ps.setString(11, c.getDescriptionRecipe());
          ps.setString(12, c.getVideo());
+         ps.setInt(13, c.getUserIdPostedRecipe());
          int temp = ps.executeUpdate();
          return temp == 1;
     } catch (Exception e) {
@@ -226,7 +260,7 @@ public boolean insert(Recipe c) throws SQLException {
     public boolean update(Recipe c) throws SQLException {
     try {
          Connection connection = DBConnect.getConnection();
-         String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?  WHERE recipe_id = ?";
+         String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?, user_id =? WHERE recipe_id = ?";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setInt(1, c.getRecipeId());
          ps.setString(2, c.getRecipeName());
@@ -240,6 +274,8 @@ public boolean insert(Recipe c) throws SQLException {
          ps.setString(10, c.getMaking());
          ps.setString(11, c.getDescriptionRecipe());
          ps.setString(12, c.getVideo());
+         ps.setInt(13, c.getUserIdPostedRecipe());
+         ps.setInt(14, c.getRecipeId());
          int temp = ps.executeUpdate();
          return temp == 1;
     } catch (Exception e) {
@@ -251,7 +287,7 @@ public boolean insert(Recipe c) throws SQLException {
     public boolean delete(int recipeId) throws SQLException {
     try {
         Connection connection = DBConnect.getConnection();
-        String sql = "DELETE FROM recipe WHERE product_id = ?";
+        String sql = "DELETE FROM recipe WHERE recipe_id = ?";
         PreparedStatement ps = connection.prepareCall(sql);
         ps.setInt(1, recipeId);
         int temp = ps.executeUpdate();
@@ -263,7 +299,7 @@ public boolean insert(Recipe c) throws SQLException {
     //Thêm 1 công thức
        public boolean insertProduct(Recipe c) {
         Connection connection = DBConnect.getConnection();
-        String sql = "INSERT INTO recipe VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO recipe VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setInt(1, c.getRecipeId());
@@ -278,6 +314,7 @@ public boolean insert(Recipe c) throws SQLException {
          ps.setString(10, c.getMaking());
          ps.setString(11, c.getDescriptionRecipe());
          ps.setString(12, c.getVideo());
+         ps.setInt(13, c.getUserIdPostedRecipe());
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(RecipeGet.class.getName()).log(Level.SEVERE, null, ex);
@@ -290,7 +327,7 @@ public boolean insert(Recipe c) throws SQLException {
         
         Connection connection = DBConnect.getConnection();
        // String sql = "UPDATE product SET product_id = ?, category_id = ?, product_name = ?, product_image = ?, product_image_forward = ?, product_image_back = ?, product_price = ?, product_description = ? WHERE product_id = ?";
-        String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?  WHERE recipe_id = ?";
+        String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?, user_id =? WHERE recipe_id = ?";
         
         try {
             PreparedStatement ps = connection.prepareCall(sql);
@@ -306,6 +343,8 @@ public boolean insert(Recipe c) throws SQLException {
          ps.setString(10, c.getMaking());
          ps.setString(11, c.getDescriptionRecipe());
          ps.setString(12, c.getVideo());
+         ps.setInt(13, c.getUserIdPostedRecipe());
+         ps.setInt(14, c.getRecipeId());
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(RecipeGet.class.getName()).log(Level.SEVERE, null, ex);

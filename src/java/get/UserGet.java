@@ -140,7 +140,38 @@ public class UserGet {
             ps.setString(5, u.getUserPhone());
             ps.setString(6, u.getUserAddress());
             ps.setString(7, u.getUserAvatar());
-  
+            ps.setInt(8, u.getUserId());
+            return ps.executeUpdate() == 1;
+        } catch (SQLException ex) {
+           Logger.getLogger(UserGet.class.getName()).log(Level.SEVERE,null, ex);
+        }
+        return false;
+    }
+     //cập nhật mật khẩu
+      public boolean updateUserPassword(int userId, String userPassword) {
+        
+        Connection connection = DBConnect.getConnection();
+        String sql = "UPDATE user SET user_pass=? WHERE user_id = ?";
+        try {
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setString(1, userPassword);
+            ps.setInt(2, userId);
+            return ps.executeUpdate() == 1;
+        } catch (SQLException ex) {
+           Logger.getLogger(UserGet.class.getName()).log(Level.SEVERE,null, ex);
+        }
+        return false;
+    }
+    
+    //cập nhật ảnh đại diện
+      public boolean updateUserAvatar(int userId, String avatar) {
+        
+        Connection connection = DBConnect.getConnection();
+        String sql = "UPDATE user SET user_avatar=? WHERE user_id = ?";
+        try {
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setString(1, avatar);
+            ps.setInt(2, userId);
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
            Logger.getLogger(UserGet.class.getName()).log(Level.SEVERE,null, ex);

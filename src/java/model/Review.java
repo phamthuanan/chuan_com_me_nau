@@ -12,72 +12,52 @@ import java.util.Date;
  * @author Pham An
  */
 public class Review {
-    private int reviewID;
-    private int recipeID;
-    private String reviewName;
-    private String reviewEmail;
-    private int reviewStar;
+    private int reviewId;
+    private int recipeId;
+    private int userIdReview;
     private String reviewMessenges;
     private Date reviewDate;
 
     public Review(){
         
     }
-    public Review(int reviewID, int recipeID, String reviewName, String reviewEmail, int reviewStar, String reviewMessenges, Date reviewDate) {
-        this.reviewID = reviewID;
-        this.recipeID = recipeID;
-        this.reviewName = reviewName;
-        this.reviewEmail = reviewEmail;
-        this.reviewStar = reviewStar;
+    public Review(int reviewId, int recipeId, int userIdReview, String reviewMessenges, Date reviewDate) {
+        this.reviewId = reviewId;
+        this.recipeId = recipeId;
+        this.userIdReview = userIdReview;
         this.reviewMessenges = reviewMessenges;
         this.reviewDate = reviewDate;
     }
 
-    public int getReviewID() {
-        return reviewID;
+    public int getReviewId() {
+        return reviewId;
     }
 
-    public void setReviewID(int reviewID) {
-        this.reviewID = reviewID;
+    public void setReviewId(int reviewId) {
+        this.reviewId = reviewId;
     }
 
-    public int getRecipeID() {
-        return recipeID;
+    public int getRecipeId() {
+        return recipeId;
     }
 
-    public void setRecipeID(int recipeID) {
-        this.recipeID = recipeID;
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
     }
 
-    public String getReviewName() {
-        return reviewName;
+    public int getUserIdReview() {
+        return userIdReview;
     }
 
-    public void setReviewName(String reviewName) {
-        this.reviewName = reviewName;
+    public void setUserIdReview(int userIdReview) {
+        this.userIdReview = userIdReview;
     }
 
-    public String getReviewEmail() {
-        return reviewEmail;
-    }
-
-    public void setReviewEmail(String reviewEmail) {
-        this.reviewEmail = reviewEmail;
-    }
-
-    public int getReviewStar() {
-        return reviewStar;
-    }
-
-    public void setReviewStar(int reviewStar) {
-        this.reviewStar = reviewStar;
-    }
-
-    public String getreviewMessenges() {
+    public String getReviewMessenges() {
         return reviewMessenges;
     }
 
-    public void setreviewMessenges(String reviewMessenges) {
+    public void setReviewMessenges(String reviewMessenges) {
         this.reviewMessenges = reviewMessenges;
     }
 
@@ -88,5 +68,7 @@ public class Review {
     public void setReviewDate(Date reviewDate) {
         this.reviewDate = reviewDate;
     }
+
+    
     
 }

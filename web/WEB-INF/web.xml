@@ -16,11 +16,19 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>controller.AdminServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>LogoutAdminServlet</servlet-name>
         <servlet-class>controller.LogoutAdminServlet</servlet-class>
     </servlet>
-      <servlet-mapping>
+    <servlet>
+        <servlet-name>UploadFileServlet</servlet-name>
+        <servlet-class>controller.UploadFileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReviewServlet</servlet-name>
+        <servlet-class>controller.ReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
     </servlet-mapping>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadFileServlet</servlet-name>
+        <url-pattern>/UploadFileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReviewServlet</servlet-name>
+        <url-pattern>/ReviewServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
