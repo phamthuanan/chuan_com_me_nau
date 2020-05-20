@@ -7,7 +7,6 @@ package get;
 
 import connect.DBConnect;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,7 +34,7 @@ public class ReviewGet {
            review.setRecipeId(rs.getInt("recipe_id"));
            review.setUserIdReview(rs.getInt("user_id"));
            review.setReviewMessenges(rs.getString("review_messenges"));
-           review.setReviewDate(rs.getDate("review_date"));
+           review.setReviewDate(rs.getTimestamp("review_date"));
            list.add(review);
         }
         return list;
@@ -53,7 +52,7 @@ public class ReviewGet {
            review.setRecipeId(rs.getInt("recipe_id"));
            review.setUserIdReview(rs.getInt("user_id"));
            review.setReviewMessenges(rs.getString("review_messenges"));
-           review.setReviewDate(rs.getDate("review_date"));
+           review.setReviewDate(rs.getTimestamp("review_date"));
            list.add(review);
         }
         return list;
@@ -72,7 +71,7 @@ public class ReviewGet {
            review.setRecipeId(rs.getInt("recipe_id"));
            review.setUserIdReview(rs.getInt("user_id"));
            review.setReviewMessenges(rs.getString("review_messenges"));
-           review.setReviewDate(rs.getDate("review_date"));
+           review.setReviewDate(rs.getTimestamp("review_date"));
            list.add(review);
         }
         return list;
@@ -93,14 +92,13 @@ public class ReviewGet {
     //Thêm bình luận
     public boolean insertReview(Review re) {
         Connection connection = DBConnect.getConnection();
-        String sql = "INSERT INTO review VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO review(`review_id`, `recipe_id`, `review_messenges`, `user_id`) VALUES(?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setInt(1, re.getReviewId());
             ps.setInt(2, re.getRecipeId());
-            ps.setInt(3, re.getUserIdReview());
-            ps.setString(4, re.getReviewMessenges());
-            ps.setDate(5, (Date) re.getReviewDate());
+            ps.setString(3, re.getReviewMessenges());
+            ps.setInt(4, re.getUserIdReview());
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -113,7 +111,7 @@ public class ReviewGet {
      public boolean updateReivew(Review re) {
         
         Connection connection = DBConnect.getConnection();
-        String sql = "UPDATE review SET review_id=?, recipe_id=?, user_id=?, review_messenges=?, review_date=? WHERE review_id = ?";
+        String sql = "UPDATE review SET review_id=?, recipe_id=?, user_id=?, review_messenges=? WHERE review_id = ?";
         
         try {
             PreparedStatement ps = connection.prepareCall(sql);
@@ -121,8 +119,7 @@ public class ReviewGet {
             ps.setInt(2, re.getRecipeId());
             ps.setInt(3, re.getUserIdReview());
             ps.setString(4, re.getReviewMessenges());
-            ps.setDate(5, (Date) re.getReviewDate());
-             ps.setInt(6, re.getReviewId());
+             ps.setInt(5, re.getReviewId());
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
            Logger.getLogger(UserGet.class.getName()).log(Level.SEVERE,null, ex);

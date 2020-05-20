@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -16,17 +17,16 @@ public class Review {
     private int recipeId;
     private int userIdReview;
     private String reviewMessenges;
-    private Date reviewDate;
+    private Timestamp reviewDate;
 
     public Review(){
         
     }
-    public Review(int reviewId, int recipeId, int userIdReview, String reviewMessenges, Date reviewDate) {
+    public Review(int reviewId, int recipeId, int userIdReview, String reviewMessenges) {
         this.reviewId = reviewId;
         this.recipeId = recipeId;
         this.userIdReview = userIdReview;
         this.reviewMessenges = reviewMessenges;
-        this.reviewDate = reviewDate;
     }
 
     public int getReviewId() {
@@ -65,7 +65,7 @@ public class Review {
         return reviewDate;
     }
 
-    public void setReviewDate(Date reviewDate) {
+    public void setReviewDate(Timestamp reviewDate) {
         this.reviewDate = reviewDate;
     }
 

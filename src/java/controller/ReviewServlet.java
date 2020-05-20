@@ -7,13 +7,11 @@ package controller;
 
 import get.ReviewGet;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Review;
-import model.User;
 
 /**
  *
@@ -32,16 +30,14 @@ ReviewGet reviewGet = new ReviewGet();
             throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        Review review = new Review();       
-     
-        review.setReviewId((int) new java.util.Date().getTime());
-        review.setRecipeId(Integer.parseInt(request.getParameter("recipeId")));
-        review.setUserIdReview(Integer.parseInt(request.getParameter("userId")));
-        review.setReviewMessenges(request.getParameter("text-comment"));
-        review.setReviewDate(new java.util.Date());
         
+        int reviewId = (int) new java.util.Date().getTime();
+        int recipeId = Integer.parseInt(request.getParameter("recipeId"));
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        String mess = request.getParameter("text-comment");
+   
         String url = "", error = "";
-        if (review.getReviewMessenges().equals("")) {
+        if (mess.equals("")) {
             error = "Vui lòng nhập nội dung bình luận!";
             request.setAttribute("error", error);
         }
@@ -49,9 +45,13 @@ ReviewGet reviewGet = new ReviewGet();
         try {
             if (error.length() == 0) {
                     
-                        reviewGet.insertReview(review);
+                        reviewGet.insertReview(new Review(reviewId,recipeId,userId,mess));
+                        url = "/chuancommenau/RecipeDetail.jsp?recipeId="+recipeId+"";
                        
-            }url = "/chuancommenau/RecipeDetail.jsp?recipeId="+review.getRecipeId()+"";
+            }else
+            {
+                url = "/chuancommenau/RecipeDetail.jsp?recipeId="+recipeId+"";
+            }
                 
         } catch (Exception e) {
         }

@@ -42,6 +42,7 @@ public class UploadFileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // kiểm tra nếu yêu cầu thực sự có hành động upload file
+      
         if (!ServletFileUpload.isMultipartContent(request)) {
             // nếu không có thì dừng việc upload
             PrintWriter writer = response.getWriter();
@@ -49,7 +50,8 @@ public class UploadFileServlet extends HttpServlet {
             writer.flush();
             return;
         }
-
+        String url ="/chuancommenau/index.jsp";
+        String avatar ="";
         // cấu hình cài đặc upload
         DiskFileItemFactory factory = new DiskFileItemFactory();
         // đặc ngưỡng bộ nhớ - giới hạn file lưu trữ
@@ -85,18 +87,18 @@ public class UploadFileServlet extends HttpServlet {
                 for (FileItem item : formItems) {
                     // xử lý file
                     if (!item.isFormField()) {
+                        
                         String fileName = new File(item.getName()).getName();
                         String filePath = uploadPath + File.separator + fileName;
                         File storeFile = new File(filePath);
 
                         // lưu file vào ổ đĩa
                         item.write(storeFile);
-                        int userId = Integer.parseInt(request.getParameter("userId"));
-                        UserGet userGet = new UserGet();
-                        userGet.updateUserAvatar(userId, fileName);
+                        avatar = fileName;
                         request.setAttribute("msg", UPLOAD_DIRECTORY + "/" + fileName);
                         request.setAttribute("message",
                                 "Upload has been done successfully >>" + UPLOAD_DIRECTORY + "/" + fileName);
+                          url ="/chuancommenau/changeavatarresult.jsp";
                     }
                 }
             }
@@ -104,9 +106,12 @@ public class UploadFileServlet extends HttpServlet {
             request.setAttribute("message",
                     "There was an error: " + ex.getMessage());
         }
+       //cập nhật avatar trong csdl
+        int user_id = Integer.parseInt(request.getParameter("userId"));
+        UserGet userGet = new UserGet();
+        userGet.updateUserAvatar(user_id, avatar);
         //chuyển hướng đến trang changeavatarresult.jsp
-        getServletContext().getRequestDispatcher("/changeavatarresult.jsp").forward(
-                request, response);
+        response.sendRedirect(url);
     }
     }
 

@@ -80,9 +80,9 @@
                     if(session.getAttribute("user")!=null){%> <%-- ktra đã đăng nhập hay chưa (lấy giá trị phiên login từ UserServlet)--%>
                     <h2 class="text-heading"><b>Bình luận</b></h2>
                     <form action="ReviewServlet" method="POST">
-                         <%if(request.getParameter("error")!=null){%>
+                         <%if(request.getAttribute("error")!=null){%>
                     <div>
-                        <p style="color:red"><%=request.getParameter("error")%></p>
+                        <p style="color:red"><%=request.getAttribute("error")%></p>
                     </div>
                         <% }
                             User users = (User)session.getAttribute("user");
@@ -115,7 +115,7 @@
                             <img src="images/<%=user.getUserAvatar()%>" alt="Image placeholder">
                         </div>
                         <div class="comment-body">
-                          <h3>John Doe</h3>
+                            <h3><%=user.getUserName()%></h3>
                           <div class="meta"><%=rev.getReviewDate()%></div>
                           <p><%=rev.getReviewMessenges()%></p>
                         </div>

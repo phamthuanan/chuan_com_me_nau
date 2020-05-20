@@ -53,7 +53,7 @@ public class UserServlet extends HttpServlet{
                 users.setUserPass(request.getParameter("pass"));
                 users.setUserPhone(request.getParameter("phone"));
                 users.setUserAddress(request.getParameter("address"));
-                users.setUserAddress(request.getParameter("avatar"));
+                users.setUserAvatar("users.png");
           
                 userGet.insertUser(users);
                 session.setAttribute("user",users);

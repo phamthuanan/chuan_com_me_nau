@@ -4,6 +4,7 @@
     Author     : Pham An
 --%>
 
+<%@page import="get.UserGet"%>
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -49,11 +50,14 @@
                         </aside>   
                         <!-- Sidebar Ends --> 
                          <%
-                              User user = (User)session.getAttribute("user");
+                             User user = (User)session.getAttribute("user");
+                            UserGet userGet = new UserGet();
+                            User users = userGet.getUser(user.getUserId());
                              %>
                         <aside class="col-md-9 col-sm-8 ptb-15">
-                             <input type="hidden" name="userId" value="<%=user.getUserId()%>">
-                            <form action="UploadFileServlet" method="post" enctype="multipart/form-data">
+                             
+                            <form action="UploadFileServlet?userId=<%=users.getUserId()%>" method="post" enctype="multipart/form-data">
+                                
                                 <h2>Chọn ảnh đại diện mới:</h2>
                                 <input type="file" name="photo" id="fileSelect" >
                                 <div class="pt-15 col-sm-12">                                               

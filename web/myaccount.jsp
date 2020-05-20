@@ -64,10 +64,10 @@
                         %>
                             <div class="comment">
                                   <div class="img-avatar">
-                                      <img src="images/<%=user.getUserAvatar()%>" alt="Image placeholder" style="border-radius:50%;float:left; padding-right: 50px;">
+                                      <img src="images/<%=users.getUserAvatar()%>" alt="Image placeholder" style="float:left; padding-right: 50px;width: 250px;height:250px">
                                   </div>
                                   <div class="user-infomation" style="padding-top: 50px;" >
-                                      <h3><%=users.getUserName()%></h3>
+                                      <h2><strong><%=users.getUserName()%></strong></h2>
                                       <p><img src="images/email.png" style=" width: 16px; height: 16px;"alt=""><span> Email: <%=users.getUserEmail()%></span> </p>
                                       <p><img src="images/phone.png" style=" width: 16px; height: 16px;"alt=""><span> Số điện thoại: <%=users.getUserPhone()%></span></p>
                                       <p><img src="images/address.png" style=" width: 16px; height: 16px;"alt=""><span> Địa chỉ: <%=users.getUserAddress()%></span></p>
