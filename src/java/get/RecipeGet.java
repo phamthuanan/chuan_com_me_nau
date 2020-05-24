@@ -297,7 +297,7 @@ public boolean insert(Recipe c) throws SQLException {
     }
 }
     //Thêm 1 công thức
-       public boolean insertProduct(Recipe c) {
+       public boolean insertRecipe(Recipe c) {
         Connection connection = DBConnect.getConnection();
         String sql = "INSERT INTO recipe VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
@@ -323,10 +323,10 @@ public boolean insert(Recipe c) throws SQLException {
     }
 
     // cập nhật dữ liệu
-    public boolean updateProduct(Recipe c) {
+    public boolean updateRecipe(Recipe c) {
         
         Connection connection = DBConnect.getConnection();
-       // String sql = "UPDATE product SET product_id = ?, category_id = ?, product_name = ?, product_image = ?, product_image_forward = ?, product_image_back = ?, product_price = ?, product_description = ? WHERE product_id = ?";
+       
         String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?, user_id =? WHERE recipe_id = ?";
         
         try {
@@ -345,6 +345,23 @@ public boolean insert(Recipe c) throws SQLException {
          ps.setString(12, c.getVideo());
          ps.setInt(13, c.getUserIdPostedRecipe());
          ps.setInt(14, c.getRecipeId());
+            return ps.executeUpdate() == 1;
+        } catch (SQLException ex) {
+            Logger.getLogger(RecipeGet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+     public boolean updateRecipeViews(int views, int recipeId) {
+        
+        Connection connection = DBConnect.getConnection();
+       
+        String sql = "UPDATE recipe SET recipe_views=? WHERE recipe_id = ?";
+        
+        try {
+        PreparedStatement ps = connection.prepareCall(sql);
+         ps.setInt(1, views);
+         ps.setInt(2, recipeId);
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(RecipeGet.class.getName()).log(Level.SEVERE, null, ex);

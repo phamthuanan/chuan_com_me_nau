@@ -28,6 +28,10 @@
         <servlet-name>ReviewServlet</servlet-name>
         <servlet-class>controller.ReviewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CountViewsServlet</servlet-name>
+        <servlet-class>controller.CountViewsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ReviewServlet</servlet-name>
         <url-pattern>/ReviewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CountViewsServlet</servlet-name>
+        <url-pattern>/CountViewsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
