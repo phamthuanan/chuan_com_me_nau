@@ -18,7 +18,7 @@ public class DBConnect {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             cons = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/chuancommenau", "root", "");
+                    "jdbc:mysql://localhost:3306/chuancommenau?useUnicode=yes&characterEncoding=UTF-8", "root", "");
         } catch (Exception e) {
             e.printStackTrace();
         }

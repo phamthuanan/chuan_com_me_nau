@@ -51,9 +51,9 @@ textarea {padding: 4px;color: #5b5b5b;border: 1px solid #dcdcdc;
           -moz-border-radius: 3px;-webkit-border-radius: 3px;-o-border-radius: 3px; width: 100%;
           height: 230px;resize: none;}	
 table {border:none;font-size: 12px;}
-td{border:none; padding: 5px;}
+td{border:none; padding: 0px;}
 
-table.data {border: 1px solid #dcdcdc; margin: 10px 0px 20px 0px; width: 97%; border-collapse: collapse;font-size: 12px;}
+table.data {border: 1px solid #dcdcdc; margin: 10px 0px 20px 0px; width: 100%; border-collapse: collapse;font-size: 12px;}
 th.data {padding: 8px 4px 8px 4px;border: 1px solid #dcdcdc; background: url(../img/green.jpg)repeat left center;text-shadow: 1px 0px #003362;color: #fff }
 td.data {padding: 4px; border: 1px solid #dcdcdc;color: #5b5b5b;vertical-align: top;}
 tr.data {background: #fff}
@@ -118,7 +118,7 @@ tr.data:hover small {color: #5b5b5b;}
 }
 .inHeader {
     float: center;
-    background: url(../img/logo.png) no-repeat left center;
+    background: url(../img/logo3.png) no-repeat left center;
     margin: auto;
     width: 920px;
     height: 45px;
@@ -127,7 +127,7 @@ tr.data:hover small {color: #5b5b5b;}
     border-left: 0px solid #dcdcdc;
 }
 .inHeaderLogin {
-   background: url(../img/logo.png) no-repeat left center;
+   background: url(../img/logo3.png) no-repeat left center;
     height: 75px;
 }
 .mosAdmin {

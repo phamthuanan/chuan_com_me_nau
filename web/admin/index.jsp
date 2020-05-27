@@ -13,7 +13,7 @@
          <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Chuẩn cơm mẹ nấu </title>
+    <title>Dashboard Admin</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
@@ -28,8 +28,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style-dash.css" />
-<!--     <link rel="stylesheet"  href="css/mos-style.css" />-->
-        <title>Admin Dashboard</title>
+
     </head>
     <body>
         <%
@@ -43,7 +42,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="#">Chuẩn cơm mẹ nấu</a>
+             <a class="navbar-brand"  href="/chuancommenau/index.jsp"><img src="img/logo3.png" height="35px"></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -71,18 +70,11 @@
               <i class="material-icons icon">
                 person
               </i>
-              <span class="text">
-                  <%if(useradmin!=null){ %>
-                    Chào <%=useradmin.getAdminName()%> <br>
-                  <% } %>
+              <span class="text"><%if(useradmin!=null){ %>Chào <%=useradmin.getAdminName()%> <% } %>
               </span>
             </a>
-            <div
-              class="dropdown-menu dropdown-menu-right"
-              aria-labelledby="navbarDropdown"
-            >
-              <a class="dropdown-item" href="/chuancommenau/LogoutAdminServlet">Đăng xuất</a>
-              
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+             <a class="dropdown-item" href="/chuancommenau/LogoutAdminServlet">Đăng xuất</a> 
             </div>
           </li>
         </ul>
@@ -168,6 +160,7 @@
             <p></p>
             <p></p>
             <p></p>
+            <h1 style="text-align: center"><b>TỔNG QUAN</b></h1>
             <jsp:include page="chart.jsp"></jsp:include>
 <!--          <div class="container-fluid">
             <div class="row">

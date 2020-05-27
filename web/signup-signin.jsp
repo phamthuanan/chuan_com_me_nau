@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="get.UserGet"%>
 <%@page import="model.User"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -72,12 +73,19 @@
 </script>-->
     </head>
     <body>
-                
+                 <%
+            UserGet user = new UserGet();
+             String error="";
+             if(request.getParameter("error")!=null){
+                 error = (String)request.getParameter("error");
+             }
+             
+        %>
                
         <div class="container" id="container">
             <div class="form-container sign-up-container">
 		<form action="UserServlet" method = "POST" >
-                   
+                   <!-- Đăng ký-->
 			<h1>Đăng ký</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -86,10 +94,8 @@
 			</div>
 			<span>hoặc sử dụng email để đăng ký</span>
                         <input type="text" placeholder="Tên đăng nhập" name="name" id="name" required/>
-                     
                         <input type="email" placeholder="Email" name="email" id="email" required/>
                         <span class="red-text accent-4" id="result"></span>
-                    
                         <input type="password" placeholder="Mật khẩu" name="pass" id="pass" required/>
                         <input type="password" placeholder="Nhập lại mật khẩu" id="confirm" name="confirm" required />
                         <input type="text" placeholder="Số điện thoại" name="phone" required/>
@@ -99,7 +105,7 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-           
+           <!--Đăng nhập -->
 		<form action="UserServlet" method="POST">
                     <%if(request.getParameter("error")!=null){%>
                     <div>
@@ -115,7 +121,7 @@
 			<span>hoặc sử dụng tài khoản của bạn</span>
                         <input type="text" placeholder="Email" name="email" id="email" required/>
                         <input type="password" placeholder="Mật khẩu" name="pass" id="pass" required/>
-			<a href="#">Quên mật khẩu?</a>
+                        <a href="#">Quên mật khẩu?</a>
                         <button value="login" name="command">Đăng nhập</button>
 		</form>
 	</div>

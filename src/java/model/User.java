@@ -65,6 +65,7 @@ public class User {
         this.userEmail = useremail;
         this.userPass = (password);
         this.userPhone = phone;
+        this.userAddress = address;
         this.userAvatar = avatar;
     }
     public int getUserId() {
