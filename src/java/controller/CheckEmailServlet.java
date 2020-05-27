@@ -37,6 +37,9 @@ public class CheckEmailServlet extends HttpServlet{
                     if (userGet.checkEmail(request.getParameter("email"))) {
                     response.getWriter().write(" Tài khoản này đã có người sử dụng");
                     }
+                    else{
+                         response.getWriter().write("Tài khoản hợp lệ");
+                    }
                 } catch (SQLException ex) {
                 Logger.getLogger(CheckEmailServlet.class.getName()).log(Level.SEVERE, null, ex);
             }

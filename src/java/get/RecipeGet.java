@@ -375,7 +375,7 @@ public boolean insert(Recipe c) throws SQLException {
         String sql = "DELETE FROM recipe WHERE recipe_id = ?";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
-            ps.setLong(1, recipe_id);
+            ps.setInt(1, recipe_id);
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(RecipeGet.class.getName()).log(Level.SEVERE, null, ex);

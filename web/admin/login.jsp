@@ -13,7 +13,7 @@
         <title>Đăng Nhập</title>
 
 <!--    <c:set var="root" value="${pageContext.request.contextPath}"/>-->
-    <link  rel="stylesheet" href="css/mos-style.css" />
+    <link  rel="stylesheet" href="css/mo-style.css" />
 
 </head>
 <body>

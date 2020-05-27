@@ -20,6 +20,18 @@
         <servlet-name>LogoutAdminServlet</servlet-name>
         <servlet-class>controller.LogoutAdminServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>ManageRecipeServlet</servlet-name>
+        <servlet-class>controller.ManageRecipeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertRecipeServlet</servlet-name>
+        <servlet-class>controller.InsertRecipeServletx</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertRecipeServletx</servlet-name>
+        <servlet-class>controller.InsertRecipeServletx</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>UploadFileServlet</servlet-name>
         <servlet-class>controller.UploadFileServlet</servlet-class>
@@ -47,6 +59,18 @@
     <servlet-mapping>
         <servlet-name>LogoutAdminServlet</servlet-name>
         <url-pattern>/LogoutAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageRecipeServlet</servlet-name>
+        <url-pattern>/ManageRecipeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertRecipeServlet</servlet-name>
+        <url-pattern>/InsertRecipeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertRecipeServletx</servlet-name>
+        <url-pattern>/InsertRecipeServletx</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>

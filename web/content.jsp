@@ -1,7 +1,7 @@
 <%-- 
     Document   : content
     Created on : May 13, 2020, 8:25:41 PM
-    Author     : Pham An
+    Author     : Anh
 --%>
 
 <%@page import="model.Recipe"%>
@@ -50,11 +50,11 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <h2 class="block-title"> Về chúng tôi </h2>
-                        <p>ChuanComMeNau là Website mang đến cho người nội trợ trong gia đình các bí quyết giúp việc nấu ăn hàng ngày sẽ được dễ dàng hơn. Bắt đầu từ việc chuẩn bị nguyên liệu, sơ chế, thiết bị dùng bếp hay chỉ đơn giản là lựa chọn món ăn phù hợp cũng sẽ trở nên nhẹ nhàng hơn bao giờ hết.</p>
+                        <p>Chuẩn Cơm Mẹ Nấu là Website mang đến cho người nội trợ trong gia đình các bí quyết giúp việc nấu ăn hàng ngày sẽ được dễ dàng hơn. Bắt đầu từ việc chuẩn bị nguyên liệu, sơ chế, thiết bị dùng bếp hay chỉ đơn giản là lựa chọn món ăn phù hợp cũng sẽ trở nên nhẹ nhàng hơn bao giờ hết.</p>
 
                         <p><b>Nấu một món ngon sẽ dễ dàng hơn</b></p>
 
-                        <p>ChuanComMeNau sẽ cố gắng từng ngày một với mong muốn tạo ra một sản phẩm có thể giúp cho những đầu bếp bình thường nhất nấu được các món ăn ngon nhất.<p>
+                        <p>Chuẩn Cơm Mẹ Nấu sẽ cố gắng từng ngày một với mong muốn tạo ra một sản phẩm có thể giúp cho những đầu bếp bình thường nhất nấu được các món ăn ngon nhất.<p>
 
                         <p>Bạn sẽ cảm thấy rất vui khi được tự tay nấu cho gia đình mình thưởng thức những món ăn như thế và đồng thời cảm nhận thành quả mà mình đã làm ra.</p>
 
@@ -68,7 +68,7 @@
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <div class="about-images">
                             <img class="about-main" src="images/about-main.jpg" alt="About Main Image">
-                            <img class="about-inset" src="images/about-inset.jpg" alt="About Inset Image">
+                            <img class="about-inset" src="images/about-inset1.jpg" alt="About Inset Image">
                         </div>
                     </div>
                 </div>
@@ -329,7 +329,7 @@
                         <h2 class="block-title text-center">
 						THÀNH VIÊN 	
 					</h2>
-                        <p class="title-caption text-center">Đội chúng tôi gồm 5 thành viên - những chàng trai bản lĩnh, tự tin </p>
+                        <p class="title-caption text-center">Nhóm chúng tôi gồm 5 thành viên - những chàng trai bản lĩnh, tự tin </p>
                     </div>
                     <div class="team-box">
 
@@ -337,7 +337,7 @@
                             <div class="col-xs-2 col-half-offset">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/ANH.jpg" alt=""></a>
+                                        <a href="#"><img src="images/ANH.jpg" width="100px" height="250px" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Trần Tiến Anh</h3>
@@ -356,7 +356,7 @@
                             <div class="col-xs-2 col-half-offset">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-01.jpg" alt=""></a>
+                                        <a href="#"><img src="images/duy.jpg" width="100px" height="250px" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Phạm Nhật Duy</h3>
@@ -364,7 +364,7 @@
                                         <p>MSSV: 17520404</p>
                                         <p>Nơi sinh: Kiên Giang</p>
                                         <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.facebook.com/profile.php?id=100006300347905"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
@@ -374,7 +374,7 @@
                             <div class="col-xs-2 col-half-offset">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-01.jpg" alt=""></a>
+                                        <a href="#"><img src="images/an1.jpg" width="100px" height="250px" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Phạm Thuận An</h3>
@@ -382,7 +382,7 @@
                                         <p>MSSV: 17520219</p>
                                         <p>Nơi sinh: Bình Thuận</p>
                                         <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.facebook.com/profile.php?id=100012177284557"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
@@ -392,15 +392,15 @@
                             <div class="col-xs-2 col-half-offset">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-02.jpg" alt=""></a>
+                                        <a href="#"><img src="images/duong2.jpg" width="100px" height="250px" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Nguyễn Hữu Dương</h3>
                                         <p>Khoa: Khoa học và kỹ thuật thông tin</p>
                                         <p>MSSV: 17520383</p>
-                                        <p>Nơi sinh: </p>
+                                        <p>Nơi sinh: Vĩnh Phúc</p>
                                         <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.facebook.com/profile.php?id=100008391554261"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
@@ -410,7 +410,7 @@
                             <div class="col-xs-2 col-half-offset">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/staff-03.jpg" alt=""></a>
+                                        <a href="#"><img src="images/hao1.jpg" width="100px" height="250px" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Nguyễn Mạnh Hào</h3>
@@ -418,10 +418,10 @@
                                         <p>MSSV: 1752</p>
                                         <p>Nơi sinh: Đắk Lắk </p>
                                         <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.facebook.com/hao34"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                         </ul>
-                                    </div>
+                                    </div> 
                                 </div>
                             </div>
                             <!-- end col -->
