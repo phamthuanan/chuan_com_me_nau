@@ -52,15 +52,20 @@
                         <!-- Sidebar Ends --> 
 
                         <aside class="col-md-9 col-sm-8 ptb-15">
-                        
-                            <table>
-                                <%
+                         <%
                             User user = (User)session.getAttribute("user");
                             if (user == null) {
                              response.sendRedirect("/chuancommenau/signup-signin.jsp");
                             }
                             RecipeGet recipeGet = new RecipeGet();
-                            for(Recipe recipe : recipeGet.getListRecipeByUserId(user.getUserId())){%>
+                            if(recipeGet.getListRecipeByUserId(user.getUserId()).isEmpty()){
+                                %>
+                                <h2>Bạn chưa đăng bất kỳ công thức nào!</h2>
+                            <%}else{%>
+                             <table>
+                                 <%
+                                     for(Recipe recipe: recipeGet.getListRecipeByUserId(user.getUserId())){
+                                         %>
                              <tr>
                                  <th><%=recipe.getRecipeId()%></th>
                                  <th><%=recipe.getRecipeName()%></th>
@@ -81,6 +86,11 @@
                             <%}%>
                                 
                               </table>
+                                
+                            <%}%>
+                            
+                           
+                           
                         </aside>                        
                     </div>
                 </div>

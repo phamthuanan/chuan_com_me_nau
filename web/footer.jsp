@@ -4,6 +4,8 @@
     Author     : Pham An
 --%>
 
+<%@page import="model.Recipe"%>
+<%@page import="get.RecipeGet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -75,11 +77,16 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-box-b">
                                 <h3>Công thức mới</h3>
+                                 <%
+                                RecipeGet recipeGet = new RecipeGet();
+                                Recipe r1= recipeGet.getRecipe(25);
+                                Recipe r2= recipeGet.getRecipe(26);
+                                Recipe r3= recipeGet.getRecipe(27);
+                                %>
                                 <ul>
-                                    <li><a href="#">Italian Bomba Sandwich</a></li>
-                                    <li><a href="#">Double Dose of Pork Belly</a></li>
-                                    <li><a href="#">Spicy Thai Noodles</a></li>
-                                    <li><a href="#">Triple Truffle Trotters</a></li>
+                                    <li><a href="CountViewsServlet?recipeId=<%=r1.getRecipeId()%>&&views=<%= r1.getRecipeViews()+1%>"><%=r1.getRecipeName()%></a></li>
+                                    <li><a href="CountViewsServlet?recipeId=<%=r2.getRecipeId()%>&&views=<%= r2.getRecipeViews()+1%>"><%=r2.getRecipeName()%></a></li>
+                                    <li><a href="CountViewsServlet?recipeId=<%=r3.getRecipeId()%>&&views=<%= r3.getRecipeViews()+1%>"><%=r3.getRecipeName()%></a></li>
                                 </ul>
                             </div>
                             <!-- end footer-box-b -->

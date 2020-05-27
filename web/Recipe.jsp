@@ -56,23 +56,25 @@
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Công thức</h2>
                                                 <%
+                                                    int views;
                                                     for(Recipe r: recipeGet.getListRecipeByCategory(Integer.parseInt(categoryId))){
+                                                      
                                                         %>
                                                     <div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-                                                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" /></a>
-                                                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h2 class= "name_recipe"><%=r.getRecipeName()%></h2></a>
+                                                                            <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><img src="images/<%=r.getRecipeImage()%>" alt="" /></a>
+                                                                            <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><h2 class= "name_recipe"><%=r.getRecipeName()%></h2></a>
                                                                             <p>Công thức bởi: <%=r.getRecipeAuthor()%></p>
                                                                             <p><img src="images/views.png" style="width:auto; height:auto" alt=""> <%=r.getRecipeViews()%>  <img src="images/enery.png" alt="" style="width:auto; height:auto"><%=r.getRecipeCalories()%>kcal</p>
 										
 									</div>
 								</div>
 							</div>
-						</div>
+                                                    </div>
                                                     <%}%>
-						
+                                                    
 					</div><!--features_items-->
 				</div>
 			</div>

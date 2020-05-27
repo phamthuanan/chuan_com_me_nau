@@ -96,7 +96,7 @@
                                 Recipe recipe3= recipeGet.getRecipe(27);
                                 %>
                             <div class="item item-type-zoom">
-                                <a href="RecipeDetail.jsp?recipeId=<%=recipe1.getRecipeId()%>" class="item-hover">
+                                <a href="CountViewsServlet?recipeId=<%=recipe1.getRecipeId()%>&&views=<%= recipe1.getRecipeViews()+1%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
                                             <%= recipe1.getRecipeName()%>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="RecipeDetail.jsp?recipeId=<%=recipe2.getRecipeId()%>" class="item-hover">
+                                <a href="CountViewsServlet?recipeId=<%=recipe2.getRecipeId()%>&&views=<%= recipe2.getRecipeViews()+1%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
                                             <%= recipe2.getRecipeName()%>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="RecipeDetail.jsp?recipeId=<%=recipe3.getRecipeId()%>" class="item-hover">
+                                <a href="CountViewsServlet?recipeId=<%=recipe3.getRecipeId()%>&&views=<%= recipe3.getRecipeViews()+1%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
                                             <%= recipe3.getRecipeName()%>
@@ -138,7 +138,7 @@
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="RecipeDetail.jsp?recipeId=<%=recipe1.getRecipeId()%>" class="item-hover">
+                                <a href="CountViewsServlet?recipeId=<%=recipe1.getRecipeId()%>&&views=<%= recipe1.getRecipeViews()+1%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
                                             <%= recipe1.getRecipeName()%>
@@ -152,7 +152,7 @@
                                 </div>
                             </div>
                             <div class="item item-type-zoom">
-                                <a href="RecipeDetail.jsp?recipeId=<%=recipe2.getRecipeId()%>" class="item-hover">
+                                <a href="CountViewsServlet?recipeId=<%=recipe2.getRecipeId()%>&&views=<%= recipe2.getRecipeViews()+1%>" class="item-hover">
                                     <div class="item-info">
                                         <div class="headline">
                                             <%= recipe2.getRecipeName()%>
@@ -214,9 +214,9 @@
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
+                                        <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
-                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
+                                            <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
                                                 <span>Công thức bởi: <%= r.getRecipeAuthor()%></span> <br>
                                                 <span>Lượt xem:<%=r.getRecipeViews()%></span>
@@ -239,9 +239,9 @@
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
+                                        <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
-                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
+                                            <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
                                                 <span>Công thức bởi: <%= r.getRecipeAuthor()%></span> <br>
                                                 <span>Lượt xem:<%=r.getRecipeViews()%></span>
@@ -264,9 +264,9 @@
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
+                                        <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
-                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
+                                            <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
                                                 <span>Công thức bởi: <%= r.getRecipeAuthor()%></span> <br>
                                                 <span>Lượt xem:<%=r.getRecipeViews()%></span>
@@ -289,9 +289,9 @@
                                         %>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                                     <div class="offer-item">
-                                        <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
+                                        <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><img src="images/<%=r.getRecipeImage()%>" alt="" class="img-responsive"></a>
                                         <div>
-                                            <a href="RecipeDetail.jsp?recipeId=<%=r.getRecipeId()%>"><h3><%=r.getRecipeName()%></h3></a>
+                                            <a href="CountViewsServlet?recipeId=<%=r.getRecipeId()%>&&views=<%= r.getRecipeViews()+1%>"><h3><%=r.getRecipeName()%></h3></a>
                                             <p>
                                                 <span>Công thức bởi: <%= r.getRecipeAuthor()%></span> <br>
                                                 <span>Lượt xem:<%=r.getRecipeViews()%></span>
