@@ -373,12 +373,12 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                                <h2 class="ft-title color-white text-center"> Newsletter </h2>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <h2 class="ft-title color-white text-center"> Góp ý </h2>
+                                <p> Mọi thông tin chi tiết và góp ý xin vui lòng gửi thư về địa chỉ E-Mail: support@chuancommenau.com </p>
                             </div>
-                            <form>
-                                <input type="email" placeholder="Enter your e-mail id">
-                                <a href="#" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                            <form action="mailto:Nhatduy19254@gmail.com" method="post" enctype="text/plain">
+                                <input type="email" placeholder="Nhập địa chỉ E-Mail của bạn">
+                                <a href="mailto:Nhatduy19254@gmail.com" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
                             </form>
                         </div>
                         <!-- end col -->
@@ -390,7 +390,6 @@
             <!-- end footer-news -->
             <jsp:include page="footer.jsp"></jsp:include>
         </div>
-        <!-- end footer-main -->
 
         <a href="#" class="scrollup" style="display: none;">Scroll</a>
 

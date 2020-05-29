@@ -57,13 +57,13 @@
                         <h2 class="block-title"> Về chúng tôi </h2>
                         <p>Chuẩn Cơm Mẹ Nấu là Website mang đến cho người nội trợ trong gia đình các bí quyết giúp việc nấu ăn hàng ngày sẽ được dễ dàng hơn. Bắt đầu từ việc chuẩn bị nguyên liệu, sơ chế, thiết bị dùng bếp hay chỉ đơn giản là lựa chọn món ăn phù hợp cũng sẽ trở nên nhẹ nhàng hơn bao giờ hết.</p>
 
-                        <p><b>Nấu một món ngon sẽ dễ dàng hơn</b></p>
+                        <p style="color: #000;"><b>Nấu một món ngon sẽ dễ dàng hơn</b></p>
 
                         <p>Chuẩn Cơm Mẹ Nấu sẽ cố gắng từng ngày một với mong muốn tạo ra một sản phẩm có thể giúp cho những đầu bếp bình thường nhất nấu được các món ăn ngon nhất.<p>
 
                         <p>Bạn sẽ cảm thấy rất vui khi được tự tay nấu cho gia đình mình thưởng thức những món ăn như thế và đồng thời cảm nhận thành quả mà mình đã làm ra.</p>
 
-                        <p><b>Cùng đam mê nấu nướng</b></p>
+                        <p style="color: #000;"><b>Cùng đam mê nấu nướng</b></p>
 	    
                         <p>Bạn có thể tìm thấy những người cùng sở thích cùng đam mê, kết nối & và chia sẻ kinh nghiệm cho nhau. Với hy vọng có thể tạo được một sân chơi thật sự cho những người đam mê ẩm thực, đam mê nấu nướng.<p>
                     </div>
@@ -190,7 +190,7 @@
                         <h2 class="block-title text-center">
 						Công thức 	
 					</h2>
-                        <p class="title-caption text-center">Hãy cùng chúng tôi khám phá vô vàng những công thức món ăn tuyệt vời nhất từ những vị đầu bếp tài năng đến những vị đầu bếp tại ra nhiều kinh nghiệm. </p>
+                        <p class="title-caption text-center">Khám phá vô vàng những công thức món ăn tuyệt vời nhất từ những vị đầu bếp tài năng đến những vị đầu bếp tại ra nhiều kinh nghiệm. </p>
                     </div>
                     <div class="tab-menu">
                         <div class="slider slider-nav">
@@ -334,7 +334,7 @@
                         <h2 class="block-title text-center">
 						THÀNH VIÊN 	
 					</h2>
-                        <p class="title-caption text-center">Nhóm chúng tôi gồm 5 thành viên - những chàng trai bản lĩnh, tự tin </p>
+                        <p class="title-caption text-center">Nhóm chúng tôi gồm 5 thành viên - những chàng trai bản lĩnh, tự tin. </p>
                     </div>
                     <div class="team-box">
 
@@ -347,7 +347,6 @@
                                     <div class="text-col">
                                         <h3>Trần Tiến Anh</h3>
                                         <p>Khoa: Khoa học và kỹ thuật thông tin</p>
-                                        <p>MSSV: 17520254</p>
                                         <p>Nơi sinh: Bình Phước</p>
                                        
                                         <ul class="team-social">
@@ -366,7 +365,6 @@
                                     <div class="text-col">
                                         <h3>Phạm Nhật Duy</h3>
                                         <p>Khoa: Khoa học và kỹ thuật thông tin</p>
-                                        <p>MSSV: 17520404</p>
                                         <p>Nơi sinh: Kiên Giang</p>
                                         <ul class="team-social">
                                             <li><a href="https://www.facebook.com/profile.php?id=100006300347905"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -384,7 +382,6 @@
                                     <div class="text-col">
                                         <h3>Phạm Thuận An</h3>
                                         <p>Khoa: Khoa học và kỹ thuật thông tin</p>
-                                        <p>MSSV: 17520219</p>
                                         <p>Nơi sinh: Bình Thuận</p>
                                         <ul class="team-social">
                                             <li><a href="https://www.facebook.com/profile.php?id=100012177284557"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -402,7 +399,6 @@
                                     <div class="text-col">
                                         <h3>Nguyễn Hữu Dương</h3>
                                         <p>Khoa: Khoa học và kỹ thuật thông tin</p>
-                                        <p>MSSV: 17520383</p>
                                         <p>Nơi sinh: Vĩnh Phúc</p>
                                         <ul class="team-social">
                                             <li><a href="https://www.facebook.com/profile.php?id=100008391554261"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -420,7 +416,6 @@
                                     <div class="text-col">
                                         <h3>Nguyễn Mạnh Hào</h3>
                                         <p>Khoa: Khoa học và kỹ thuật thông tin</p>
-                                        <p>MSSV: 1752</p>
                                         <p>Nơi sinh: Đắk Lắk </p>
                                         <ul class="team-social">
                                             <li><a href="https://www.facebook.com/hao34"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -451,9 +446,9 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <h2 class="block-title text-center">
-						Our Gallery	
+						Bộ sưu tập	
 					</h2>
-                        <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available </p>
+                        <p class="title-caption text-center"> Tham quan các món ăn đã được thực hiện trong cộng đồng. </p>
                     </div>
                     <div class="gal-container clearfix">
                         <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
@@ -469,7 +464,7 @@
                                                 <img src="images/gallery_01.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 1 one on my Gallery</h4>
+                                                <h4>Bánh Pizza kiểu Ý.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -489,7 +484,7 @@
                                                 <img src="images/gallery_02.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 2 one on my Gallery</h4>
+                                                <h4>Cá hồi kho ngũ quả.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -509,7 +504,7 @@
                                                 <img src="images/gallery_03.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 3 one on my Gallery</h4>
+                                                <h4>Lẩu cá kiểu Thái.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -529,7 +524,7 @@
                                                 <img src="images/gallery_04.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 4 one on my Gallery</h4>
+                                                <h4>Salad cá ngừ.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -549,7 +544,7 @@
                                                 <img src="images/gallery_05.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 5 one on my Gallery</h4>
+                                                <h4>Thực phẩm ăn nhẹ cho buổi tối.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -569,7 +564,7 @@
                                                 <img src="images/gallery_06.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 6 one on my Gallery</h4>
+                                                <h4>Món tráng miệng nhà hàng.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -589,7 +584,7 @@
                                                 <img src="images/gallery_07.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 7 one on my Gallery</h4>
+                                                <h4>Cà phê Chanchamayo.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -609,7 +604,7 @@
                                                 <img src="images/gallery_08.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 8 one on my Gallery</h4>
+                                                <h4>Hamburger New Zealand.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -629,7 +624,7 @@
                                                 <img src="images/gallery_09.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 9 one on my Gallery</h4>
+                                                <h4>Hamburger nhân thịt nướng.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -649,7 +644,7 @@
                                                 <img src="images/gallery_10.jpg" alt="" />
                                             </div>
                                             <div class="col-md-12 description">
-                                                <h4>This is the 10 one on my Gallery</h4>
+                                                <h4>Cơm thập cẩm Paella - Barcelona.</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -741,7 +736,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                             <h2 class="ft-title color-white text-center"> Góp ý </h2>
-                            <p> Mọi thông tin chi tiết và góp ý xin vui lòng gửi thư về địa chỉ E-Mail: ChuanComMeNau@gmail.com </p>
+                            <p> Mọi thông tin chi tiết và góp ý xin vui lòng gửi thư về địa chỉ E-Mail: support@chuancommenau.com </p>
                         </div>
                         <form action="mailto:Nhatduy19254@gmail.com" method="post" enctype="text/plain">
                             <input type="email" placeholder="Nhập địa chỉ E-Mail của bạn">
@@ -755,7 +750,6 @@
             <!-- end container -->
         </div>
         <!-- end footer-news -->
-        
-    
+    </div>    
 </body>
 </html>
