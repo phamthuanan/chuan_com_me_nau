@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -16,25 +17,38 @@ public class Course{
     private String courseName;
     private Date coursesTimeStart;
     private Date coursesTimeFinish;
-    private String courseType;
+    private int categoryCourseId;
     private String courseAddress;
-    private String teacher;
+    private int teacherId;
     private String courseImages;
-    private String description;
-
+    private String introduce;
+    private Time time;
+    private int duration;
+    private String infomationCourse;
+    private String imagesCourse1;
+    private String imagesCourse2;
+    private String benifitOfCourse;
+    
     public Course(){
         
     }
-    public Course(int courseId, String courseName, Date coursesTimeStart, Date coursesTimeFinish, String courseType, String courseAddress, String teacher, String courseImages, String description) {
+
+    public Course(int courseId, String courseName, Date coursesTimeStart, Date coursesTimeFinish, int categoryCourseId, String courseAddress, int teacherId, String courseImages, String introduce, Time time, int duration, String infomationCourse, String imagesCourse1, String imagesCourse2, String benifitOfCourse) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.coursesTimeStart = coursesTimeStart;
         this.coursesTimeFinish = coursesTimeFinish;
-        this.courseType = courseType;
+        this.categoryCourseId = categoryCourseId;
         this.courseAddress = courseAddress;
-        this.teacher = teacher;
+        this.teacherId = teacherId;
         this.courseImages = courseImages;
-        this.description = description;
+        this.introduce = introduce;
+        this.time = time;
+        this.duration = duration;
+        this.infomationCourse = infomationCourse;
+        this.imagesCourse1 = imagesCourse1;
+        this.imagesCourse2 = imagesCourse2;
+        this.benifitOfCourse = benifitOfCourse;
     }
 
     public int getCourseId() {
@@ -69,12 +83,12 @@ public class Course{
         this.coursesTimeFinish = coursesTimeFinish;
     }
 
-    public String getCourseType() {
-        return courseType;
+    public int getCategoryCourseId() {
+        return categoryCourseId;
     }
 
-    public void setCourseType(String courseType) {
-        this.courseType = courseType;
+    public void setCategoryCourseId(int categoryCourseId) {
+        this.categoryCourseId = categoryCourseId;
     }
 
     public String getCourseAddress() {
@@ -85,12 +99,12 @@ public class Course{
         this.courseAddress = courseAddress;
     }
 
-    public String getTeacher() {
-        return teacher;
+    public int getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     public String getCourseImages() {
@@ -101,13 +115,60 @@ public class Course{
         this.courseImages = courseImages;
     }
 
-    public String getDescription() {
-        return description;
+    public String getIntroduce() {
+        return introduce;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce;
     }
 
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public String getInfomationCourse() {
+        return infomationCourse;
+    }
+
+    public void setInfomationCourse(String infomationCourse) {
+        this.infomationCourse = infomationCourse;
+    }
+
+    public String getImagesCourse1() {
+        return imagesCourse1;
+    }
+
+    public void setImagesCourse1(String imagesCourse1) {
+        this.imagesCourse1 = imagesCourse1;
+    }
+
+    public String getImagesCourse2() {
+        return imagesCourse2;
+    }
+
+    public void setImagesCourse2(String imagesCourse2) {
+        this.imagesCourse2 = imagesCourse2;
+    }
+
+    public String getBenifitOfCourse() {
+        return benifitOfCourse;
+    }
+
+    public void setBenifitOfCourse(String benifitOfCourse) {
+        this.benifitOfCourse = benifitOfCourse;
+    }
     
 }

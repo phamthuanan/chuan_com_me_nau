@@ -4,6 +4,10 @@
     Author     : Anh
 --%>
 
+<%@page import="model.Chef"%>
+<%@page import="get.ChefGet"%>
+<%@page import="model.Course"%>
+<%@page import="get.CourseGet"%>
 <%@page import="model.Recipe"%>
 <%@page import="get.RecipeGet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,6 +36,7 @@
     
     <!-- Site CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- color -->
@@ -664,99 +669,71 @@
 
     <div id="blog" class="blog-main pad-top-100 pad-bottom-100 parallax">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h2 class="block-title text-center">
-					Our Blog 	
-				</h2>
-                    <div class="blog-box clearfix">
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    <div class="blog-img-box">
-                                        <img src="images/featured-image-01.jpg" alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-dit">
-                                        <p><span>25 NOVEMBER, 2014</span></p>
-                                        <h2>LATEST RECIPES JUST IN!</h2>
-                                        <h5>BY John Doggett</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="block-title text-center">
+                Khóa học nấu ăn
+              </h2>
+              <div class="blog-box clearfix">
+                  <%
+                      CourseGet courseGet = new CourseGet();
+                      ChefGet chefGet = new ChefGet();
+                      for(Course c: courseGet.getList4Course()){
+                          Chef chef= chefGet.getChef(c.getTeacherId());
+                          %>
+                    <div
+                  class="wow fadeIn"
+                  data-wow-duration="1s"
+                  data-wow-delay="0.1s"
+                >
+                  <div class="col-md-6 col-sm-6">
+                    <div class="blog-block">
+                      <div class="blog-img-box">
+                          <img src="images/<%=c.getCourseImages()%>" alt="" />
+                        <div class="overlay">
+                            <a href="CourseDetail.jsp?courseId=<%=c.getCourseId()%>"
+                            ><i class="fa fa-link" aria-hidden="true"></i
+                          ></a>
                         </div>
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    <div class="blog-img-box">
-                                        <img src="images/featured-image-02.jpg" alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-dit">
-                                        <p><span>2 NOVEMBER, 2014</span></p>
-                                        <h2>NEW RECRUITS HAVE ARRIVED!</h2>
-                                        <h5>BY Jeffrey Spender</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
+                      </div>
+                      <div class="blog-dit">
+                        <p><span>Nấu ăn</span></p>
+                        <div class="Khoa-hoc">
+                            <h1><%=c.getCourseName()%></h1>
+                          <div class="infor">
+                              <h4 class="gv">Đầu bếp: <%=chef.getChefName()%></h4>
+                              <h4 class="time"><img src="images/time.png" style=" width: 16px; height: 16px;"alt=""> Ngày bắt đầu: <%=c.getCoursesTimeStart()%><img src="images/clock.png" style=" width: 16px; height: 16px;"alt=""> <%=c.getTime()%></h4>
+                              <h4 class="time"><img src="images/address.png" style=" width: 16px; height: 16px;"alt=""> Địa chỉ: <%=c.getCourseAddress()%></h4>
+                           
+                          </div>
                         </div>
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    <div class="blog-img-box">
-                                        <img src="images/featured-image-03.jpg" alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-dit">
-                                        <p><span>4 NOVEMBER, 2014</span></p>
-                                        <h2>BAKING TIPS FROM THE PROS</h2>
-                                        <h5>BY Monica Reyes</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="blog-block">
-                                    <div class="blog-img-box">
-                                        <img src="images/featured-image-04.jpg" alt="" />
-                                        <div class="overlay">
-                                            <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="blog-dit">
-                                        <p><span>12 NOVEMBER, 2014</span></p>
-                                        <h2>ALL YOUR EGGS BELONG TO US</h2>
-                                        <h5>BY John Doggett</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
+                        <h5>
+                            <%=c.getIntroduce()%>
+                        </h5>
+                        <a href=""><button class="buttonsignup" >Đăng ký</button></a>
+                      </div>
                     </div>
-                    <!-- end blog-box -->
-
-                    <div class="blog-btn-v">
-                        <a class="hvr-underline-from-center" href="#">View the Blog</a>
-                    </div>
-
-                </div>
-                <!-- end col -->
+                  </div>
+                  <!-- end col -->
+                </div>  
+                      <%}%> 
+                
+                
+               
+              </div>
+              <!-- end blog-box -->
+  
+              <div class="blog-btn-v">
+                <a class="hvr-underline-from-center" href="Course.jsp">Xem thêm</a>
+              </div>
             </div>
-            <!-- end row -->
+            <!-- end col -->
+          </div>
+          <!-- end row -->
         </div>
         <!-- end container -->
-    </div>
-    <!-- end blog-main -->
+      </div>
+      <!-- end blog-main -->
     <div id="footer" class="footer-main">
         <div class="footer-news pad-top-100 pad-bottom-70 parallax">
             <div class="container">
