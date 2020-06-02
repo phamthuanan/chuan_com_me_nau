@@ -72,11 +72,11 @@
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="active"><a href="index.jsp">TRANG CHỦ</a></li>
-                                    <li><a href="#about">GIỚI THIỆU</a></li>
+                                    <li><a href="aboutUs.jsp">GIỚI THIỆU</a></li>
                                     <li><a href="Recipe.jsp">CÔNG THỨC</a></li>
                                     <li><a href="community.jsp">CỘNG ĐỒNG</a></li>
                                     <li><a href="#blog">KHÓA HỌC</a></li>
-                                    <li><a href="#footer">LIÊN HỆ</a></li>
+                                    <li><a href="contact.jsp">LIÊN HỆ</a></li>
                                     <% 
                                         User user = null;
                                         if(session.getAttribute("user") != null){

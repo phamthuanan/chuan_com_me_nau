@@ -342,7 +342,7 @@
                             <div class="col-xs-2 col-half-offset">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/ANH.jpg" width="100px" height="250px" alt=""></a>
+                                        <a href="#"><img src="images/Anh.jpg" width="100px" height="250px" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Trần Tiến Anh</h3>
@@ -360,7 +360,7 @@
                             <div class="col-xs-2 col-half-offset">
                                 <div class="sf-team">
                                     <div class="thumb">
-                                        <a href="#"><img src="images/duy.jpg" width="100px" height="250px" alt=""></a>
+                                        <a href="#"><img src="images/Duy.jpg" width="100px" height="250px" alt=""></a>
                                     </div>
                                     <div class="text-col">
                                         <h3>Phạm Nhật Duy</h3>
