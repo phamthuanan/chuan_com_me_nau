@@ -93,14 +93,14 @@ public class ManageRecipeServlet extends HttpServlet{
                        String cachlam = request.getParameter("cachlam");
                        String hinh = request.getParameter("hinh");
                        int userid =0;
-                             recipeGet.insertProduct(new Recipe(recipe_id, tenmon, mact, hinh, view, calo, tacgia, thanhphan, dinhduong, cachlam, motamon, video, userid));
-                             url = "/admin/manage_product.jsp";
-                             break;
-                    case "update":
-               
-                        recipeGet.updateProduct(new Recipe(new Date().getTime(), tenmon, mact, hinh, view, calo, tacgia, thanhphan, dinhduong, cachlam, motamon, video, userid));
-                        url = "/admin/manage_product.jsp";
-                        break;
+//                             recipeGet.insertProduct(new Recipe(recipe_id, tenmon, mact, hinh, view, calo, tacgia, thanhphan, dinhduong, cachlam, motamon, video, userid));
+//                             url = "/admin/manage_product.jsp";
+//                             break;
+//                    case "update":
+//               
+//                        recipeGet.updateProduct(new Recipe(new Date().getTime(), tenmon, mact, hinh, view, calo, tacgia, thanhphan, dinhduong, cachlam, motamon, video, userid));
+//                        url = "/admin/manage_product.jsp";
+//                        break;
                     
                     
                 }

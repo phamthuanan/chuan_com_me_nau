@@ -61,14 +61,72 @@
                                     <div class="offer-item2">
                                         <img src="images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive" style="width: 80px">
                                         <div class="profile">
-                                            <p>Chia sẻ món ngon của bạn với cộng đồng ...</p>
+                                            <a href="shareTheRecipe.jsp"><p>Chia sẻ món ngon của bạn với cộng đồng ...</p></a>
                                         </div>
                                     </div>
                                     <div class="blog-btn-v">
-                                        <a class="hvr-underline-from-center" href="#">Đăng bài</a>
+                                        <button class="hvr-underline-from-center" type="button" data-toggle="modal" data-target="#myModal" href="shareTheRecipe.jsp">Đăng bài</button>
                                     </div>
                                 </div> 
                             </div>
+                            
+                            <div class="srf-community modal" id="myModal" style="width: 800px; margin: 60px auto; padding-right: 0">
+                                <div class="modal-header"> 
+                                    <div class="modal-title"> 
+                                        Chia sẻ công thức & bình luận
+                                    </div>
+                                    <a class="btn-close"><img src="images/cancel.png" alt="" class="ico-20"></a>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        <div class="user">
+                                            <img src="images/menu-item-thumbnail-01.jpg" alt="" class="avt" style="width: 75px; height: 75px">
+                                        </div>
+                                        <div class="form">
+                                            <div class="form-group">
+                                                <div class="attached-recipe">
+                                                    <div class="no-choosen-recipe">
+                                                        Chọn công thức thực hiện
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="form-row">
+                                                    <div style="clear: both" class="attached-photos-container">
+                                                        <ul class="sort-able">
+                                                            <li>
+                                                                <div class="attached-photo">
+                                                                    <div><img src="images/menu-item-thumbnail-01.jpg" style="width: 100px; height: 100px;">
+                                                                    </div>
+                                                                    <a class="remove">+</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <div class=" attached-photo">
+                                                            <div class="review-img-upload-box-item">
+                                                                    <img src="images/camera2.png" class="img-64">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="review-txt gray-box">Nguyên liệu, các bước thực hiện</textarea>
+                                                </div>
+                                                <div class="form-group form-row">
+                                                    <div>
+                                                        <span style="font-weight: bold; padding: 5px 0px; display: block;"><span>Video (Youtube)</span></span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="gray-box" type="text" placeholder="Nhập liên kết đến video trên Youtube bạn muốn chia sẻ">
+                                                    </div>
+                                                </div>
+                                                <div class="acts">
+                                                    <button class="btn-submit-review">Chia sẻ công thức & bình luận</button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="gal-container clearfix">
                                 <div class="fake-form">
                                     <div class="offer-item2" style="height: 100px">
@@ -101,10 +159,7 @@
                                                 <div class="stats">
                                                     <span class="stats-item">
                                                         <span class="stats-count abbr">126008</span> lượt xem
-                                                    </span>
-                                                    <span class="stats-item">
-                                                        <span class="stats-count">112</span> Đã thực hiện
-                                                    </span>
+                                                    </span>                         
                                                 </div>
                                                 <div class="desc">
                                                     <a class="recipe-author" target="_blank" href="/thanh-vien/cooky">
@@ -197,9 +252,6 @@
                                                 <div class="stats">
                                                     <span class="stats-item">
                                                         <span class="stats-count abbr">126008</span> lượt xem
-                                                    </span>
-                                                    <span class="stats-item">
-                                                        <span class="stats-count">112</span> Đã thực hiện
                                                     </span>
                                                 </div>
                                                 <div class="desc">
@@ -294,9 +346,6 @@
                                                     <span class="stats-item">
                                                         <span class="stats-count abbr">126008</span> lượt xem
                                                     </span>
-                                                    <span class="stats-item">
-                                                        <span class="stats-count">112</span> Đã thực hiện
-                                                    </span>
                                                 </div>
                                                 <div class="desc">
                                                     <a class="recipe-author" target="_blank" href="/thanh-vien/cooky">
@@ -367,29 +416,8 @@
         </div>
         <!-- end gallery-main -->
 
-        <div id="footer" class="footer-main">
-            <div class="footer-news pad-top-100 pad-bottom-70 parallax">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                                <h2 class="ft-title color-white text-center"> Góp ý </h2>
-                                <p> Mọi thông tin chi tiết và góp ý xin vui lòng gửi thư về địa chỉ E-Mail: support@chuancommenau.com </p>
-                            </div>
-                            <form action="mailto:Nhatduy19254@gmail.com" method="post" enctype="text/plain">
-                                <input type="email" placeholder="Nhập địa chỉ E-Mail của bạn">
-                                <a href="mailto:Nhatduy19254@gmail.com" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-                            </form>
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <!-- end row -->
-                </div>
-                <!-- end container -->
-            </div>
-            <!-- end footer-news -->
-            <jsp:include page="footer.jsp"></jsp:include>
-        </div>
+        
+        <jsp:include page="footer.jsp"></jsp:include>
 
         <a href="#" class="scrollup" style="display: none;">Scroll</a>
 
