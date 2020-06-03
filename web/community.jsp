@@ -75,7 +75,7 @@
                                     <div class="modal-title"> 
                                         Chia sẻ công thức & bình luận
                                     </div>
-                                    <a class="btn-close"><img src="images/cancel.png" alt="" class="ico-20"></a>
+                                    <a class="btn-close" data-dismiss="modal"><img src="images/cancel.png" alt="" class="ico-20"></a>
                                 </div>
                                 <div class="modal-body">
                                     <div>
@@ -83,10 +83,10 @@
                                             <img src="images/menu-item-thumbnail-01.jpg" alt="" class="avt" style="width: 75px; height: 75px">
                                         </div>
                                         <div class="form">
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom: 0">
                                                 <div class="attached-recipe">
                                                     <div class="no-choosen-recipe">
-                                                        Chọn công thức thực hiện
+                                                        Tên công thức
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,7 +109,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="review-txt gray-box">Nguyên liệu, các bước thực hiện</textarea>
+                                                    <textarea class="review-txt gray-box" placeholder="Nguyên liệu, các bước thực hiện"></textarea>
                                                 </div>
                                                 <div class="form-group form-row">
                                                     <div>
