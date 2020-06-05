@@ -25,6 +25,7 @@ and open the template in the editor.
     font-size: 18px;
     background: #e75b1e;
     border: 3px solid #e75b1e;
+    margin-bottom: 15px;
 }
 
 .blog-btn-v button:hover {
@@ -45,6 +46,7 @@ and open the template in the editor.
 	padding-right: 0;
 	padding-left: 0;
 	padding-bottom: 0px;
+        cursor: pointer;
 }
 
 .pr-type {

@@ -1,109 +1,126 @@
-<%-- 
-    Document   : PostDetail
-    Created on : Jun 2, 2020, 1:20:36 PM
-    Author     : Duong Nguyen
---%>
+<%@page import="model.Post"%>
+<%@page import="get.PostGet"%>
+<%@page import="get.UserGet"%>
+<%@page import="model.Review"%>
+<%@page import="get.ReviewGet"%>
+<%@page import="model.User"%>
+<%@page import="java.util.StringTokenizer"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Bài viết chi tiết</title>
+        <title>Công thức chi tiết</title>
         <link rel="stylesheet" href="css/style_detail_dish.css">
         <link rel="stylesheet" href="css/style_review.css">
         <script src="js/modernizer.js"></script>
     </head>
     <body>
          <jsp:include page="header.jsp"></jsp:include>
+        <% 
+        Post post = new Post();
+        PostGet postGet = new PostGet();  
+        
+        String post_id = "";
+         if (request.getParameter("post_id") != null) {
+              post_id = request.getParameter("post_id");
+              post = postGet.getPost(Integer.parseInt(post_id));
+         }
+                %>
         <div class="session-dish-detail">
         <div class="detail-dish">
             <div class="row">
                 <br>
-                <h3 style="color: white;"><a  href="index.jsp" style ="color:white;">Trang chủ</a> / <a href="Recipe.jsp"style ="color:white;">Cộng đồng</a> / </h3>
+                <h3 style="color: white;"><a  href="index.jsp" style ="color:white;">Trang chủ</a> / <a href="Recipe.jsp"style ="color:white;">Công thức</a> / <%= post.getPost_name() %></h3>
           <div class="leftcolumn">
             <div class="card">
-                <div class="img-dish" ><iframe class="piture-dish" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div class="img-dish" ><iframe class="piture-dish" src="<%=post.getVideo() %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
               
-                <h2 class="name-dish"><b></b></h2>
+                <h2 class="name-dish"><b><%=post.getPost_name()  %></b></h2>
                 <h4 class="name-athour">Tác giả: </h4>
               <p class="text-heading">Giới thiệu:</p>
-              <p></p>
+              <p><%= post.getDescription_post() %></p>
             </div>
             <div class="card">
               <h2 class="text-heading"><b>Nguyên liệu</b></h2>
               <h5 class="text-heading">Phần ăn cho 2 người</h5>
                 <ul class="ingredients-food" style="list-style-image: url('images/farm.png')"> 
-                    
-                  <li> </li><br>
-                 
+                    <%
+                        String ingredient = post.getIngredient();
+                        StringTokenizer token = new StringTokenizer(ingredient, "-");
+                        while (token.hasMoreTokens()) {
+                            
+                     %>  
+                  <li> <%=token.nextToken()%></li><br>
+                 <%}%>
                 </ul>
             </div>
             <div class="card">
               <h2 class="text-heading"><b>Cách làm món ăn</b></h2>
               <hr>
                 <ul class="list-to-do">
-                    
-                     <li>Bước </p></li>
-                    
+                    <%
+                        String making = post.getMaking();
+                        int step=1;
+                        StringTokenizer token1 = new StringTokenizer(making, "-");
+                        while (token1.hasMoreTokens()) {
+                            
+                     %>  
+                     <li>Bước <%=step%><p><%=token1.nextToken()%></p></li>
+                    <%step++;}%>
                 </ul>
             </div>
             <div class="card">
-                 
+                <%
+                    if(session.getAttribute("user")!=null){%> <%-- ktra đã đăng nhập hay chưa (lấy giá trị phiên login từ UserServlet)--%>
                     <h2 class="text-heading"><b>Bình luận</b></h2>
                     <form action="ReviewServlet" method="POST">
-                         
+                         <%if(request.getAttribute("error")!=null){%>
                     <div>
-                        <p style="color:red"></p>
+                        <p style="color:red"><%=request.getAttribute("error")%></p>
                     </div>
-                        
-                        <input type="hidden" name="recipeId" value="">
-                        <input type="hidden" name="userId" value="">
+                        <% }
+                            User users = (User)session.getAttribute("user");
+                        %>
+                        <input type="hidden" name="recipeId" value="<%=post_id%>">
+                        <input type="hidden" name="userId" value="<%=users.getUserId()%>">
                     <textarea name="text-comment" id="text-comment" class="text-comment" cols="120" rows="3"></textarea>
                     <input type="submit" class="button_submit" value="Gửi bình luận">
                      </form>
-                     
+                     <% }
+                    else{%>
                     <h2 class="text-heading"><b>Hãy đăng nhập để bình luận! <span><a href="signup-signin.jsp"> Đăng nhập</a></span> </b></h2>
-                   
+                   <% }
+                     %>
             </div>
               <div class="card">
-                  
-                      <h2 class="mb-5"><b> bình luận</b></h2>
+                  <%
+                      ReviewGet reviewGet = new ReviewGet();
+                      int numberReview = reviewGet.countReviewByRecipeId(Integer.parseInt(post_id));
+                      %>
+                      <h2 class="mb-5"><b><%=numberReview%> bình luận</b></h2>
                     <ul class="comment-list">
-                        
+                        <%
+                            UserGet userGet = new UserGet();
+                            for(Review rev: reviewGet.getListReviewByRecipeId(Integer.parseInt(post_id))){
+                                User user = userGet.getUser(rev.getUserIdReview());
+                                %>
                       <li class="comment">
                         <div class="vcard bio">
-                            <img src="images/" alt="Image placeholder">
+                            <img src="images/<%=user.getUserAvatar()%>" alt="Image placeholder">
                         </div>
                         <div class="comment-body">
-                            <h3></h3>
-                          <div class="meta"></div>
-                          <p></p>
+                            <h3><%=user.getUserName()%></h3>
+                          <div class="meta"><%=rev.getReviewDate()%></div>
+                          <p><%=rev.getReviewMessenges()%></p>
                         </div>
                       </li>
-                            
+                            <%}%>
                     </ul>
              
                </div>
           </div>
-          <div class="rightcolumn">
-            <div class="card">
-              <h2 class="text-heading"><b>Thành phần dinh dưỡng</b></h2>
-              <hr>
-              <p>Calories: Kcal</p>
-              <p>Bổ sung: </p>
-            </div>
-            <div class="card">
-              <h2 class="text-heading"><b>Món liên quan</b></h2>
-              <hr>
-                 
-              <div class="fakeimg">
-                  <a href="CountViewsServlet?recipeId=&&views="><img src="images/" alt="ảnh món ăn" class="img-dish-add"></a>
-                  <a href="CountViewsServlet?recipeId=&&views="class="link-dish"><b><p style="text-align: center;"></p></b><p></p></a>
-              </div>
-                 
-             </div>
-            </div>
           </div>
         </div> 
         </div>

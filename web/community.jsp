@@ -4,6 +4,10 @@
     Author     : Nhat Duy
 --%>
 
+<%@page import="model.User"%>
+<%@page import="get.UserGet"%>
+<%@page import="model.Post"%>
+<%@page import="get.PostGet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,14 +41,10 @@
         <!-- Modernizer -->
         <script src="js/modernizer.js"></script>
 
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
-
+        
 
         <div id="gallery" class="gallery-main pad-top-100 pad-bottom-100">
             <div class="container">
@@ -60,12 +60,12 @@
                                 <div class="fake-form ">
                                     <div class="offer-item2">
                                         <img src="images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive" style="width: 80px">
-                                        <div class="profile">
-                                            <a href="shareTheRecipe.jsp"><p>Chia sẻ món ngon của bạn với cộng đồng ...</p></a>
+                                        <div class="profile " data-toggle="modal" data-target="#myModal">
+                                            Chia sẻ món ngon của bạn với cộng đồng ...
                                         </div>
                                     </div>
                                     <div class="blog-btn-v">
-                                        <button class="hvr-underline-from-center" type="button" data-toggle="modal" data-target="#myModal" href="shareTheRecipe.jsp">Đăng bài</button>
+                                        <button class="hvr-underline-from-center" type="button" data-toggle="modal" data-target="#myModal">Đăng bài</button>
                                     </div>
                                 </div> 
                             </div>
@@ -129,6 +129,7 @@
                             </div>
                             
                             <div class="gal-container clearfix">
+                                
                                 <div class="fake-form">
                                     <div class="offer-item2" style="height: 100px">
                                         <img src="images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive" style="width: 80px">
@@ -156,7 +157,7 @@
                                                 </div>
                                             </div>
                                             <div class="blog-dit2" >
-                                                <a class="name" href="#" target="_blank" title="Sườn xào chua ngọt"><b>Sườn xào chua ngọt</b></a>
+                                                <a class="name" href="/chuancommenau/PostDetail.jsp?post_id=1" target="_blank" title="Sườn xào chua ngọt"><b>Sườn xào chua ngọt</b></a>
                                                 <div class="stats">
                                                     <span class="stats-item">
                                                         <span class="stats-count abbr">126008</span> lượt xem
@@ -166,7 +167,9 @@
                                                     <a class="recipe-author" target="_blank" href="/thanh-vien/cooky">
                                                         <img src="images/menu-item-thumbnail-01.jpg" alt="" class="avt">
                                                     </a>
-                                                    <p style="text-align:justify"><strong>Sườn Xào Chua Ngọt</strong> - món ăn ngon dễ làm, giúp đổi vị cho bữa cơm gia đình. Cách làm sườn xào chua ngọt đơn giản, thơm ngon, thịt sườn xào chín dai béo, ngấm gia vị nêm nếm chua chua, mặn ngọt. <strong>Cách làm sườn xào chua ngọt</strong> của Cooky còn có thêm ớt chuông giòn mát, màu xanh đỏ trong rất đẹp mắt nhé.</p>
+                                                    <p style="text-align:justify"><strong>Sườn Xào Chua Ngọt</strong> - món ăn ngon dễ làm, giúp đổi vị cho bữa cơm gia đình. 
+                                                        Cách làm sườn xào chua ngọt đơn giản, thơm ngon, thịt sườn xào chín dai béo, ngấm gia vị nêm nếm chua chua, mặn ngọt. 
+                                                        <strong>Cách làm sườn xào chua ngọt</strong> của Cooky còn có thêm ớt chuông giòn mát, màu xanh đỏ trong rất đẹp mắt nhé.</p>
                                                     <div style="all: unset;">&nbsp;</div>
                                                 </div>
                                             </div>
@@ -218,7 +221,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
+                                
                             </div>
                         </div>
                         <!-- end gal-container -->
@@ -235,18 +239,6 @@
         <jsp:include page="footer.jsp"></jsp:include>
 
         <a href="#" class="scrollup" style="display: none;">Scroll</a>
-
-        <section id="color-panel" class="close-color-panel">
-            <a class="panel-button gray2"><i class="fa fa-cog fa-spin fa-2x"></i></a>
-            <!-- Colors -->
-            <div class="segment">
-                <h4 class="gray2 normal no-padding">Color Scheme</h4>
-                <a title="orange" class="switcher orange-bg"></a>
-                <a title="strong-blue" class="switcher strong-blue-bg"></a>
-                <a title="moderate-green" class="switcher moderate-green-bg"></a>
-                <a title="vivid-yellow" class="switcher vivid-yellow-bg"></a>
-            </div>
-        </section>
 
         <!-- ALL JS FILES -->
         <script src="js/all.js"></script>
