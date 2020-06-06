@@ -57,18 +57,24 @@
                             if (user == null) {
                              response.sendRedirect("/chuancommenau/signup-signin.jsp");
                             }
+                            int count =0;
                             RecipeGet recipeGet = new RecipeGet();
                             if(recipeGet.getListRecipeByUserId(user.getUserId()).isEmpty()){
                                 %>
                                 <h2>Bạn chưa đăng bất kỳ công thức nào!</h2>
                             <%}else{%>
                              <table>
+                                  <tr>
+                                  <th>STT</th>
+                                  <th>Tên công thức</th>
+                                  <th>Loại công thức</th>
+                            </tr>  
                                  <%
                                      for(Recipe recipe: recipeGet.getListRecipeByUserId(user.getUserId())){
                                          %>
                              <tr>
-                                 <th><%=recipe.getRecipeId()%></th>
-                                 <th><%=recipe.getRecipeName()%></th>
+                                 <td><%=count%></td>
+                                 <td><%=recipe.getRecipeName()%></td>
                                  <%
                                      String typeRecipe="";
                                      switch(recipe.getCategoryId()){
@@ -80,10 +86,10 @@
                                               break;
                                      }
                                      %>
-                                 <th><%=typeRecipe%></th>
+                                 <td><%=typeRecipe%></td>
                                 </tr>   
                             
-                            <%}%>
+                            <% count ++;}%>
                                 
                               </table>
                                 

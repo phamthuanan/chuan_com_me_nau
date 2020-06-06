@@ -20,7 +20,7 @@
         <servlet-name>LogoutAdminServlet</servlet-name>
         <servlet-class>controller.LogoutAdminServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>ManageRecipeServlet</servlet-name>
         <servlet-class>controller.ManageRecipeServlet</servlet-class>
     </servlet>
@@ -43,6 +43,10 @@
     <servlet>
         <servlet-name>CountViewsServlet</servlet-name>
         <servlet-class>controller.CountViewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignUpCourseServlet</servlet-name>
+        <servlet-class>controller.SignUpCourseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>CountViewsServlet</servlet-name>
         <url-pattern>/CountViewsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpCourseServlet</servlet-name>
+        <url-pattern>/SignUpCourseServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -147,6 +147,25 @@ public class UserGet {
         }
         return false;
     }
+     
+     //cập nhật thông tin user
+     public boolean updateUser(int userId, String name,String email, String phone) {
+        
+        Connection connection = DBConnect.getConnection();
+        String sql = "UPDATE user SET  user_name=?, user_email=?, user_phone=? WHERE user_id = ?";
+        
+        try {
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, phone);
+            ps.setInt(4, userId);
+            return ps.executeUpdate() == 1;
+        } catch (SQLException ex) {
+           Logger.getLogger(UserGet.class.getName()).log(Level.SEVERE,null, ex);
+        }
+        return false;
+    }
      //cập nhật mật khẩu
       public boolean updateUserPassword(int userId, String userPassword) {
         

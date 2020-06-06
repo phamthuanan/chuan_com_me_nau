@@ -75,7 +75,7 @@
                                     <li><a href="aboutUs.jsp">GIỚI THIỆU</a></li>
                                     <li><a href="Recipe.jsp">CÔNG THỨC</a></li>
                                     <li><a href="community.jsp">CỘNG ĐỒNG</a></li>
-                                    <li><a href="#blog">KHÓA HỌC</a></li>
+                                    <li><a href="course.jsp">KHÓA HỌC</a></li>
                                     <li><a href="contact.jsp">LIÊN HỆ</a></li>
                                     <% 
                                         User user = null;

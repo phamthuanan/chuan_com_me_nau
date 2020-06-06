@@ -1168,46 +1168,44 @@ html, body{ height: 100%; }
 /*------------------------------------------------------------------
     BLOG AREA
 -------------------------------------------------------------------*/
-
-.blog-main{
-	background:url(../images/blog_bg.jpg) no-repeat center;
-	background-attachment:fixed;
-	background-size:cover;
-	position:relative;
-}
-
-.blog-main::before {
-    content: '';
+.blog-main {
+    background: url(../images/blog_bg.jpg) no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .blog-main::before {
+    content: "";
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.blog-main h2{
-	color:#ffffff;
-}
-
-.blog-box{
-	padding-top:20px;
-}
-
-.blog-block{
-	background:#FFF;
-	overflow: auto;
-	margin-bottom: 20px;
-}
-
-.blog-img-box{
-	float:left;
-	width:50%;
-	position: relative;
-}
-
-.blog-img-box .overlay {
+  }
+  
+  .blog-main h2 {
+    color: #ffffff;
+  }
+  
+  .blog-box {
+    padding-top: 20px;
+  }
+  
+  .blog-block {
+    background: #fff;
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+  
+  .blog-img-box {
+    width: 100%;
+    position: relative;
+  }
+  
+  .blog-img-box .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -1216,67 +1214,74 @@ html, body{ height: 100%; }
     background: rgba(0, 0, 0, 0.2);
     color: #fff;
     opacity: 0;
-	transition: .3s all;
-	text-align:center;
-}
-
-.blog-img-box:hover img{
-	-webkit-filter: blur(2px);
-	filter: blur(2px);
-}
-.blog-img-box:hover .overlay {
-    opacity: 1;
-}
-
-.blog-img-box img{
-	width:100%;
-}
-
-.overlay i{
-	margin-top: 42%;
-	border: 1px solid #fff;
-	padding: 15px;
-	border-radius: 50%;
-	color:#ffffff;
-	font-size:18px;
-}
-
-
-.blog-dit {
-    width: 50%;
-    height: 100%;
-    float: right;
+    transition: 0.3s all;
     text-align: center;
-    padding: 65px 2% 0 2%;
-}
-
-.blog-dit p{
-	font-size: 12px;
-	color: #ccc;
-}
-.blog-dit h2{
-	font-size: 22px;
-    line-height: 20px;
-    color: #000;
-	font-weight:500;
-    margin-bottom: 20px;
-    padding: 10px 30px 13px 30px;
+  }
+  
+  .blog-img-box:hover img {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+  }
+  .blog-img-box:hover .overlay {
+    opacity: 1;
+  }
+  
+  .blog-img-box img {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 350px;
+  }
+  
+  .overlay i {
+    margin-top: 42%;
+    border: 1px solid #fff;
+    padding: 15px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px;
+  }
+  
+  .blog-dit {
+    width: 100%;
+    height: 300px;
+    text-align: left;
+    padding: 15px;
+  }
+  
+  .blog-dit p {
+    font-size: 12px;
+    color: rgb(253, 172, 80);
+  }
+  
+  .Khoa-hoc {
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 10px 30px 0px 0px;
     border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
-}
-
-.blog-dit h5{
-	font-size: 11px;
-	color: #ccc;
-}
-
-.blog-btn-v{
-	clear:both;
-	padding-top:30px;
-	text-align:center;
-}
-
-.blog-btn-v a {
+  }
+  .Khoa-hoc h2 {
+    font-size: 22px;
+    line-height: 20px;
+    color: #000;
+  }
+  .infor h2 {
+    color: #666;
+    font-size: 18px;
+  }
+  .blog-dit h5 {
+    font-size: 11px;
+    color: #ccc;
+  }
+  
+  .blog-btn-v {
+    clear: both;
+    padding-top: 30px;
+    text-align: center;
+  }
+  
+  .blog-btn-v a {
     color: #fff;
     min-width: 219px;
     padding: 10.5px 20px;
@@ -1285,12 +1290,26 @@ html, body{ height: 100%; }
     font-weight: 800;
     text-transform: uppercase;
     font-size: 18px;
-}
-
-.blog-btn-v a:hover {
+  }
+  
+  .blog-btn-v a:hover {
     background: none;
-}
+  }
 
+  .buttonsignup{
+    float: right; 
+    background-color:  #e75b1e;  
+     border: none;
+     color: white;
+    padding: 7px 16px;
+     text-align: center;
+      text-decoration: none;
+                         display: inline-block;
+                         font-size: 16px;
+                         margin: 2px px;
+                         cursor: pointer;
+  }
+  
 
 /*------------------------------------------------------------------
     PRICING AREA
@@ -1901,3 +1920,4 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
 .vivid-yellow-bg{
 	background: #fdcb03;
 }
+

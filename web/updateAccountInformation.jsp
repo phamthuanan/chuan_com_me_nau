@@ -62,21 +62,21 @@
                                          <input type="hidden" name="user_id" value="<%=users.getUserId()%>">
                                         <div class="form-group col-sm-6">
                                             <label> * Họ và tên </label>
-                                            <input type="text" class="form-control" name ="user_name" required="" placeholder ="<%=users.getUserName()%>">                                               
+                                            <input type="text" class="form-control" name ="user_name" required="" value ="<%=users.getUserName()%>">                                               
                                         </div>
                                          <div class="form-group col-sm-6">
                                             <label> * Email </label>
-                                            <input type="text" class="form-control" name ="user_email" required="" placeholder="<%=users.getUserEmail()%>">                                               
+                                            <input type="text" class="form-control" name ="user_email" required="" value="<%=users.getUserEmail()%>">                                               
                                         </div>     
                                         <input type="hidden" name="user_pass" value="<%=users.getUserPass()%>">
                                         <input type="hidden" name="user_avatar" value="<%=users.getUserAvatar()%>">
                                          <div class="form-group col-sm-6">
                                             <label> Số điện thoại </label>
-                                            <input type="text" class="form-control" name ="user_phone" required="" placeholder="<%=users.getUserPhone()%>">                                               
+                                            <input type="text" class="form-control" name ="user_phone" required="" value="<%=users.getUserPhone()%>">                                               
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label> Địa chỉ</label>
-                                            <input type="text" class="form-control" name ="user_address" placeholder="<%=users.getUserAddress()%>" >                                               
+                                            <input type="text" class="form-control" name ="user_address" value="<%=users.getUserAddress()%>" >                                               
                                         </div>
                                         <div class="pt-15 col-sm-12">  
                                             <input type="hidden" value="update" name="command">

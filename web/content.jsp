@@ -4,6 +4,8 @@
     Author     : Anh
 --%>
 
+<%@page import="model.CategoryCourse"%>
+<%@page import="get.CategoryCourseGet"%>
 <%@page import="model.Chef"%>
 <%@page import="get.ChefGet"%>
 <%@page import="model.Course"%>
@@ -673,8 +675,11 @@
                   <%
                       CourseGet courseGet = new CourseGet();
                       ChefGet chefGet = new ChefGet();
+                      CategoryCourseGet categoryCourseGet = new CategoryCourseGet();
+                      
                       for(Course c: courseGet.getList4Course()){
                           Chef chef= chefGet.getChef(c.getTeacherId());
+                          CategoryCourse categoryCourse = categoryCourseGet.getCategoryCourse(c.getCategoryCourseId());
                           %>
                     <div
                   class="wow fadeIn"
@@ -692,12 +697,12 @@
                         </div>
                       </div>
                       <div class="blog-dit">
-                        <p><span>Nấu ăn</span></p>
+                          <p><span><%=categoryCourse.getCategoryCourseName()%></span></p>
                         <div class="Khoa-hoc">
                             <h1><%=c.getCourseName()%></h1>
                           <div class="infor">
                               <h4 class="gv">Đầu bếp: <%=chef.getChefName()%></h4>
-                              <h4 class="time"><img src="images/time.png" style=" width: 16px; height: 16px;"alt=""> Ngày bắt đầu: <%=c.getCoursesTimeStart()%><img src="images/clock.png" style=" width: 16px; height: 16px;"alt=""> <%=c.getTime()%></h4>
+                              <h4 class="time"><img src="images/time.png" style=" width: 16px; height: 16px;"alt=""> Ngày bắt đầu: <%=c.getCoursesTimeStart()%>  <img src="images/clock.png" style=" width: 16px; height: 16px;"alt=""> <%=c.getTime()%></h4>
                               <h4 class="time"><img src="images/address.png" style=" width: 16px; height: 16px;"alt=""> Địa chỉ: <%=c.getCourseAddress()%></h4>
                            
                           </div>

@@ -47,7 +47,7 @@
 							
 							<div class="panel panel-default">
 								<div class="panel-heading">
-                                                                    <h4 class="panel-title"><a href="Recipe.jsp?categoryId=<%= c.getCategoryCourseId()%>"><%= c.getCategoryCourseName()%></a></h4>
+                                                                    <h4 class="panel-title"><a href="course.jsp?categoryCourseId=<%= c.getCategoryCourseId()%>"><%= c.getCategoryCourseName()%></a></h4>
 								</div>
 							</div>
                                                                 <% }%>

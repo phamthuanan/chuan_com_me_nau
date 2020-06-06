@@ -4,6 +4,11 @@
     Author     : Pham An
 --%>
 
+<%@page import="model.User"%>
+<%@page import="model.Course"%>
+<%@page import="model.SignUpCourse"%>
+<%@page import="get.CourseGet"%>
+<%@page import="get.SignUpCourseGet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,28 +52,55 @@
                             </div>
                         </aside>   
                         <!-- Sidebar Ends --> 
-
                         <aside class="col-md-9 col-sm-8 ptb-15">
-                            <table>
-                                <tr>
-                                  <th>Mã khóa học</th>
+                    <%
+                         User user = (User)session.getAttribute("user");
+                            if (user == null) {
+                             response.sendRedirect("/chuancommenau/signup-signin.jsp");
+                            }
+                        SignUpCourseGet signUpCourseGet = new SignUpCourseGet();
+                        CourseGet courseGet = new CourseGet();
+                        int count=1;
+                        if(signUpCourseGet.getListSignUpCourseOfUser(user.getUserId()).isEmpty()){%>
+                             <h2>Bạn chưa đăng ký bất kỳ lớp học nấu ăn nào!</h2>
+                        <%}
+                        else{%>
+                          <table>  
+                           <tr>
+                                  <th>STT</th>
                                   <th>Tên khóa học</th>
-                                  <th>Giáo viên</th>
-                                  <th>Loại khóa học</th>
-                                </tr>
-                                <tr>
-                                  <td>001</td>
-                                  <td>Làm bánh kem cưới</td>
-                                  <td>Đầu bếp ABC</td>
-                                  <td>Làm bánh</td>
-                                </tr>
-                                <tr>
-                                  <td>002</td>
-                                  <td>Francisco Chang</td>
-                                  <td>Mexico</td>
-                                  <td>Khai vị</td>
-                                </tr>
-                              </table>
+                                  <th>Địa chỉ</th>
+                                  <th>Thời gian</th>
+                                  <th>Thông tin đăng ký</th>
+                                  <th>Ghi chú</th>
+                            </tr>  
+                        <%
+                            for(SignUpCourse signUpCourse:signUpCourseGet.getListSignUpCourseOfUser(user.getUserId())){
+                                Course course = courseGet.getCourse(signUpCourse.getCourseId());
+                        %>
+                            <tr>
+                                <td><%=count%></td>
+                                <td><%=course.getCourseName()%></td>
+                                <td><%=course.getCourseName()%></td>
+                                <td>
+                                    Ngày bắt đầu: <%=course.getCoursesTimeStart()%><br>
+                                    Ngày kết thúc: <%=course.getCoursesTimeFinish()%><br>
+                                    Giờ: <%=course.getTime()%>
+                                </td>
+                                <td>
+                                    <%=signUpCourse.getName()%><br>
+                                    <%=signUpCourse.getEmail()%> <br>
+                                    <%=signUpCourse.getPhoneNumber()%>
+                                  </td>
+                                  <td><%=signUpCourse.getNote()%></td>
+                            </tr>   
+                          <%  count ++;}
+                        %>
+                         </table>
+                        <%} 
+                        %>
+                        
+                             
                         </aside>                        
                     </div>
                 </div>
