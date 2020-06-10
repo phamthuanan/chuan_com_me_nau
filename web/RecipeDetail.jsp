@@ -152,9 +152,12 @@
         </div>
       </div>
        <jsp:include page="footer.jsp"></jsp:include>
-           <script src="js/all.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="js/custom.js"></script>
+       
+       <a href="#" class="scrollup" style="display: none;">Scroll</a>
+    
+        <!-- ALL PLUGINS -->
+        <script src="js/all.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
     </body>
 </html>

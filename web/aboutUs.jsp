@@ -37,8 +37,9 @@
                         <p class="mbr-text mbr-lighter align-center display-7" style="font-size: 16px;">
                           Chất lượng món ăn là yếu tố quan trọng nhất mà chúng tôi muốn hướng đến. Nguyên liệu tại
                           <span>Chuẩn Cơm Mẹ Nấu</span> đều được lựa chọn kỹ càng, đảm bảo an toàn vệ sinh thực phẩm. Đặc biệt, Website còn cung cấp cho mọi người giá trị dinh dưỡng (kcal) trên từng món ăn. Đây là điều mà bạn sẽ ít được thấy ở các trang web khác.<br></p>
-                        <div class="mbr-section-btn align-center">
-                            <a class="btn btn-lg btn-primary display-4" href="#">XEM NGAY</a>
+                        <div class="blog-btn-v">
+                            <a class="hvr-underline-from-center" href="Recipe.jsp" style="border-radius: 100px; padding: 1rem 2.2rem !important; min-width: 150.7px !important; line-height: 1.3333;">
+                                XEM NGAY</a>
                         </div>
                     </div>
                 </div>
@@ -61,8 +62,9 @@
                         </h2>
                         <p class="mbr-text mbr-lighter align-center display-7" style="font-size: 16px;">
                             Chúng tôi mang đến cho người nội trợ trong gia đình các bí quyết giúp việc nấu ăn hàng ngày sẽ được dễ dàng hơn. Bắt đầu từ việc chuẩn bị nguyên liệu, sơ chế, thiết bị dùng bếp hay chỉ đơn giản là lựa chọn món ăn phù hợp cũng sẽ trở nên nhẹ nhàng hơn bao giờ hết.</p>
-                        <div class="mbr-section-btn align-center">
-                          <a class="btn btn-lg btn-primary display-4" href="#">XEM NGAY</a>
+                        <div class="blog-btn-v">
+                            <a class="hvr-underline-from-center" href="course.jsp" style="border-radius: 100px; padding: 1rem 2.2rem !important; min-width: 150.7px !important; line-height: 1.3333;">
+                                XEM NGAY</a>
                         </div>
                     </div>
                 </div>
@@ -83,8 +85,9 @@
                         </h2>
                         <p class="mbr-text mbr-lighter align-center display-7" style="font-size: 16px;">
                             Bạn có thể dễ dàng tìm thấy những người có cùng sở thích cùng đam mê, kết nối & và chia sẻ kinh nghiệm nấu ăn cho nhau. Với hy vọng tạo ra một sân chơi thật sự cho những người đam mê ẩm thực, đam mê nấu nướng.</p>
-                        <div class="mbr-section-btn align-center">
-                          <a class="btn btn-lg btn-primary display-4" href="#">XEM NGAY</a>
+                        <div class="blog-btn-v">
+                            <a class="hvr-underline-from-center" href="community.jsp" style="border-radius: 100px; padding: 1rem 2.2rem !important; min-width: 150.7px !important; line-height: 1.3333;">
+                                XEM NGAY</a>
                         </div>
                     </div>
                 </div>
@@ -228,7 +231,7 @@
                             Thư góp ý
                         </h2>
                         <div class="form1" data-form-type="formoid">
-                            <form class="mbr-form" action="mailto:support@chuancommenau.com" method="post">
+                            <form class="mbr-form" action="ContactServlet" method="post">
                                 <div class="input-wrap" data-for="email">
                                     <label class="form-label-outside mbr-lighter" for="form-1-email" style="font-size: 16px;"><b>E-Mail</b></label>
                                     <input type="email" class="form-control" name="email" data-form-field="Email" required id="email-maps1-f">
@@ -239,7 +242,7 @@
                                     <textarea type="text" class="form-control" name="message" rows="4" data-form-field="Message" id="message-maps1-f"></textarea>
                                 </div>
 
-                                <span class="input-group-btn"><button href="mailto:support@chuancommenau.com" type="submit" class="btn btn-lg btn-form btn-primary display-4"><b>GỬI</b></button></span>
+                                <span class="input-group-btn"><button type="submit" class="btn btn-lg btn-form btn-primary display-4"><b>GỬI</b></button></span>
                             </form>
                         </div>
                     </div>
@@ -254,6 +257,8 @@
         </section>
         
         <jsp:include page="footer.jsp"></jsp:include>
+        
+        <a href="#" class="scrollup" style="display: none;">Scroll</a>
         
         <!-- ALL JS FILES -->
         <script src="js/all.js"></script>

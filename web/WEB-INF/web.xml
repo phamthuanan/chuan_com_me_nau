@@ -45,6 +45,10 @@
         <servlet-class>controller.CountViewsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ContactServlet</servlet-name>
+        <servlet-class>controller.ContactServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>SignUpCourseServlet</servlet-name>
         <servlet-class>controller.SignUpCourseServlet</servlet-class>
     </servlet>
@@ -91,6 +95,10 @@
     <servlet-mapping>
         <servlet-name>CountViewsServlet</servlet-name>
         <url-pattern>/CountViewsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactServlet</servlet-name>
+        <url-pattern>/ContactServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignUpCourseServlet</servlet-name>

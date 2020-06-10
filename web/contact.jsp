@@ -27,7 +27,7 @@
               <div class="hero hero--map">
                 <div class="hero__wrapper">
                     <div class="contact1" style="background-image: url(css/contact/images/contact-bg.jpg); opacity: 1; margin-top: 100px; background-size: cover;">
-                      <form class="contact1-form validate-form">
+                        <form class="contact1-form validate-form" action="ContactServlet" method="post">
                         <h2 class="contact1-form-title" style="color: #e75b1e; font-family: Lobster; font-size: 36px; padding-top: 30px;">
                           Liên hệ
                         </h2>
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="container-contact1-form-btn">
-                          <button class="contact1-form-btn">
+                            <button class="contact1-form-btn" type="submit">
                             <span>
                               GỬI NGAY
                               <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -93,7 +93,7 @@
                     <h3 class="h3style" style="font-family: Lobster; font-weight: bold;">Thông tin liên hệ</h3>
                     
                     <span style="font-size: 20px; padding-right: 5px;"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <span><a href="mailto:support@chuancommenau.com" style="color: #255388; font-size: 18px;">support@chuancommenau.com</a></span>
+                    <span><a href="mailto:support@chuancommenau.com" style="color: #255388; font-size: 18px;">help.chuancommenau@gmail.com</a></span>
                     
                     <br>
                     <span style="font-size: 20px; padding-left: 5px; padding-right: 10px;"><i class="fa fa-mobile" aria-hidden="true"></i></span>
@@ -144,7 +144,7 @@
                 <div class="blog-grid">
 
                   <article class="blog-grid-item blog-grid-item__post">
-                    <a href="#">
+                    <a href="signup-signin.jsp">
                       <div class="post-image__container">
                         <div class="post-image background" style="background-image:url(css/contact/images/guest-blogging-image-1-1-1-1-1.png)"></div>
                       </div>
@@ -159,7 +159,7 @@
                   </article>
 
                   <article class="blog-grid-item blog-grid-item__post">
-                    <a href="#">
+                    <a href="Recipe.jsp">
                       <div class="post-image__container">
                         <div class="post-image background" style="background-image:url(css/contact/images/job-application-image-1-1.png)"></div>
                       </div>
@@ -174,7 +174,7 @@
                   </article>
 
                   <article class="blog-grid-item blog-grid-item__post">
-                    <a href="#">
+                    <a href="course.jsp">
                       <div class="post-image__container">
                         <div class="post-image background" style="background-image:url(css/contact/images/project-work-image-1.png)"></div>
                       </div>
@@ -196,6 +196,8 @@
         </main>
 
         <jsp:include page="footer.jsp"></jsp:include>
+        
+        <a href="#" class="scrollup" style="display: none;">Scroll</a>
         
         <!-- ALL JS FILES -->
         <script src="js/all.js"></script>

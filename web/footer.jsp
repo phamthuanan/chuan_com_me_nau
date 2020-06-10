@@ -107,7 +107,7 @@
                                 </p>
                                 <p>
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span><a href="#">support@chuancommenau.com</a></span>
+                                    <span><a href="#">help.chuancommenau@gmail.com</a></span>
                                 </p>
                             </div>
                             <!-- end footer-box-c -->
@@ -117,8 +117,8 @@
                             <div class="footer-box-b">
                                 <h3>Bạn quan tâm</h3>
                                 <ul>
-                                    <li><a href="#">Cộng đồng chia sẻ</a></li>
-                                    <li><a href="#">Khóa học nấu ăn</a></li>
+                                    <li><a href="community.jsp">Cộng đồng chia sẻ</a></li>
+                                    <li><a href="course.jsp">Khóa học nấu ăn</a></li>
                                 </ul>
                             </div>
                             <!-- end footer-box-d -->

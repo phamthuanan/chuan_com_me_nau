@@ -64,7 +64,7 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 <div class="logo">
-                                    <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="index.jsp">
                                         <img src="images/logo3.png" alt="">
                                     </a>
                                 </div>

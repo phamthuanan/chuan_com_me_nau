@@ -91,6 +91,9 @@
             </section>
             <!-- / My Account Ends --> 
             <jsp:include page="footer.jsp"></jsp:include>
+            
+            <a href="#" class="scrollup" style="display: none;">Scroll</a>
+            
     <script src="js/all.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
