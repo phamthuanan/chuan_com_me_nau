@@ -17,7 +17,7 @@ import model.Recipe;
 
 /**
  *
- * @author Pham An
+ * @author ACER
  */
 public class RecipeGet {
 
@@ -260,22 +260,22 @@ public boolean insert(Recipe c) throws SQLException {
     public boolean update(Recipe c) throws SQLException {
     try {
          Connection connection = DBConnect.getConnection();
-         String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?, user_id =? WHERE recipe_id = ?";
+         String sql = "UPDATE recipe SET recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?, user_id =? WHERE recipe_id = ?";
          PreparedStatement ps = connection.prepareCall(sql);
-         ps.setInt(1, c.getRecipeId());
-         ps.setString(2, c.getRecipeName());
+       
+          ps.setString(1, c.getRecipeName());
+         ps.setInt(2, c.getCategoryId());
          ps.setString(3, c.getRecipeImage());
          ps.setInt(4, c.getRecipeViews());
          ps.setInt(5, c.getRecipeCalories());
          ps.setString(6, c.getRecipeAuthor());
-         ps.setInt(7, c.getCategoryId());
-         ps.setString(8, c.getIngredientRecipe());
-         ps.setString(9, c.getNutritionIngredients());
-         ps.setString(10, c.getMaking());
-         ps.setString(11, c.getDescriptionRecipe());
-         ps.setString(12, c.getVideo());
-         ps.setInt(13, c.getUserIdPostedRecipe());
-         ps.setInt(14, c.getRecipeId());
+         ps.setString(7, c.getIngredientRecipe());
+         ps.setString(8, c.getNutritionIngredients());
+         ps.setString(9, c.getMaking());
+         ps.setString(10, c.getDescriptionRecipe());
+         ps.setString(11, c.getVideo());
+         ps.setInt(12, c.getUserIdPostedRecipe());
+         ps.setInt(13, c.getRecipeId());
          int temp = ps.executeUpdate();
          return temp == 1;
     } catch (Exception e) {
@@ -327,24 +327,24 @@ public boolean insert(Recipe c) throws SQLException {
         
         Connection connection = DBConnect.getConnection();
        
-        String sql = "UPDATE recipe SET recipe_id=?, recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients = ?, nutritions=?, making= ?, description_recipe= ?, video = ?, user_id =? WHERE recipe_id = ?";
+        String sql = "UPDATE recipe SET recipe_name=?, category_id=?, recipe_image=?, recipe_views=?, calories=?, recipe_author=?, ingredients=?, nutritions=?, making=?, description_recipe=?, video=? WHERE recipe_id=?";
         
         try {
             PreparedStatement ps = connection.prepareCall(sql);
-         ps.setInt(1, c.getRecipeId());
-         ps.setString(2, c.getRecipeName());
+        
+         ps.setString(1, c.getRecipeName());
+         ps.setInt(2, c.getCategoryId());
          ps.setString(3, c.getRecipeImage());
          ps.setInt(4, c.getRecipeViews());
          ps.setInt(5, c.getRecipeCalories());
          ps.setString(6, c.getRecipeAuthor());
-         ps.setInt(7, c.getCategoryId());
-         ps.setString(8, c.getIngredientRecipe());
-         ps.setString(9, c.getNutritionIngredients());
-         ps.setString(10, c.getMaking());
-         ps.setString(11, c.getDescriptionRecipe());
-         ps.setString(12, c.getVideo());
-         ps.setInt(13, c.getUserIdPostedRecipe());
-         ps.setInt(14, c.getRecipeId());
+         ps.setString(7, c.getIngredientRecipe());
+         ps.setString(8, c.getNutritionIngredients());
+         ps.setString(9, c.getMaking());
+         ps.setString(10, c.getDescriptionRecipe());
+         ps.setString(11, c.getVideo());
+//         ps.setInt(12, c.getUserIdPostedRecipe());
+         ps.setInt(12, c.getRecipeId());
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(RecipeGet.class.getName()).log(Level.SEVERE, null, ex);
@@ -382,6 +382,8 @@ public boolean insert(Recipe c) throws SQLException {
         }
         return false;
     }
+    
+    
     public static void main(String args[]) throws SQLException {
         
         RecipeGet get = new RecipeGet();

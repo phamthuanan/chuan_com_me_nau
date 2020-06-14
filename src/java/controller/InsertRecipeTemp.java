@@ -72,7 +72,7 @@ public class InsertRecipeTemp extends HttpServlet{
      int check = 1;
      
         
-        int count=0;
+        int count=1;
             try {
                 for (Recipe r : recipeGet.getListRecipe()) {
                     r.getRecipeId();
@@ -82,7 +82,7 @@ public class InsertRecipeTemp extends HttpServlet{
                 Logger.getLogger(InsertRecipeTemp.class.getName()).log(Level.SEVERE, null, ex);
             }
      
-        recipeGet.insertRecipe(new Recipe(count+recipe_id, nameRecipe, img, view , calo, author, catogoryId ,ingredients, nuti, making, descriptionRecipe, video, userid));
+        recipeGet.insertRecipe(new Recipe(count, nameRecipe, img, view , calo, author, catogoryId ,ingredients, nuti, making, descriptionRecipe, video, userid));
         recipe.updateRecipeCheck(check, userid);
         url ="/chuancommenau/admin/manage_user.jsp";
          response.sendRedirect(url);

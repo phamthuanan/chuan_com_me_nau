@@ -166,11 +166,7 @@ public class UpdateRecipe extends HttpServlet{
     
        
     RecipeGet recipeGet = new RecipeGet();
-        try {
-            recipeGet.update(new Recipe(RecipeId,nameRecipe,img,view, calo, author, catogoryId ,ingredients, nuti, making, descriptionRecipe, video, userid));
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdateRecipe.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    recipeGet.updateRecipe(new Recipe(RecipeId, nameRecipe,img,view, calo, author, catogoryId ,ingredients, nuti, making, descriptionRecipe, video, userid));
         url ="/chuancommenau/admin/success.jsp";
          response.sendRedirect(url);
     }
