@@ -194,7 +194,7 @@
                     <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getDescriptionRecipe()%></td>
                     <td style="border: 2px solid #dcdcdc;vertical-align: top;">
                         <% if(recipe.getCheck() == 1) { %>
-                        <p style="color: green;font-weight: bold;text-align: center">Đã duyệt</p>
+                        <p style="color: orange;font-weight: bold;text-align: center">Đã duyệt</p>
                         <%
                             } else {
                         %>
