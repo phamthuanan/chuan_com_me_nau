@@ -25,8 +25,8 @@
         <servlet-class>controller.ManageRecipeServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>InsertRecipeServlet</servlet-name>
-        <servlet-class>controller.InsertRecipeServletx</servlet-class>
+        <servlet-name>UploadImage</servlet-name>
+        <servlet-class>controller.UploadImage</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InsertRecipeServletx</servlet-name>
@@ -52,6 +52,26 @@
         <servlet-name>SignUpCourseServlet</servlet-name>
         <servlet-class>controller.SignUpCourseServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>ManageRecipeTemp</servlet-name>
+        <servlet-class>controller.ManageRecipeTemp</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCheck</servlet-name>
+        <servlet-class>controller.UpdateCheck</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertRecipeTemp</servlet-name>
+        <servlet-class>controller.InsertRecipeTemp</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>UpdateRecipe</servlet-name>
+        <servlet-class>controller.UpdateRecipe</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageCourse</servlet-name>
+        <servlet-class>controller.ManageCourse</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -73,8 +93,8 @@
         <url-pattern>/ManageRecipeServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>InsertRecipeServlet</servlet-name>
-        <url-pattern>/InsertRecipeServlet</url-pattern>
+        <servlet-name>UploadImage</servlet-name>
+        <url-pattern>/UploadImage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InsertRecipeServletx</servlet-name>
@@ -103,6 +123,26 @@
     <servlet-mapping>
         <servlet-name>SignUpCourseServlet</servlet-name>
         <url-pattern>/SignUpCourseServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>ManageRecipeTemp</servlet-name>
+        <url-pattern>/ManageRecipeTemp</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>UpdateCheck</servlet-name>
+        <url-pattern>/UpdateCheck</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertRecipeTemp</servlet-name>
+        <url-pattern>/InsertRecipeTemp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateRecipe</servlet-name>
+        <url-pattern>/UpdateRecipe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageCourse</servlet-name>
+        <url-pattern>/ManageCourse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,16 +5,16 @@
  */
 package controller;
 
-import connect.DBConnect;
-import get.CategoryGet;
 import get.RecipeGet;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
+import java.io.PrintWriter;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
+
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -23,9 +23,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+
 import model.Recipe;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 /**
  *
  * @author ACER
@@ -35,8 +37,14 @@ import org.apache.commons.fileupload.FileItem;
 @MultipartConfig(maxFileSize = 16177215)
 public class InsertRecipeServletx extends HttpServlet{
     //kết nối tới database
-    
-    private static final String UPLOAD_DIRECTORY= "images";
+        RecipeGet recipeGet = new RecipeGet();
+     // thư mục lưu file sau khi upload
+    private static final String UPLOAD_DIRECTORY = "images";
+
+    // cài đặc phần upload
+    private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
+    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,108 +55,128 @@ public class InsertRecipeServletx extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
      //xử lí request
+     request.setCharacterEncoding("utf-8");
+     
+      // kiểm tra nếu yêu cầu thực sự có hành động upload file
+        if (!ServletFileUpload.isMultipartContent(request)) {
+            // nếu không có thì dừng việc upload
+            PrintWriter writer = response.getWriter();
+            writer.println("Error: Form must has enctype=multipart/form-data.");
+            writer.flush();
+            return;
+        }
+        String url ="/chuancommenau/index.jsp";
+        String img ="";
+        // cấu hình cài đặc upload
+        
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        // đặc ngưỡng bộ nhớ - giới hạn file lưu trữ
+        
+        factory.setSizeThreshold(MEMORY_THRESHOLD);
+        // đặc vị trí lưu file tạm thời
+        factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+
+        ServletFileUpload upload = new ServletFileUpload(factory);
+
+        // đặc kích thước file lớn nhất có thể upload
+        upload.setFileSizeMax(MAX_FILE_SIZE);
+
+        // đặc kích thước file lớn nhất có thể upload (bao gồm file và dữ liệu)
+        upload.setSizeMax(MAX_REQUEST_SIZE);
+
+        // xây dựng đường dẫn thư mục để lưu trữ tập tin upload
+        // đây là đường dẫn tương đối đến thư mục lưu trữ
+        String uploadPath = getServletContext().getRealPath("")
+                + File.separator + UPLOAD_DIRECTORY;
+
+        // tạo thư mục lưu trữ nếu thư mục không tồn tại
+        File uploadDir = new File(uploadPath);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdir();
+        }
      //lấy dữ liệu từ các trường nhập liệu tại form insert
      int view =0;
-     String tenmon = request.getParameter("tenmon");
-     int mact = Integer.parseInt(request.getParameter("macongthuc"));
-     int calo = Integer.parseInt(request.getParameter("calo"));
-     String tacgia = request.getParameter("tacgia");
-     String video = request.getParameter("video");
-     String dinhduong= request.getParameter("dinhduong");
-     String thanhphan = request.getParameter("thanhphan");
-     String motamon = request.getParameter("mota");
-     String cachlam = request.getParameter("cachlam");
+     String nameRecipe = "";
+     int  catogoryId = 0;
+     int calo = 0;
+     String author = "";
+     String video = "";
+     String nuti = "";
+     String ingredients = "";
+     String descriptionRecipe= "";
+     String making = "";
      int userid =0;
-    //Xử lí hình
-         InputStream inputStream = null;
-          //input Stream of the upload file
-         
-        // obtains the upload file part in this multipart request
-         Part filePart = request.getPart("hinh");
-         if(filePart != null){
-             //prints out some information for debugging
-            System.out.println(filePart.getName());
-            System.out.println(filePart.getSize());
-            System.out.println(filePart.getContentType());
-            
-        // obtains input stream of the upload file
-            inputStream = filePart.getInputStream();
-            
     
-         }
          
-         //connect to database
-         Connection conn = null;
-         //message gửi thông báo
-         String message = null;    
-              
-         try{
-            conn = DBConnect.getConnection();
-            
-             //construct SQL statement
-            String sql = "INSERT INTO recipe (recipe_id, recipe_name, category_id, recipe_image, recipe_views, calories, recipe_author, ingredients, nutritions, making, description_recipe, video, user_id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            
-             PreparedStatement ps = conn.prepareStatement(sql);
-             //chèn vào bảng recipe
-                RecipeGet recipeGet = new RecipeGet();  
-            CategoryGet categoryGet = new CategoryGet();
-            ArrayList<Recipe> listRecipe;
-        
-            listRecipe = recipeGet.getListRecipe();
-            int count =0;
-                    for(Recipe recipe : listRecipe){
-                        count++;    
-                    }
-             ps.setLong(1, count++);
-             ps.setString(2, tenmon);
-             ps.setInt(3,mact);
-             if(inputStream != null)
-             {
-                 String filename = filePart.getSubmittedFileName();
-                 ps.setString(4, UPLOAD_DIRECTORY +"/"+filename);
-             }
-             ps.setInt(5, view);
-             ps.setInt(6, calo);
-             ps.setString(7, tacgia);
-             ps.setString(8, thanhphan);
-             ps.setString(9, dinhduong);
-             ps.setString(10, cachlam);
-             ps.setString(11, motamon);
-             ps.setString(12, video);
-             ps.setInt(13, userid);
-            
-             //gửi thông tin về database
-             int row = ps.executeUpdate();
-             if(row > 0){
-                 message = "Thông tin đã được lưu lại";
-             }
-         }
-            catch(SQLException e){
-                     message = "Lỗi: "+ e.getMessage();
-                     e.printStackTrace();
-             }
-            finally{
-                     if(conn != null){
-                     //đóng database
-                     try{
-                     conn.close();
-                     }
-                     catch(SQLException e){
-                     e.printStackTrace();
-                     }
-                }
-            // sets the message in request scope
-            request.setAttribute("Message", message);   
-                     
-            // forwards to the message page
-            getServletContext().getRequestDispatcher("/admin/manage_product.jsp").forward(request, response);
+        try {
+             // xử lý upload file khi người dùng nhấn nút cập nhật
+            List<FileItem> formItems = upload.parseRequest(request);
+            Iterator < FileItem > it = formItems.iterator();
+            if (!it.hasNext()) {
+            return;
             }
-             
-         }
-         
+            while (it.hasNext()){
+            FileItem fileItem = it.next();
+            boolean isFormField = fileItem.isFormField();
+            if (isFormField) {
+                switch(fileItem.getFieldName()){
+                    case "nameRecipe" : nameRecipe = fileItem.getString("UTF-8");
+                         break;
+                    case "catogoryId" : catogoryId =Integer.parseInt(fileItem.getString());
+                         break;
+                    case "calo" : calo = Integer.parseInt(fileItem.getString());
+                         break;
+                    case "author" : author =  fileItem.getString("UTF-8");
+                         break;
+                    case "ingredients" : ingredients =  fileItem.getString("UTF-8");
+                         break;
+                    case "nutritions" : nuti =  fileItem.getString("UTF-8");
+                         break;
+                    case "making" : making =  fileItem.getString("UTF-8");
+                         break;
+                    case "descriptionRecipe" : descriptionRecipe =  fileItem.getString("UTF-8");
+                         break;
+                    case "video" : video =  fileItem.getString("UTF-8");
+                         break;
+                  
+                }
+            
+                
+            }
+            else {
+                if (fileItem.getSize() > 0) {
+                String fileName = new File(fileItem.getName()).getName();
+                String filePath = uploadPath + File.separator + fileName;
+                File storeFile = new File(filePath);
+                fileItem.write(storeFile);
+                img = fileName;
+               
+                }
+ }
+        }
+          
+        } catch (Exception ex) {
+           
+        }
         
-         
+        int count=1;
+            try {
+                for (Recipe r : recipeGet.getListRecipe()) {
+                    r.getRecipeId();
+                    count++;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(InsertRecipeServletx.class.getName()).log(Level.SEVERE, null, ex);
+            }
+     
+        recipeGet.insertRecipe(new Recipe(count, nameRecipe, img, view , calo, author, catogoryId ,ingredients, nuti, making, descriptionRecipe, video, userid));
+        url ="/chuancommenau/admin/success.jsp";
+         response.sendRedirect(url);
     }
+
+
+}
+
     
 
 

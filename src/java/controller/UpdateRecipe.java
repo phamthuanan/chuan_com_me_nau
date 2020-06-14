@@ -9,9 +9,12 @@ import get.RecipeGet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,10 +31,10 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  * @author ACER
  */
 
-public class ManageRecipeServlet extends HttpServlet{
+public class UpdateRecipe extends HttpServlet{
    
     
-    RecipeGet recipeGet = new RecipeGet();
+    
       // thư mục lưu file sau khi upload
     private static final String UPLOAD_DIRECTORY = "images";
 
@@ -43,24 +46,7 @@ public class ManageRecipeServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          String command = request.getParameter("command");
-        String url = "";
-        String recipe_id = request.getParameter("recipe_id");
-        try{
-           
-        switch(command){
-            
-      
-         case "delete":
-                      
-                       recipeGet.deleteRecipe(Integer.parseInt(recipe_id));
-                       url="/chuancommenau/admin/success.jsp";
-                    break;
-            }  
-        }
-        catch (Exception e) {
-        }
-        response.sendRedirect(url);
+   
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -75,7 +61,7 @@ public class ManageRecipeServlet extends HttpServlet{
             writer.flush();
             return;
         }
-        String url ="";
+        String url ="/chuancommenau/index.jsp";
         String img ="";
         // cấu hình cài đặc upload
         
@@ -104,6 +90,9 @@ public class ManageRecipeServlet extends HttpServlet{
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
         }
+        
+        //khai bao bien
+        int RecipeId =0;
         String nameRecipe="";
         int catogoryId=0;
         int calo=0;
@@ -113,6 +102,8 @@ public class ManageRecipeServlet extends HttpServlet{
         String making="";
         String descriptionRecipe="";
         String video="";
+        int view =0;
+        int userid = 0;
         try {
              // xử lý upload file khi người dùng nhấn nút cập nhật
             List<FileItem> formItems = upload.parseRequest(request);
@@ -124,10 +115,17 @@ public class ManageRecipeServlet extends HttpServlet{
             FileItem fileItem = it.next();
             boolean isFormField = fileItem.isFormField();
             if (isFormField) {
+               
                 switch(fileItem.getFieldName()){
+                    case "RecipeId": RecipeId = Integer.parseInt(fileItem.getString());
+                         break;
                     case "nameRecipe" : nameRecipe = fileItem.getString("UTF-8");
                          break;
                     case "catogoryId" : catogoryId =Integer.parseInt(fileItem.getString());
+                         break;
+                    case "view" : view =Integer.parseInt(fileItem.getString());
+                         break;
+                    case "userid" : userid =Integer.parseInt(fileItem.getString());
                          break;
                     case "calo" : calo = Integer.parseInt(fileItem.getString());
                          break;
@@ -135,7 +133,7 @@ public class ManageRecipeServlet extends HttpServlet{
                          break;
                     case "ingredients" : ingredients =  fileItem.getString("UTF-8");
                          break;
-                    case "nutritions" : nuti =  fileItem.getString("UTF-8");
+                    case "nuti" : nuti =  fileItem.getString("UTF-8");
                          break;
                     case "making" : making =  fileItem.getString("UTF-8");
                          break;
@@ -165,9 +163,14 @@ public class ManageRecipeServlet extends HttpServlet{
         }
         
    
-        int RecipeId = Integer.parseInt(request.getParameter("RecipeId"));
     
-        recipeGet.insertRecipe(new Recipe(RecipeId,nameRecipe,img,0, calo, author, catogoryId ,ingredients, nuti, making, descriptionRecipe, video, 0));
+       
+    RecipeGet recipeGet = new RecipeGet();
+        try {
+            recipeGet.update(new Recipe(RecipeId,nameRecipe,img,view, calo, author, catogoryId ,ingredients, nuti, making, descriptionRecipe, video, userid));
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdateRecipe.class.getName()).log(Level.SEVERE, null, ex);
+        }
         url ="/chuancommenau/admin/success.jsp";
          response.sendRedirect(url);
     }

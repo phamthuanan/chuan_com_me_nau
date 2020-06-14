@@ -1,9 +1,11 @@
 <%-- 
-    Document   : manage_product
-    Created on : May 17, 2020, 9:14:47 PM
+    Document   : manage_course
+    Created on : Jun 8, 2020, 2:07:04 PM
     Author     : ACER
 --%>
 
+<%@page import="model.Course"%>
+<%@page import="get.CourseGet"%>
 <%@page import="model.Admin"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Recipe" %>
@@ -31,14 +33,16 @@
         />
        <<!-- <c:set var="root" value="${pageContext.request.contextPath}"/> -->
         <link rel="stylesheet" href="css/style-dash.css" />
-        <title>Quản lý công thức</title>
+ 
+
+        <title>Quản lý khóa học</title>
     </head>
     <body>
-         <% 
-        RecipeGet recipeGet = new RecipeGet();  
+          <% 
+        CourseGet courseGet = new CourseGet();  
         CategoryGet categoryGet = new CategoryGet();
         
-        ArrayList<Recipe> listRecipe = recipeGet.getListRecipe();
+        ArrayList<Course> listCourse = courseGet.getListCourse();
     
          %>
           <%
@@ -47,7 +51,8 @@
                 response.sendRedirect("/chuancommenau/admin/login.jsp");
             }
         %>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top">
+        
+           <nav class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top">
       <button class="navbar-toggler sideMenuToggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -124,9 +129,9 @@
                 <span class="text">Khóa học</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="manage_user.jsp" class="nav-link px-2">
-                <i class="material-icons icon">
+               <li class="nav-item">
+              <a href="manage_user.jsp" class="nav-link px-2 sideMenuToggler">
+                <i class="material-icons icon expandView ">
                   view_list
                 </i>
                 <span class="text">Duyệt công thức</span>
@@ -145,53 +150,55 @@
             <p></p>
             <p></p>
             <p></p>
-            <h1 style="text-align: center;">QUẢN LÝ CÔNG THỨC</h1>
-            <p style="text-align: center"><a href="/chuancommenau/admin/insert_recipe.jsp" >Thêm công thức</a></p>
+            <h1 style="text-align: center;">QUẢN LÝ KHÓA HỌC</h1>
+            <p style="text-align: center"><a href="/chuancommenau/admin/insertCourse.jsp" >Thêm khóa học</a></p>
             <table style="text-align: center;background-color:#00995c;color: white;" width="100%">
-                <tr style="font-weight:  bold;">
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white" width="10px" >STT</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Mã món</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Tên món</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Tên loại</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Lượt xem</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Năng lượng</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Người đăng</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Thành phần</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Chất dinh dưỡng</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Cách làm</th>
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Mô tả món ăn</th>
-  
+          <tr>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;" width="10px" >STT</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Mã khóa học</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Tên khóa học</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Ngày bắt đầu</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Ngày kết thúc</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Mã loại khóa học</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Địa chỉ</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">MSGV</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Giới thiệu</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Thời gian lớp</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Thời lượng</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Thông tin</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;width: 370px;" >Lợi ích</th>
                     
-                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Tùy chọn</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;">Tùy chọn</th>
                 </tr>
                 <%
                     int count =0;
-                    for(Recipe recipe : listRecipe){
+                    for(Course course : listCourse){
                         count++;
                    
      
                                                        
                 %>
-                <tr  style="text-align: left;">
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;" width="10px"><%=count%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getRecipeId()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getRecipeName() %></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=categoryGet.getCategory(recipe.getCategoryId()).getCategoryName()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getRecipeViews()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getRecipeCalories()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getRecipeAuthor()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getIngredientRecipe()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getNutritionIngredients()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getMaking()%></td>
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getDescriptionRecipe()%></td>
-                  
-                
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;font-weight:  bold;" width="75px" >
-                        <center >
-                            <a style="color: #ff66cc" href="/chuancommenau/admin/updateRecipe.jsp?recipe_id=<%=recipe.getRecipeId()%>&command=update">
+                <tr style="text-align: left">
+                    <td style="border: 2px solid #dcdcdc;vertical-align: middle;" width="10px"><%=count%></td>
+                    <td style="border: 2px solid #dcdcdc;vertical-align: middle;"><%=course.getCourseId()%></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getCourseName() %></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getCoursesTimeStart()%></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getCoursesTimeFinish()%></td>
+                    <td style="border: 2px solid #dcdcdc;vertical-align: middle;"><%=course.getCategoryCourseId()%></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getCourseAddress()%></td>
+                    <td style="border: 2px solid #dcdcdc;vertical-align: middle;"><%=course.getTeacherId()%></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getIntroduce()%></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getTime()%></td>
+                    <td style="border: 2px solid #dcdcdc;vertical-align: middle;"><%=course.getDuration()%></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getInfomationCourse()%></td>
+                    <td style="border: 2px solid #dcdcdc;"><%=course.getBenifitOfCourse()%></td>
+                    
+                    <td style="border: 2px solid #dcdcdc;vertical-align: top;" width="75px">
+                        <center>
+                            <a style="color: #ff66cc;font-weight:  bold;" href="/chuancommenau/admin/updateCourse.jsp?recipe_id=<%=course.getCourseId()%>&command=update">
                                 Sửa
                             </a>&nbsp;| &nbsp;
-                            <a style="color: #ff66cc" href="/chuancommenau/ManageRecipeServlet?recipe_id=<%=recipe.getRecipeId()%>&command=delete">
+                            <a style="color: #ff66cc;font-weight:  bold;" href="/chuancommenau/ManageCourse?recipe_id=<%=course.getCourseId()%>&command=delete">
                                 Xóa
                             </a>
                         </center>

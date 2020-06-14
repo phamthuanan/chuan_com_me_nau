@@ -1,9 +1,13 @@
 <%-- 
-    Document   : insert_recipe
-    Created on : May 20, 2020, 7:56:11 PM
+    Document   : updateRecipe
+    Created on : Jun 2, 2020, 9:14:22 PM
     Author     : ACER
 --%>
 
+
+<%@page import="model.Course"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="get.CourseGet"%>
 <%@page import="model.Recipe"%>
 <%@page import="get.RecipeGet"%>
 <%@page import="model.Admin"%>
@@ -14,8 +18,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Thêm công thức</title>
-     
+        <title>Cập nhật khóa học</title>
          <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
@@ -32,29 +35,22 @@
         <link rel="stylesheet" href="css/style-dash.css" />
     </head>
     <body>
-        <%
-            CategoryGet categoryget = new CategoryGet();
-             String error="";
-             if(request.getParameter("error")!=null){
-                 error = (String)request.getParameter("error");
-             }
-             
-        %>
-         <%
-            RecipeGet recipeGet = new RecipeGet();
-            String error1="";
-             if(request.getParameter("error")!=null){
-                 error1 = (String)request.getParameter("error");
-             }
-             
-        %>
+        
          <%
             Admin useradmin = (Admin) session.getAttribute("useradmin");
             if (useradmin == null) {
                 response.sendRedirect("/chuancommenau/admin/login.jsp");
             }
-        %>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top">
+        %>    <% 
+            Course course = new Course();
+        CourseGet courseGet = new CourseGet();  
+        CategoryGet categoryGet = new CategoryGet();
+        
+        ArrayList<Course> listCourse = courseGet.getListCourse();
+    
+         %>
+         
+    <nav class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top">
       <button class="navbar-toggler sideMenuToggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -132,14 +128,6 @@
                 <span class="text">Khóa học</span>
               </a>
             </li>
-             <li class="nav-item">
-              <a href="manage_user.jsp" class="nav-link px-2 sideMenuToggler">
-                <i class="material-icons icon expandView ">
-                  view_list
-                </i>
-                <span class="text">Duyệt công thức</span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -153,28 +141,27 @@
             <p></p>
             <p></p>
             <p></p>
-            <div style="background-color: white;">
-              
-                
-                  <h3  align="center" style="margin-top: 30px;background-color: white;"><b>THÊM CÔNG THỨC MỚI</b></h3>
-                <form method="post" action="/chuancommenau/InsertRecipeServletx"  enctype="multipart/form-data">
-                    <table width="100%" style="margin-left: 280px;">
+            <div style="background-color: #2D4435">
+                <h3  align="center" style="margin-top: 30px;background-color: white;"><b>CẬP NHẬT CÔNG THỨC</b></h3>
+                <form  action="/chuancommenau/ManageCourse" method="post" >
+                    <table width="100%" style="margin-left: 380px;background-color: #2D4435;color: white;">
                       <tr>
                             <td width="125px">
-                                <b></b>
+                                <b>Mã công thức</b>
                             </td>
                             <td>
-                                <input type="hidden"  name="mamon">
+                                <input type="text"  name="mamon1" value="<%=course.getCourseId() %>"/>
                             </td>
                         </tr>
                       
                         <tr>
                             <td width="125px">
-                                <b>Tên món</b>
+                                <b>Tên công thức</b>
                                 <br><br>
                             </td>
                             <td>
-                                <input type="text" name="nameRecipe" size="50" required/>
+                                <input type="text" name="tenmon1" size="50" value="<%=course.getCourseName()%>"/>
+                            <br><br>
                             </td>  
                         </tr>
                         <tr>
@@ -183,10 +170,10 @@
                                 <br><br>
                             </td>
                             <td>
-                                <div>
+                               <div>
                                     <span></span>
                                     <!--Lấy dữ liệu để hiển thị loại món  -->
-                                    <select name="catogoryId">
+                                    <select name="macongthuc1">
                                         <%
                                             for(Category c : categoryget.getListCategory()){ 
                                                 
@@ -210,19 +197,29 @@
                                 <br><br>
                             </td>
                             <td>
-                                <input type="file" name="hinh" required />
+                                <img src="../images/<%=courseGet.getRecipeImage()%>" width="250" height="250" name="hinh1" />
+                                <input type="file" name="hinh1" />
                             <br><br>
                             </td>
                           
                         </tr>
-                       
+                        <tr>
+                            <td>
+                                <b>Lượt xem</b>
+                                <br><br>
+                            </td>
+                            <td>
+                                <input type="text"  name="view1" size="10" value="<%=course.getRecipeViews()%>"/>
+                            <br><br>
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <b>Số Calo</b>
                                 <br><br>
                             </td>
                             <td>
-                                <input type="text" placeholder="Calo" name="calo" size="10" required/>
+                                <input type="text"  name="calo1" size="10" value="<%=course.getRecipeCalories()%>"/>
                             <br><br>
                             </td>
                         </tr>
@@ -233,7 +230,7 @@
                                 <br><br>
                             </td>
                             <td>
-                                <input type="text" placeholder="Tác giả" name="author" size="50" required/>
+                                <input type="text"  name="tacgia1" size="50" value="<%=course.getRecipeAuthor()%>"/>
                             <br><br>
                             </td>
                         </tr>
@@ -244,8 +241,8 @@
                                 <br><br>
                             </td>
                             <td>
-                                <p>Cách thành phần cách nhau bởi dấu "-"</p>
-                                <textarea rows="6" cols="60" placeholder="Thành phần" name="ingredients" required></textarea>
+                                <p>Từng thành phần cách nhau bởi dấu "-"</p>
+                                <textarea cols="100" rows="5" name="thanhphan1" ><%=course.getIngredientRecipe()%>" </textarea>
                             <br><br>
                             </td>
                         </tr>
@@ -256,7 +253,7 @@
                                 <br><br>
                             </td>
                             <td>
-                                <textarea rows="6" cols="60" placeholder="Dinh dưỡng" name="nutritions" required></textarea>
+                                <textarea cols="100" rows="5" name="dinhduong1" ><%=course.getNutritionIngredients()%>"</textarea>
                             <br><br>
                             </td>
                         </tr>
@@ -268,7 +265,7 @@
                             </td>
                             <td>
                                 <p>Từng bước làm cách nhau bởi dấu "-"</p>
-                                <textarea rows="6" cols="60" placeholder="Cách làm" name="making" required></textarea>
+                                <textarea cols="100" rows="5" name="cachlam1" ><%=course.getMaking()%>" </textarea>
                             <br><br>
                             </td>
                         </tr>
@@ -279,23 +276,27 @@
                                 <br><br>
                             </td>
                             <td>
-                                <textarea rows="6" cols="60" placeholder="Mô tả món ăn" name="descriptionRecipe" required></textarea>
+                                <textarea cols="100" rows="5" name="mota1" ><%=course.getDescriptionRecipe()%>"</textarea>
+                            <br><br>
                             <br><br>
                             </td>
                         </tr>
-                      
+                      <br><br>
                         <tr>
                             <td>
                                 <b>Video hướng dẫn</b>
                                 <br><br>
                             </td>
                             <td>
-                                <input type="text" placeholder="Video hướng dẫn" name="video" size="50" required/>
+                                <input type="text" name="video1" size="50" value="<%=course.getVideo()%>"/>
+                                <br>
+                                <br>
+                               
                             <br><br>
                             </td>
                             <tr><td></td><td>
-                                     
-                                <button type="submit" value="insert" name="command">Thêm công thức</button>
+                                    <input type="hidden" name="recipe_id" value="<%=request.getParameter("recipe_id")%>">
+                                <button type="submit" value="update" name="command">Cập nhật</button>
                                
 <!--                                <input type="hidden" name="command" value="insert">
                                 <input type="submit" class="button" value="Thêm công thức" />-->
@@ -328,3 +329,4 @@
     ></script>
     </body>
 </html>
+

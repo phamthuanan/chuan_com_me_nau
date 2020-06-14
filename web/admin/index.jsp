@@ -128,22 +128,22 @@
             </li>
             -->
             <li class="nav-item">
-              <a href="#" class="nav-link px-2">
+              <a href="manage_course.jsp" class="nav-link px-2">
                 <i class="material-icons icon">
                   computer
                 </i>
                 <span class="text">Khóa học</span>
               </a>
             </li>
-            <!--
+            
             <li class="nav-item">
-              <a href="#" class="nav-link px-2 sideMenuToggler">
+              <a href="manage_user.jsp" class="nav-link px-2 sideMenuToggler">
                 <i class="material-icons icon expandView ">
                   view_list
                 </i>
-                <span class="text">Resize</span>
+                <span class="text">Duyệt công thức</span>
               </a>
-            </li>-->
+            </li>
           </ul>
         </div>
       </div>

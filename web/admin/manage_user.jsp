@@ -1,9 +1,13 @@
 <%-- 
-    Document   : manage_product
-    Created on : May 17, 2020, 9:14:47 PM
+    Document   : manage_user.jsp
+    Created on : Jun 11, 2020, 8:36:39 AM
     Author     : ACER
 --%>
 
+<%@page import="get.RecipeTempGet"%>
+<%@page import="model.RecipeTemp"%>
+<%@page import="model.Course"%>
+<%@page import="get.CourseGet"%>
 <%@page import="model.Admin"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Recipe" %>
@@ -12,7 +16,7 @@
 <%@page import="get.CategoryGet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet"  href="css/mo-style.css" />
@@ -31,23 +35,26 @@
         />
        <<!-- <c:set var="root" value="${pageContext.request.contextPath}"/> -->
         <link rel="stylesheet" href="css/style-dash.css" />
-        <title>Quản lý công thức</title>
+ 
+
+        <title>Quản lý khóa học</title>
     </head>
     <body>
-         <% 
-        RecipeGet recipeGet = new RecipeGet();  
+          <% 
+        RecipeTempGet recipeTempGet = new RecipeTempGet();  
         CategoryGet categoryGet = new CategoryGet();
         
-        ArrayList<Recipe> listRecipe = recipeGet.getListRecipe();
-    
-         %>
-          <%
+       
+        ArrayList<RecipeTemp> listRecipeTemp= recipeTempGet.getListRecipe();
+        %>
+         <%
             Admin useradmin = (Admin) session.getAttribute("useradmin");
             if (useradmin == null) {
                 response.sendRedirect("/chuancommenau/admin/login.jsp");
             }
         %>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top">
+        
+           <nav class="navbar navbar-expand-lg navbar-dark bg-mattBlackLight fixed-top">
       <button class="navbar-toggler sideMenuToggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -124,7 +131,7 @@
                 <span class="text">Khóa học</span>
               </a>
             </li>
-            <li class="nav-item">
+             <li class="nav-item">
               <a href="manage_user.jsp" class="nav-link px-2">
                 <i class="material-icons icon">
                   view_list
@@ -145,8 +152,8 @@
             <p></p>
             <p></p>
             <p></p>
-            <h1 style="text-align: center;">QUẢN LÝ CÔNG THỨC</h1>
-            <p style="text-align: center"><a href="/chuancommenau/admin/insert_recipe.jsp" >Thêm công thức</a></p>
+            <h1 style="text-align: center;">QUẢN LÝ CÔNG THỨC ĐĂNG TỪ NGƯỜI DÙNG</h1>
+            
             <table style="text-align: center;background-color:#00995c;color: white;" width="100%">
                 <tr style="font-weight:  bold;">
                     <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white" width="10px" >STT</th>
@@ -160,13 +167,14 @@
                     <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Chất dinh dưỡng</th>
                     <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Cách làm</th>
                     <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Mô tả món ăn</th>
+                    <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Trạng thái</th>
   
                     
                     <th style="border: 2px solid #dcdcdc;vertical-align: top;color: white">Tùy chọn</th>
                 </tr>
                 <%
                     int count =0;
-                    for(Recipe recipe : listRecipe){
+                    for(RecipeTemp recipe : listRecipeTemp){
                         count++;
                    
      
@@ -184,16 +192,32 @@
                     <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getNutritionIngredients()%></td>
                     <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getMaking()%></td>
                     <td style="border: 2px solid #dcdcdc;vertical-align: top;"><%=recipe.getDescriptionRecipe()%></td>
-                  
+                    <td style="border: 2px solid #dcdcdc;vertical-align: top;">
+                        <% if(recipe.getCheck() == 1) { %>
+                        <p style="color: green;font-weight: bold;text-align: center">Đã duyệt</p>
+                        <%
+                            } else {
+                        %>
+                        <p style="color:red;font-weight: bold;text-align: center">Chờ duyệt</p>
+                        <%
+                            }
+                        %>
+                    </td>
                 
-                    <td style="border: 2px solid #dcdcdc;vertical-align: top;font-weight:  bold;" width="75px" >
+                    <td style="border: 2px solid #dcdcdc;vertical-align: top;font-weight:  bold;" width="135px" >
                         <center >
-                            <a style="color: #ff66cc" href="/chuancommenau/admin/updateRecipe.jsp?recipe_id=<%=recipe.getRecipeId()%>&command=update">
-                                Sửa
+                            <% if(recipe.getCheck() == 0) { %>
+                            <a style="color: #ff66cc" href="/chuancommenau/InsertRecipeTemp?recipe_id=<%=recipe.getRecipeId()%>&command=check">   
+                               Duyệt
                             </a>&nbsp;| &nbsp;
-                            <a style="color: #ff66cc" href="/chuancommenau/ManageRecipeServlet?recipe_id=<%=recipe.getRecipeId()%>&command=delete">
+                            <a style="color: #ff66cc" href="/chuancommenau/ManageRecipeTemp?recipe_id=<%=recipe.getRecipeId()%>&command=delete">
                                 Xóa
                             </a>
+                            <% } else { %>
+                              <a style="color: #ff66cc" href="/chuancommenau/ManageRecipeTemp?recipe_id=<%=recipe.getRecipeId()%>&command=delete">
+                                Xóa
+                              </a>
+                            <% } %>
                         </center>
                     </td>
                   
@@ -219,4 +243,4 @@
       crossorigin="anonymous"
     ></script>
     </body>
-</html>
+
