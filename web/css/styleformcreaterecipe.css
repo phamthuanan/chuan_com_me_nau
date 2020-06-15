@@ -71,3 +71,9 @@ and open the template in the editor.
     margin: 0 auto;
     margin-bottom: 20px
 }
+::-webkit-input-placeholder {
+   color: #b5b0b0;
+}
+::placeholder{
+   color: #b5b0b0; 
+}

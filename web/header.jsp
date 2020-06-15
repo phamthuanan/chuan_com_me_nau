@@ -47,7 +47,7 @@
         .search{
   width: 25%;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 16px;
   background-color: white;
   background-image: url('images/search.png');
