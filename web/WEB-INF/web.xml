@@ -72,6 +72,18 @@
         <servlet-name>ManageCourse</servlet-name>
         <servlet-class>controller.ManageCourse</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertRecipeByUserServlet</servlet-name>
+        <servlet-class>controller.InsertRecipeByUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertPostServlet</servlet-name>
+        <servlet-class>controller.InsertPostServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchRecipeAndCourseServlet</servlet-name>
+        <servlet-class>controller.SearchRecipeAndCourseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -143,6 +155,18 @@
     <servlet-mapping>
         <servlet-name>ManageCourse</servlet-name>
         <url-pattern>/ManageCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertRecipeByUserServlet</servlet-name>
+        <url-pattern>/InsertRecipeByUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertPostServlet</servlet-name>
+        <url-pattern>/InsertPostServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchRecipeAndCourseServlet</servlet-name>
+        <url-pattern>/SearchRecipeAndCourseServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

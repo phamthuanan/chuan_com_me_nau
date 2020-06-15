@@ -39,7 +39,7 @@
                 <h3 style="color: white;"><a  href="index.jsp" style ="color:white;">Trang chủ</a> / <a href="Recipe.jsp"style ="color:white;">Công thức</a> / <%=recipe.getRecipeName()%></h3>
           <div class="leftcolumn">
             <div class="card">
-                <div class="img-dish" ><iframe class="piture-dish" src="<%=recipe.getVideo() %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div class="img-dish" ><iframe class="piture-dish" src="https://www.youtube.com/embed/<%=recipe.getVideo() %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
               
                 <h2 class="name-dish"><b><%= recipe.getRecipeName()%></b></h2>
                 <h4 class="name-athour">Tác giả: <%= recipe.getRecipeAuthor()%></h4>
@@ -89,7 +89,8 @@
                         %>
                         <input type="hidden" name="recipeId" value="<%=recipeId%>">
                         <input type="hidden" name="userId" value="<%=users.getUserId()%>">
-                    <textarea name="text-comment" id="text-comment" class="text-comment" cols="120" rows="3"></textarea>
+                        <input type="hidden" name="typereview" value="commentRecipe">
+                        <textarea name="text-comment" id="text-comment" class="text-comment" cols="120" rows="3" required=""></textarea>
                     <input type="submit" class="button_submit" value="Gửi bình luận">
                      </form>
                      <% }
@@ -101,15 +102,18 @@
               <div class="card">
                   <%
                       ReviewGet reviewGet = new ReviewGet();
-                      int numberReview = reviewGet.countReviewByRecipeId(Integer.parseInt(recipeId));
+                      int numberReview = reviewGet.countReviewByRecipeId(Integer.parseInt(recipeId),1);
                       %>
                       <h2 class="mb-5"><b><%=numberReview%> bình luận</b></h2>
                     <ul class="comment-list">
                         <%
                             UserGet userGet = new UserGet();
                             for(Review rev: reviewGet.getListReviewByRecipeId(Integer.parseInt(recipeId))){
-                                User user = userGet.getUser(rev.getUserIdReview());
-                                %>
+                                if(rev.getPostId()==0){
+                                 User user = userGet.getUser(rev.getUserIdReview());  %>  
+                                
+                                
+                               
                       <li class="comment">
                         <div class="vcard bio">
                             <img src="images/<%=user.getUserAvatar()%>" alt="Image placeholder">
@@ -120,7 +124,7 @@
                           <p><%=rev.getReviewMessenges()%></p>
                         </div>
                       </li>
-                            <%}%>
+                            <%}}%>
                     </ul>
              
                </div>
@@ -152,12 +156,10 @@
         </div>
       </div>
        <jsp:include page="footer.jsp"></jsp:include>
-       
        <a href="#" class="scrollup" style="display: none;">Scroll</a>
-    
-        <!-- ALL PLUGINS -->
-        <script src="js/all.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/custom.js"></script>
+           <script src="js/all.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
     </body>
 </html>

@@ -46,7 +46,6 @@
 
     <!-- Modernizer -->
     <script src="js/modernizer.js"></script>
-
 </head>
 
 <body>
@@ -688,7 +687,7 @@
                 >
                   <div class="col-md-6 col-sm-6">
                     <div class="blog-block">
-                      <div class="blog-img-box">
+                      <div class="blog-img-box1">
                           <img src="images/<%=c.getCourseImages()%>" alt="" />
                         <div class="overlay">
                             <a href="CourseDetail.jsp?courseId=<%=c.getCourseId()%>"
@@ -696,7 +695,7 @@
                           ></a>
                         </div>
                       </div>
-                      <div class="blog-dit">
+                      <div class="blog-dit1">
                           <p><span><%=categoryCourse.getCategoryCourseName()%></span></p>
                         <div class="Khoa-hoc">
                             <h1><%=c.getCourseName()%></h1>
@@ -710,7 +709,7 @@
                         <h5>
                             <%=c.getIntroduce()%>
                         </h5>
-                        <a href=""><button class="buttonsignup" >Đăng ký</button></a>
+                        <a href="CourseDetail.jsp?courseId=<%=c.getCourseId()%>"><button class="buttonsignup" >Đăng ký</button></a>
                       </div>
                     </div>
                   </div>
@@ -724,7 +723,7 @@
               <!-- end blog-box -->
   
               <div class="blog-btn-v">
-                <a class="hvr-underline-from-center" href="Course.jsp">Xem thêm</a>
+                <a class="hvr-underline-from-center" href="course.jsp">Xem thêm</a>
               </div>
             </div>
             <!-- end col -->
@@ -741,7 +740,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                             <h2 class="ft-title color-white text-center"> Góp ý </h2>
-                            <p> Mọi thông tin chi tiết và góp ý xin vui lòng gửi thư về địa chỉ E-Mail: support@chuancommenau.com </p>
+                            <p> Mọi thông tin chi tiết và góp ý xin vui lòng gửi thư về địa chỉ E-Mail: help.chuancommenau@gmail.com </p>
                         </div>
                         <form action="mailto:Nhatduy19254@gmail.com" method="post" enctype="text/plain">
                             <input type="email" placeholder="Nhập địa chỉ E-Mail của bạn">

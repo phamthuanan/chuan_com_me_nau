@@ -1,6 +1,6 @@
 <%-- 
-    Document   : changeavatarresult
-    Created on : May 18, 2020, 11:21:06 AM
+    Document   : changepasswordresult
+    Created on : May 19, 2020, 9:55:06 AM
     Author     : Pham An
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Kết quả đổi ảnh đại diện</title>
+        <title>Kết quả đổi mật khẩu</title>
   <script src="js/modernizer.js"></script>
         <link href="css/themeuser.css" rel="stylesheet" type="text/css"> 
     </head>
@@ -19,7 +19,7 @@
                 <div class="theme-container container ">                       
                     <div class="site-breadcumb">                        
                         <h2 class="section-title"> <span class="light-font"></span> <strong class="clr-txt">Quản lý tài khoản </strong> </h2>
-                        <h3 style="color: white;"><a  href="index.jsp" style ="color:white;">Trang chủ</a> / <a href="changeAvatar.jsp"style ="color:white;">Thay đổi ảnh đại diện</a></h3>
+                        <h3 style="color: white;"><a  href="index.jsp" style ="color:white;">Trang chủ</a> / <a href="changePasswordUser.jsp"style ="color:white;">Thay đổi mật khẩu</a></h3>
                     </div>  
                 </div>
             </section>
@@ -39,9 +39,7 @@
                                     <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="changePasswordUser.jsp"> Thay đổi mật khẩu</a></li>                                        
                                     <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="changeAvatar.jsp"> Thay đổi ảnh đại diện</a></li>
                                     <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="listRecipePosted.jsp"> Công thức đã đăng</a></li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="order-history.html"> Đăng công thức mới</a></li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="listCoursesPosted.jsp"> Khóa học đã đăng</a></li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="return.html"> Đăng khóa học mới</a></li>
+                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="InsertRecipe.jsp"> Đăng công thức mới</a></li>
                                     
                                 </ul>
                             </div>
@@ -49,7 +47,8 @@
                         <!-- Sidebar Ends --> 
 
                         <aside class="col-md-9 col-sm-8 ptb-15">
-                            <h3>Đã đổi ảnh đại diện thành công!</h3>
+                            <h3>Đã Thay đổi mật khẩu thành công!</h3>
+                            
                         </aside>                        
                     </div>
                 </div>

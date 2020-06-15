@@ -33,6 +33,10 @@ and open the template in the editor.
     color: #000;
 }
 
+.blog-btn-v a:hover {
+    color: #000 !important ;
+}
+
 .offer-item2 img {
     width: 80px;
     float: left;
@@ -42,11 +46,11 @@ and open the template in the editor.
 }
 
 .profile {
-	padding-top: 20px;
-	padding-right: 0;
-	padding-left: 0;
-	padding-bottom: 0px;
-        cursor: pointer;
+    padding-top: 20px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0px;
+    cursor: pointer;
 }
 
 .pr-type {
@@ -55,11 +59,11 @@ and open the template in the editor.
 }
 
 .rating {
-	position: absolute;
-	top: 12px;
-	right: -2px;
-	text-align: right;
-	padding-right: 10px;
+    position: absolute;
+    top: 12px;
+    right: -2px;
+    text-align: right;
+    padding-right: 10px;
 }
 
 .text-gray {
@@ -178,9 +182,9 @@ and open the template in the editor.
 }
 
 .comment {
-	padding: 8px 8px 8px 0px;
-	margin-bottom: 5px;
-	min-height: 100px;
+    padding: 8px 8px 8px 0px;
+    margin-bottom: 5px;
+    min-height: 100px;
 }
 
 .comment-content {
@@ -204,11 +208,11 @@ and open the template in the editor.
 }
 
 .time {
-	margin-left: 10px; 
-	float:right; 
-	font-size: 11px;
-	line-height:18px; 
-	padding-top: 1px;
+    margin-left: 10px; 
+    float:right; 
+    font-size: 11px;
+    line-height:18px; 
+    padding-top: 1px;
 }
 
 .comment2 {
@@ -218,13 +222,13 @@ and open the template in the editor.
     float: left;
     border-radius: 10px;
     margin-top: 20px;
-	margin-left: -150px;
+    margin-left: -150px;
 }
 
 .like {
     font-size: 12px;
     padding: 0;
-	color: #888;
+    color: #888;
 }
 
 .comments-wrapper {
@@ -240,8 +244,8 @@ and open the template in the editor.
 }
 
 .comment3 {
-	padding: 8px 8px 8px 0px;
-	max-width: 70%;
+    padding: 8px 8px 8px 0px;
+    max-width: 70%;
 }
 
 .d129h {
@@ -257,7 +261,9 @@ and open the template in the editor.
     flex: 1 1 auto;
     line-height: 16px;
     overflow: hidden;
-    padding: 8px 12px ;
+    padding: 5px 12px ;
+    width: 80%;
+    height: 45px;
 }
 
 .d1obb {
@@ -271,10 +277,9 @@ and open the template in the editor.
 }
 
 .d1obb li {
-	padding : 0px 5px;
+    padding : 0px 5px;
 }
 
-/* CSS - Chia sẻ công thức */
 .srf-community {
     min-width: 798px;
     min-height: 90%;
@@ -317,14 +322,14 @@ and open the template in the editor.
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
-	display: inline-block;
+    display: inline-block;
     vertical-align: middle;
 }
 
 .modal-title {
     margin: 0;
     line-height: 1.42857143;
-	font-size: 25px;
+    font-size: 25px;
 }
 
 .modal-body {
@@ -354,6 +359,16 @@ and open the template in the editor.
     height: 67.6px;
 }
 
+.attached-recipe select {
+    text-align: center;
+    padding: 10px 275px;
+    border: none;
+    font-size: 25px;
+    max-height: 350px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .no-choosen-recipe {
     background: 0 0;   
     text-align: center;
@@ -375,7 +390,7 @@ and open the template in the editor.
     position: relative;
     border: .5px solid #ddd;
     border-radius: 12px;
-    padding: 10px 30px;
+    padding: 10px 30px 2px;
 }
 
 .sort-able {
@@ -420,7 +435,6 @@ and open the template in the editor.
 .review-img-upload-box-item {
     position: relative;
     display: inline-block;
-    border: 1px dashed #ddd;
     margin: 0 2px 0 2px;
     width: 77px;
     height: 77px;
@@ -429,19 +443,19 @@ and open the template in the editor.
     border-radius: 12px;
 }
 
-.img-64 {
-    width: 40px;
-    height: 40px;
-    background-size: 64px 64px;
-    text-align: center;
-    margin: 18px;
-}
-
 .review-txt {
     width: 100%;
     min-height: 130px;
     overflow-y: auto;
     height: 119px;
+}
+
+.img-64 {
+    width: 77px;
+    height: 77px;
+    background-size: 64px 64px;
+    text-align: center;
+    border-radius: 12px; 
 }
 
 .gray-box {
@@ -454,7 +468,6 @@ and open the template in the editor.
     padding: 10px 15px;
     height: 42px;
     width: 100%;
-    color: #9e9e9e;
 }
 
 .acts {
@@ -462,6 +475,7 @@ and open the template in the editor.
     position: relative;
     bottom: 15px;
     right: 15px;
+    padding-top: 15px;
 }
 
 .btn-submit-review {
@@ -472,3 +486,40 @@ and open the template in the editor.
     text-transform: uppercase;
     border-color: white;
 }
+
+.pr-opts {
+    font-size: 12px;
+    padding: 10px 0 0 0;
+}
+
+.opt2 {
+    display: inline-block;
+    margin-right: 4px;
+    padding-right: 4px;
+    font-style: italic;
+    color: #7b7b7b;
+}
+
+.opt {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 0;
+}
+
+.selection{
+    padding: 8px 12px;
+    border: 1px dashed #ddd;
+    background: #f6f6f6;
+    border-radius: 12px;
+}
+
+.photos {
+    overflow: hidden;
+    margin: 0 -5px;
+}
+
+.pt-image {
+    padding: 20px 20px;
+    display: inline-block;
+}
+

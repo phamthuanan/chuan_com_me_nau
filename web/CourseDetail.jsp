@@ -62,6 +62,11 @@
   float: right;
 }
         </style>
+        <script>
+            if(<%=request.getParameter("status")%>!=null){
+                alert("Bạn đã đăng ký lớp học thành công! Thông tin lớp học đã được gửi đến mail của bạn!");
+            }
+        </script>
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
@@ -264,8 +269,7 @@
                               ><br />
 
                               <label for="note">Ghi chú</label><br />
-                              <textarea type="text" cols="50" rows="4" name ="note">
-Ghi chú lớp học</textarea
+                              <textarea type="text" cols="50" rows="4" name ="note" placeholder="Điền thông tin ghi chú về lớp học"></textarea
                               ><br />
                               <div class="buttons">
                                 <input

@@ -41,9 +41,7 @@
                                     <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="changePasswordUser.jsp"> Thay đổi mật khẩu</a></li>                                        
                                     <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="changeAvatar.jsp"> Thay đổi ảnh đại diện</a></li>
                                     <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="listRecipePosted.jsp"> Công thức đã đăng</a></li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="order-history.html"> Đăng công thức mới</a></li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="listCoursesPosted.jsp"> Khóa học đã đăng</a></li>
-                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="return.html"> Đăng khóa học mới</a></li>
+                                    <li> <i class="fa fa-arrow-circle-o-right clr-txt"></i> <a href="InsertRecipe.jsp"> Đăng công thức mới</a></li>
                                     
                                 </ul>
                             </div>

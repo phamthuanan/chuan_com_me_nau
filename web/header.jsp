@@ -43,6 +43,26 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .search{
+  width: 25%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('images/search.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  margin-bottom: 5px;
+  float:right;
+        }
+        .search:focus{
+            width: 50%;
+        }
+    </style>
     
 </head>
 <body>
@@ -89,8 +109,12 @@
                                       <%if(user==null){ %>
                                       <li style="padding-top: -5px; margin-top: -7px; "><a href="signup-signin.jsp"><i class="fas fa-user-circle fa-2x"></i></a></li> 
                                       <% } %>
+                                      
                                 </ul>
                             </div>
+                                    <form action="SearchRecipeAndCourseServlet" method="POST">
+                                        <input type="text" name="search" placeholder="Tìm công thức hoặc khóa học..." class="search">
+                                    </form>
                             <!-- end nav-collapse -->
                         </nav>
                         <!-- end navbar -->

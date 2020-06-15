@@ -47,7 +47,7 @@
 							
 							<div class="panel panel-default">
 								<div class="panel-heading">
-                                                                    <h4 class="panel-title"><a href="Recipe.jsp?categoryId=<%= c.getCategoryCourseId()%>"><%= c.getCategoryCourseName()%></a></h4>
+                                                                    <h4 class="panel-title"><a href="course.jsp?categoryCourseId=<%= c.getCategoryCourseId()%>"><%= c.getCategoryCourseName()%></a></h4>
 								</div>
 							</div>
                                                                 <% }%>
@@ -74,7 +74,7 @@
                                                                             <p><%=chef.getChefName()%></p>
                                                                             <p><img src="images/address.png" style="width:auto; height:auto" alt=""> <%=c.getCourseAddress()%></p>
                                                                             <p><img src="images/time.png" alt="" style="width:auto; height:auto">  <%=c.getCoursesTimeFinish()%>    <img src="images/clock.png" alt="" style="width:auto; height:auto">  <%=c.getTime()%></p>
-                                                                        <a href=""><button class="buttonsignup" >Đăng ký</button></a>
+                                                                        <a href="CourseDetail.jsp?courseId=<%=c.getCourseId()%>"><button class="buttonsignup" >Đăng ký</button></a>
                                        
 									</div>
 								</div>
