@@ -151,6 +151,35 @@ public class CourseGet {
      }
      return course;
 }
+    //lấy danh sách khóa học được tìm kiếm
+        public ArrayList<Course> getListCourseSearch(String text) throws SQLException {
+        Connection connection = DBConnect.getConnection();
+        String sql = "SELECT * FROM course WHERE course_name LIKE '%"+text+"%'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Course> list = new ArrayList<>();
+        while (rs.next()) {
+            
+            Course course = new Course();
+            course.setCourseId(rs.getInt("course_id"));
+            course.setCourseName(rs.getString("course_name"));
+            course.setCoursesTimeStart(rs.getDate("courses_time_start"));
+            course.setCoursesTimeFinish(rs.getDate("courses_time_finish"));
+            course.setCategoryCourseId(rs.getInt("category_course_id"));
+            course.setCourseAddress(rs.getString("course_address"));
+            course.setTeacherId(rs.getInt("teacher_id"));
+            course.setCourseImages(rs.getString("course_images"));
+            course.setIntroduce(rs.getString("introduction"));
+            course.setTime(rs.getTime("time"));
+            course.setDuration(rs.getInt("duration"));
+            course.setInfomationCourse(rs.getString("infomation_course"));
+            course.setImagesCourse1(rs.getString("images_course_1"));
+            course.setImagesCourse2(rs.getString("images_course_2"));
+            course.setBenifitOfCourse(rs.getString("benifit_of_course"));
+            list.add(course);
+        }
+        return list;
+    }
 
     
     //Thêm 1 khóa học

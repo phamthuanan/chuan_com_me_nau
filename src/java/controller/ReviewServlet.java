@@ -36,21 +36,20 @@ ReviewGet reviewGet = new ReviewGet();
         int userId = Integer.parseInt(request.getParameter("userId"));
         String mess = request.getParameter("text-comment");
    
-        String url = "", error = "";
-        if (mess.equals("")) {
-            error = "Vui lòng nhập nội dung bình luận!";
-            request.setAttribute("error", error);
-        }
-
+        String url = "";
+        String typereview = request.getParameter("typereview");
         try {
-            if (error.length() == 0) {
+            if (typereview.equals("commentRecipe")) {
                     
-                        reviewGet.insertReview(new Review(reviewId,recipeId,userId,mess));
-                        url = "/chuancommenau/RecipeDetail.jsp?recipeId="+recipeId+"";
+            reviewGet.insertReview(new Review(reviewId,recipeId,userId,mess,1));
+            url = "/chuancommenau/RecipeDetail.jsp?recipeId="+recipeId+"";
                        
             }else
             {
-                url = "/chuancommenau/RecipeDetail.jsp?recipeId="+recipeId+"";
+                int postId = Integer.parseInt(request.getParameter("postId"));
+                reviewGet.insertReviewWithPost(new Review(reviewId,recipeId,userId,mess,postId,2));
+                        
+                url = "/chuancommenau/community.jsp";
             }
                 
         } catch (Exception e) {

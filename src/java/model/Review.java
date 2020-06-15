@@ -18,15 +18,43 @@ public class Review {
     private int userIdReview;
     private String reviewMessenges;
     private Timestamp reviewDate;
+    private int postId;
+    private int type;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
 
     public Review(){
         
     }
-    public Review(int reviewId, int recipeId, int userIdReview, String reviewMessenges) {
+    public Review(int reviewId, int recipeId, int userIdReview, String reviewMessenges, int postId,int type) {
         this.reviewId = reviewId;
         this.recipeId = recipeId;
         this.userIdReview = userIdReview;
         this.reviewMessenges = reviewMessenges;
+        this.postId= postId;
+        this.type= type;
+    }
+    
+     public Review(int reviewId, int recipeId, int userIdReview, String reviewMessenges,int type) {
+        this.reviewId = reviewId;
+        this.recipeId = recipeId;
+        this.userIdReview = userIdReview;
+        this.reviewMessenges = reviewMessenges;
+        this.type= type;
     }
 
     public int getReviewId() {

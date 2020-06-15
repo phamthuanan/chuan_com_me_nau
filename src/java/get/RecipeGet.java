@@ -17,7 +17,7 @@ import model.Recipe;
 
 /**
  *
- * @author ACER
+ * @author Pham An
  */
 public class RecipeGet {
 
@@ -229,6 +229,33 @@ public class RecipeGet {
      }
      return recipe;
 }
+ //lấy danh sách công thức được tìm kiếm
+        public ArrayList<Recipe> getListRecipeSearch(String text) throws SQLException {
+        Connection connection = DBConnect.getConnection();
+        String sql = "SELECT * FROM recipe WHERE recipe_name LIKE  '%"+text+"%'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Recipe> list = new ArrayList<>();
+        while (rs.next()) {
+            
+            Recipe recipe = new Recipe();
+            recipe.setRecipeId(rs.getInt("recipe_id"));
+            recipe.setRecipeName(rs.getString("recipe_name"));
+            recipe.setCategoryId(rs.getInt("category_id"));
+            recipe.setRecipeImage(rs.getString("recipe_image"));
+            recipe.setRecipeViews(rs.getInt("recipe_views"));
+            recipe.setRecipeCalories(rs.getInt("calories"));
+            recipe.setRecipeAuthor(rs.getString("recipe_author"));
+            recipe.setIngredientRecipe(rs.getString("ingredients"));
+            recipe.setNutritionIngredients(rs.getString("nutritions"));
+            recipe.setMaking(rs.getString("making"));
+            recipe.setDescriptionRecipe(rs.getString("description_recipe"));
+            recipe.setVideo(rs.getString("video"));
+            recipe.setUserIdPostedRecipe(rs.getInt("user_id"));
+            list.add(recipe);
+        }
+        return list;
+    }
 
     //Thêm 1 công thức
 public boolean insert(Recipe c) throws SQLException {

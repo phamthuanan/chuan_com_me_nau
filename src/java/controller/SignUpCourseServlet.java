@@ -9,7 +9,6 @@ import get.CourseGet;
 import get.SignUpCourseGet;
 import get.UserGet;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -231,7 +230,7 @@ CourseGet courseGet = new CourseGet();
     } catch (MessagingException ex) {
         Logger.getLogger(SignUpCourseServlet.class.getName()).log(Level.SEVERE, null, ex);
     }
-        response.sendRedirect(url);
+        response.sendRedirect(url+"&&status=1");
     }
 
 
