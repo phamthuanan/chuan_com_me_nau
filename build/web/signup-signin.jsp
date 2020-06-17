@@ -62,7 +62,7 @@
   
   
            function check_username_ajax(email) {
-                $("#result").html('<img src="img/ajax-loader.gif" />');
+                $("#result").html('<img src="images/ajax-loader.gif" />');
                 $.post('CheckEmailServlet', {'email': email}, function (data) {
                     $("#result").html(data);
                  });
@@ -71,8 +71,13 @@
         
        });
 </script>
+ <script>
+            if(<%=request.getParameter("email")%>!=null){
+                alert("Bạn đã đăng ký thành công. Vui lòng đăng nhập !");
+            }
+        </script>
     </head>
-    <body>
+    <body onload='document.form1.pass.focus()'>
                  <%
             UserGet user = new UserGet();
              String error="";
@@ -84,18 +89,24 @@
                
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-		<form action="UserServlet" method = "POST" >
+		<form action="UserServlet" method = "POST" name="form1">
                    <!-- Đăng ký-->
 			<h1>Đăng ký</h1>
                         <input type="text" placeholder="Tên đăng nhập" name="name" id="name" required/>
                         <input type="email" placeholder="Email" name="email" id="email" required/>
                         <span class="red-text accent-4" id="result"></span>
                         <input type="password" placeholder="Mật khẩu" name="pass" id="pass" required/>
-                         <script>$('#pass').on('keyup', function () {
-                                    if ($('#pass').value.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)){
+                         <script>
+                         
+                             $('#pass').on('keyup', function() {
+                                  var t = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+                                    if ($('#pass').val().match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)){
                                         $('#message1').html('Mật khẩu hợp lệ').css('color', 'green');
-                                    } else 
-                                        $('#message1').html('Mật khẩu phải hơn 6 kí tự và gồm số, chữ thường và chữ hoa').css('color', 'red');
+                                    } 
+                                    else {
+                                         $('#message1').html('Mật khẩu phải hơn 6 kí tự và gồm số, chữ thường và chữ hoa').css('color', 'red');
+                                    }
+                                       
                                 });
                                         
                            </script>
@@ -109,7 +120,7 @@
                                 });
                                         
                            </script>
-                             <span></span><span id='message'></span>
+                             <span id='message'></span>
                         <input type="text" placeholder="Số điện thoại" name="phone" required/>
                         <input type="text" placeholder="Địa chỉ" name="address" required/>
                         
