@@ -46,14 +46,14 @@
         confirm.onkeyup = validate;
  } 
 </script>
-<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
       $(document).ready(function () {
            var x_timer;
-           $("#name").keyup(function (e) {
+           $("#email").keyup(function (e) {
                 clearTimeout(x_timer);
-                var user_name = $(this).val();
+                var user_email = $(this).val();
                 x_timer = setTimeout(function () {
                     check_username_ajax(user_email);
                 }, 1000);
@@ -62,15 +62,15 @@
   
   
            function check_username_ajax(email) {
-                $("#email").html('<img src="images/ajax-loader.gif" />');
-                $.POST('CheckEmailServlet', {'email': email}, function (data) {
-                    $("#email").html(data);
+                $("#result").html('<img src="img/ajax-loader.gif" />');
+                $.post('CheckEmailServlet', {'email': email}, function (data) {
+                    $("#result").html(data);
                  });
            }
            
         
        });
-</script>-->
+</script>
     </head>
     <body>
                  <%
@@ -87,17 +87,29 @@
 		<form action="UserServlet" method = "POST" >
                    <!-- Đăng ký-->
 			<h1>Đăng ký</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>hoặc sử dụng email để đăng ký</span>
                         <input type="text" placeholder="Tên đăng nhập" name="name" id="name" required/>
                         <input type="email" placeholder="Email" name="email" id="email" required/>
                         <span class="red-text accent-4" id="result"></span>
                         <input type="password" placeholder="Mật khẩu" name="pass" id="pass" required/>
+                         <script>$('#pass').on('keyup', function () {
+                                    if ($('#pass').value.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)){
+                                        $('#message1').html('Mật khẩu hợp lệ').css('color', 'green');
+                                    } else 
+                                        $('#message1').html('Mật khẩu phải hơn 6 kí tự và gồm số, chữ thường và chữ hoa').css('color', 'red');
+                                });
+                                        
+                           </script>
+                         <span></span><span id='message1'></span>
                         <input type="password" placeholder="Nhập lại mật khẩu" id="confirm" name="confirm" required />
+                          <script>$('#pass, #confirm').on('keyup', function () {
+                                    if ($('#pass').val() == $('#confirm').val()) {
+                                        $('#message').html('Trùng khớp').css('color', 'green');
+                                    } else 
+                                        $('#message').html('Không trùng khớp').css('color', 'red');
+                                });
+                                        
+                           </script>
+                             <span></span><span id='message'></span>
                         <input type="text" placeholder="Số điện thoại" name="phone" required/>
                         <input type="text" placeholder="Địa chỉ" name="address" required/>
                         
